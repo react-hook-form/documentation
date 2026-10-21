@@ -20,10 +20,25 @@ import { GeneralObserver } from "./general-observer"
 import FlipNumbers from "react-flip-numbers"
 import useWindowSize from "./utils/useWindowSize"
 
-const TESTIMONIALS = [
-  "This is where it's at. A React form library that is both well thought out and flexible enough to get out of your way when you need it to. After fussing around with React forms for years, switching to react-hook-form feels like a superpower. Everything runs faster and my code is cleaner.",
-  "Creating a form is no more complicated while building a react application with the help of react-hook-form. Most of the time I use this package for creating a form as validation is so much simple here. It is the best form maker for me while I stop to work with formika. Very nice user interface and performance are good.",
-  "The best React form library that I have ever used while building a react app because of its utility and simplicity. It has a lot of useful tools and doesn’t require much code compared to Formik, and Redux Form. As the number of re-renders in the application is small and mounting time is less it is super smooth.",
+const COMMUNITY_LINKS = [
+  {
+    title: "Contribute on GitHub",
+    description:
+      "Report issues, discuss ideas and send pull requests to the library and these docs.",
+    href: "https://github.com/react-hook-form/react-hook-form",
+  },
+  {
+    title: "Join the Discord",
+    description:
+      "Ask questions, share what you're building and get help from other developers.",
+    href: "https://discord.gg/yYv7GZ8",
+  },
+  {
+    title: "Sponsor the project",
+    description:
+      "Sponsorships keep React Hook Form maintained, documented and free for everyone.",
+    href: "/sponsors",
+  },
 ]
 
 const TrophyIcon = () => (
@@ -120,6 +135,17 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
         >
           <FeaturesList isPlayFeature={featurePlay} />
         </GeneralObserver>
+
+        <div ref={HomeRef} />
+
+        <Form
+          methods={methods}
+          onSubmit={onSubmit}
+          submitData={submitData}
+          toggleBuilder={toggleBuilder}
+          formUpdated={formUpdated}
+        />
+
         <SponsorsList />
 
         <GeneralObserver
@@ -234,14 +260,15 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
         <HomeSection
           eyebrow="Community"
           title="The Community"
-          lead="Built and driven by the community. On a mission to make every React developer's life easier when it comes to building forms."
+          lead="Built and driven by the community. Get involved, get help, or help keep the project going."
         >
           <div className={styles.cards}>
-            {TESTIMONIALS.map((quote) => (
-              <figure key={quote.slice(0, 24)} className={styles.quote}>
+            {COMMUNITY_LINKS.map(({ title, description, href }) => (
+              <Link key={href} href={href} className={styles.card}>
                 <ChatIcon />
-                <blockquote>{quote}</blockquote>
-              </figure>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </Link>
             ))}
           </div>
         </HomeSection>
@@ -253,16 +280,6 @@ function HomePage({ monthlyDownloads = 0 }: { monthlyDownloads?: number }) {
         >
           <IntroVideo />
         </HomeSection>
-
-        <div ref={HomeRef} />
-
-        <Form
-          methods={methods}
-          onSubmit={onSubmit}
-          submitData={submitData}
-          toggleBuilder={toggleBuilder}
-          formUpdated={formUpdated}
-        />
 
         <section className={styles.cta}>
           <h2>{home.findInteresting.heading}</h2>

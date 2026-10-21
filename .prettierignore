@@ -3,3 +3,5 @@ pnpm-lock.yaml
 .contentlayer/
 .next/
 next-env.d.ts
+public/**/*.md
+public/llms*.txt

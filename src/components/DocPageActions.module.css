@@ -1,0 +1,56 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 5px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-muted);
+  background: transparent;
+  color: var(--color-text-muted) !important;
+  font-family: inherit;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: var(--transition-interactive);
+}
+
+.action:hover,
+.action:focus-visible {
+  border-color: var(--color-accent-text);
+  color: var(--color-text) !important;
+}
+
+.action:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(236, 89, 144, 0.2);
+}
+
+.action svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:global(.light) .action {
+  border: 1px solid var(--color-border-muted) !important;
+}
+
+:global(.light) .action:hover,
+:global(.light) .action:focus-visible {
+  border-color: var(--color-accent-text) !important;
+  background: transparent;
+  color: var(--color-text) !important;
+}

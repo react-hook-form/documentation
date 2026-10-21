@@ -48,7 +48,7 @@
   text-decoration: underline;
 }
 
-/* Highlights and testimonials */
+/* Highlights and community */
 
 .cards {
   display: grid;
@@ -63,8 +63,8 @@
   }
 }
 
-.card,
-.quote {
+.card {
+  display: block;
   margin: 0;
   padding: var(--space-6);
   border-radius: var(--radius-lg);
@@ -76,8 +76,7 @@
   );
 }
 
-:global(.light) .card,
-:global(.light) .quote {
+:global(.light) .card {
   background: #fff;
 }
 
@@ -96,22 +95,26 @@
   font-weight: 700;
 }
 
-.card p,
-.quote blockquote {
+.card p {
   margin: 0;
   font-size: var(--text-sm);
   line-height: 1.65;
   color: var(--color-text-muted);
 }
 
-:global(.dark) .card p,
-:global(.dark) .quote blockquote {
+:global(.dark) .card p {
   color: #b8c2dc;
 }
 
-.quote blockquote {
-  padding: 0;
-  border: 0;
+a.card {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: var(--transition-interactive);
+}
+
+a.card:hover,
+a.card:focus-visible {
+  border-color: var(--color-accent-text);
 }
 
 .quoteIcon {

@@ -21,6 +21,8 @@ type Result = {
   title: string
   subtitle?: string
   href: string
+  // Extra terms matched by local search but not displayed.
+  keywords?: string
 }
 
 type AlgoliaHit = {
@@ -46,7 +48,52 @@ const ANCHOR_GROUPS: { group: string; page: string; links: Pages }[] = [
   },
 ]
 
+// Task-oriented entries so people can search by goal, not only by API name.
+const TASKS: Result[] = [
+  {
+    title: "Validate with Zod, Yup or Valibot",
+    href: "/get-started#SchemaValidation",
+    keywords: "schema resolver zodresolver yupresolver",
+  },
+  {
+    title: "Reset a form after submission",
+    href: "/docs/useform/reset",
+    keywords: "clear form isSubmitSuccessful",
+  },
+  {
+    title: "Use Controller with custom inputs",
+    href: "/get-started#IntegratingControlledInputs",
+    keywords: "controlled component mui select datepicker",
+  },
+  {
+    title: "Integrate with shadcn/ui and UI libraries",
+    href: "/get-started#IntegratingwithUIlibraries",
+    keywords: "component library material antd chakra",
+  },
+  {
+    title: "Build dynamic field arrays",
+    href: "/docs/usefieldarray",
+    keywords: "add remove rows list append",
+  },
+  {
+    title: "Show server errors",
+    href: "/docs/useform/seterror",
+    keywords: "api response backend seterror",
+  },
+  {
+    title: "Build a multi-step form",
+    href: "/advanced-usage#WizardFormFunnel",
+    keywords: "wizard funnel steps",
+  },
+  {
+    title: "Use with Next.js Server Actions",
+    href: "/advanced-usage#ServerActionsuseActionState",
+    keywords: "nextjs useactionstate server action",
+  },
+].map((task) => ({ ...task, group: "Common tasks" }))
+
 const LOCAL_INDEX: Result[] = [
+  ...TASKS,
   ...sidebar.apiLinks.flatMap((page) => [
     { group: "API", title: page.name, href: page.pathname },
     ...(page.pages ?? []).map((child) => ({
@@ -68,6 +115,7 @@ const LOCAL_INDEX: Result[] = [
 ]
 
 const QUICK_LINKS: Result[] = [
+  ...TASKS.slice(0, 5),
   { group: "Jump to", title: "Get Started", href: "/get-started" },
   { group: "Jump to", title: "useForm", href: "/docs/useform" },
   { group: "Jump to", title: "register", href: "/docs/useform/register" },
@@ -105,7 +153,9 @@ function toRelative(url: string) {
 
 function searchLocal(query: string): Result[] {
   const q = query.toLowerCase()
-  return LOCAL_INDEX.filter((item) => item.title.toLowerCase().includes(q))
+  return LOCAL_INDEX.filter((item) =>
+    `${item.title} ${item.keywords ?? ""}`.toLowerCase().includes(q)
+  )
     .sort(
       (a, b) =>
         Number(!a.title.toLowerCase().startsWith(q)) -
