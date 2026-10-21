@@ -21,9 +21,6 @@ importers:
       '@mdx-js/react':
         specifier: ^3.1.1
         version: 3.1.1(@types/react@19.3.0)(react@19.3.1)
-      '@next/mdx':
-        specifier: 15.1.0
-        version: 15.1.0(@mdx-js/loader@2.3.0(webpack@5.95.0(esbuild@0.24.0)))(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))
       class-variance-authority:
         specifier: ^0.6.1
         version: 0.6.1
@@ -943,17 +940,6 @@ packages:
 
   '@next/eslint-plugin-next@16.4.2':
     resolution: {integrity: sha512-gCTWlw0e+Y6kajpFyKKgA195jUJCRhlzJE0lV7ufe8a+ghIsANWZ0/FiJwg6DuOG1+OvRbcZDcFBoRh3mNJx0g==}
-
-  '@next/mdx@15.1.0':
-    resolution: {integrity: sha512-1USYedy2yRmPdIvQC1b2MBVwiJYrcZnCSHHZZETEuV1rAxjjXedbHmo43kwAv6DL3f9AgDHnl1/s1cqI7xhXdA==}
-    peerDependencies:
-      '@mdx-js/loader': '>=0.15.0'
-      '@mdx-js/react': '>=0.15.0'
-    peerDependenciesMeta:
-      '@mdx-js/loader':
-        optional: true
-      '@mdx-js/react':
-        optional: true
 
   '@next/swc-darwin-arm64@16.4.2':
     resolution: {integrity: sha512-ONkhFvZNFWlsEHOM/81AtxdyuJP2KRYKYR0JxPwvcu1AuPMMMgcL+wW2luldJvMtZwKtUxoSkCychW5wIeoYSw==}
@@ -4994,13 +4980,6 @@ snapshots:
       fast-glob: 3.3.1
     transitivePeerDependencies:
       - eslint
-
-  '@next/mdx@15.1.0(@mdx-js/loader@2.3.0(webpack@5.95.0(esbuild@0.24.0)))(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))':
-    dependencies:
-      source-map: 0.7.6
-    optionalDependencies:
-      '@mdx-js/loader': 2.3.0(webpack@5.95.0(esbuild@0.24.0))
-      '@mdx-js/react': 3.1.1(@types/react@19.3.0)(react@19.3.1)
 
   '@next/swc-darwin-arm64@16.4.2':
     optional: true
