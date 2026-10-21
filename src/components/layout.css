@@ -803,6 +803,13 @@ pre[class*="language-"] {
   animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* On reload, Chrome restores scroll via scroll anchoring while the page is
+   still translated by page-enter, so it scrolls 24px too far. That jumps the
+   page mid-slide and drifts it another 24px on every refresh. */
+html:has(.pageTransition) {
+  overflow-anchor: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pageTransition {
     animation: none;
