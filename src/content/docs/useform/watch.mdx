@@ -11,6 +11,8 @@ This method watches specified inputs and returns their values. It is useful for 
 
 ### Overloads
 
+---
+
 This function has four overloads:
 
 - <TypeText>`watch(name: string, defaultValue?: unknown): unknown`</TypeText>
@@ -101,7 +103,7 @@ The `type` argument indicates the originating DOM event (typed as `EventType`). 
 - With the [React Compiler](https://react.dev/learn/react-compiler), `watch` keeps the same reference across renders, so the compiler may cache its result and render stale values. Use [useWatch](/docs/usewatch) in compiled components, or opt out with `"use no memo"`.
 - The `watch` result is optimized for the render phase rather than `useEffect` dependencies. To detect value updates, you may want to use an external custom hook for value comparison.
 
-### Examples:
+### Examples
 
 ---
 
@@ -291,7 +293,7 @@ function App() {
 
 </TabGroup>
 
-## Video
+### Video
 
 ---
 

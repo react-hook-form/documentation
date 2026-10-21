@@ -333,7 +333,7 @@ This example demonstrates how to use the **new `validate` API** in combination w
 
 The `validate` function receives `{ formValues, formState, eventType, name }` and must return one of: `true` (valid), a `string` (surfaced at `formState.errors.form`), or an object of `{ [fieldName]: { type, message } }` (each entry surfaced at `formState.errors.form.<fieldName>`). **Note:** `validate` does not run when a `resolver` is configured — `resolver` and `validate` are mutually exclusive, and only `resolver` runs if both are set.
 
-##### Examples:
+##### Examples
 
 ---
 
@@ -422,7 +422,7 @@ This config will enable [browser native validation](https://developer.mozilla.or
   })
   ```
 
-##### Examples:
+##### Examples
 
 ---
 
@@ -471,7 +471,7 @@ This config allows you to disable the entire form and all associated inputs when
 This can be useful for preventing user interaction during asynchronous tasks or other
 situations where inputs should be temporarily unresponsive.
 
-##### Examples:
+##### Examples
 
 ---
 
@@ -546,7 +546,7 @@ npm install @hookform/resolvers
 
 </Admonition>
 
-##### Examples:
+##### Examples
 
 ---
 

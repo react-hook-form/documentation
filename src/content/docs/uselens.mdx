@@ -13,11 +13,15 @@ React Hook Form Lenses is a powerful TypeScript-first library that brings the el
 
 ### Installation
 
+---
+
 ```bash copy
 npm install @hookform/lenses
 ```
 
 ### Features
+
+---
 
 - **Type-Safe Form State**: Focus on specific parts of your data with full TypeScript support and precise type inference
 - **Functional Lenses**: Build complex transformations through composable lens operations
@@ -87,6 +91,8 @@ These are the core methods available on every lens instance:
 
 ### focus {#focus}
 
+---
+
 Creates a new lens focused on a specific path. This is the primary method for drilling down into your data structure.
 
 ```tsx copy
@@ -127,6 +133,8 @@ The `focus` method provides full TypeScript support with autocompletion and type
 </Admonition>
 
 ### reflect {#reflect}
+
+---
 
 Transforms the lens structure with complete type inference. This is useful when you want to create a new lens from an existing one with a different shape to pass to a shared component.
 
@@ -252,6 +260,8 @@ function Component({
 
 ### map {#map}
 
+---
+
 Maps over array fields with `useFieldArray` integration. This method requires the `fields` property from `useFieldArray`.
 
 ```tsx copy
@@ -308,6 +318,8 @@ function ContactForm({
 | `originLens` | `Lens<T[]>` | The original array lens                |
 
 ### interop {#interop}
+
+---
 
 The `interop` method provides seamless integration with React Hook Form by exposing the underlying `control` and `name` properties. This allows you to connect your lens to React Hook Form's control API.
 
@@ -370,6 +382,8 @@ These workarounds will become less necessary once [issue #38](https://github.com
 
 ### narrow {#narrow}
 
+---
+
 The `narrow` method provides type-safe narrowing of union types, allowing you to tell the type system which branch of a union you want to work with. This is particularly useful when working with discriminated unions or optional values.
 
 #### Manual Type Narrowing
@@ -409,6 +423,8 @@ The `narrow` method performs type-level operations only. It doesn't validate the
 </Admonition>
 
 ### assert {#assert}
+
+---
 
 The `assert` method provides runtime type assertions that convince TypeScript the current lens is already the desired subtype. Unlike `narrow`, this is a type assertion that modifies the current lens instance.
 
@@ -458,6 +474,8 @@ if (selected.type === "success") {
 
 ### defined {#defined}
 
+---
+
 The `defined` method is a convenience function that narrows the lens type to exclude `null` and `undefined` values. This is equivalent to using `narrow<NonNullable<T>>()` but provides a more expressive API.
 
 ```tsx copy
@@ -493,6 +511,8 @@ if (formState.isValid) {
 ```
 
 ### cast {#cast}
+
+---
 
 The `cast` method forcefully changes the lens type to a new type, regardless of compatibility with the original type. This is a powerful but potentially **unsafe** operation that should be used with extreme caution.
 
@@ -548,6 +568,8 @@ if (config.type === "database") {
 </Admonition>
 
 ### useFieldArray
+
+---
 
 Import the enhanced `useFieldArray` from `@hookform/lenses/rhf` for seamless array handling with lenses.
 
@@ -605,6 +627,8 @@ function DynamicForm({
 </Admonition>
 
 ### Examples
+
+---
 
 #### Basic Usage
 
@@ -681,6 +705,8 @@ function StringInput({ lens }: { lens: Lens<string> }) {
 
 ### Motivation
 
+---
+
 Working with complex, deeply nested forms in React Hook Form can quickly become challenging. Traditional approaches often lead to common problems that make development more difficult and error-prone:
 
 #### 1. Type-Safe Name Props Are Nearly Impossible
@@ -747,6 +773,8 @@ function PersonForm({ basePath }: { basePath: string }) {
 
 ### Performance Optimization
 
+---
+
 #### Built-in Caching System
 
 Lenses are automatically cached to prevent unnecessary component re-renders when using `React.memo`. This means that focusing on the same path multiple times returns the identical lens instance:
@@ -778,6 +806,8 @@ lens.reflect(useCallback((proxy) => proxy.focus("firstName"), []))
 </Admonition>
 
 ### Advanced Usage
+
+---
 
 #### Manual Lens Creation
 
