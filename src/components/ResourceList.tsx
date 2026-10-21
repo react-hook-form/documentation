@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, type JSX } from "react"
 import { useForm } from "react-hook-form"
 import clsx from "clsx"
 import PageHeader from "./PageHeader"

@@ -41,7 +41,7 @@ function BuilderPage({
 }: {
   showBuilder?: boolean
   toggleBuilder?: (state: boolean) => void
-  HomeRef?: RefObject<HTMLDivElement>
+  HomeRef?: RefObject<HTMLDivElement | null>
   isStatic?: boolean
 }) {
   const {
