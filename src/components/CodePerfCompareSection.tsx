@@ -49,6 +49,7 @@ function CodePerfCompareSection({ isPlayRender }: { isPlayRender: boolean }) {
                   <dd>
                     <span
                       className={styles.count}
+                      data-to={result.time}
                       style={{ "--to": result.time } as CSSProperties}
                       aria-hidden
                     />
