@@ -14,18 +14,18 @@
 pnpm install && pnpm dev
 ```
 
-## Backers
+### Backers
 
 Thanks go to all our backers! [[Become a backer](https://opencollective.com/react-hook-form#backer)].
 
 <a href="https://opencollective.com/react-hook-form#backers">
-    <img src="https://opencollective.com/react-hook-form/backers.svg?width=950" />
+    <img src="https://opencollective.com/react-hook-form/backers.svg?width=820" />
 </a>
 
-## Contributors
+### Contributors
 
-Thanks go to these wonderful people. [[Become a contributor](https://github.com/react-hook-form/documentation/blob/master/CONTRIBUTING.md)].
+Thanks go to these wonderful people! [[Become a contributor](CONTRIBUTING.md)].
 
-<a href="https://github.com/react-hook-form/react-hook-form/graphs/contributors">
-    <img src="https://opencollective.com/react-hook-form/contributors.svg?width=950" />
-</a>
+<br />
+<br />
+
