@@ -134,3 +134,19 @@ function App() {
 ```
 
 </TabGroup>
+
+### Tips
+
+---
+
+- Use the returned `handleSubmit`, `setValue`, `reset`, and other methods anywhere that can import the control, such as a toolbar button that is outside the form's component tree.
+- To sync form values to an external store, call `subscribe` and pick only the state you need. Call the returned function to unsubscribe when you no longer need updates:
+
+  ```javascript
+  const unsubscribe = formControl.subscribe({
+    formState: { values: true },
+    callback: ({ values }) => store.setDraft(values),
+  })
+  ```
+
+- In tests, you can create a control, render your form with it, and then call methods like `setValue` or `trigger` directly, without simulating every user event.

@@ -104,3 +104,12 @@ return <button disabled={!isDirty || !isValid} />;
 ---
 
 <YouTube youTubeId="4kzd572NbkM" />
+
+### Tips
+
+---
+
+- Read `formState` in the component that uses it. To show a submit button's state without re-rendering the whole form, move the button into a child component that calls [`useFormState`](/docs/useformstate), or use the [`FormState`](/docs/useformstate/formstate) component.
+- A common submit button pattern is `disabled={!isDirty || isSubmitting}`. It prevents an empty submission and a double submission. Remember to destructure both values before you use them.
+- Use `isSubmitSuccessful` to show a confirmation message, or to reset the form in a `useEffect` after a successful submission (see [`reset`](/docs/useform/reset)).
+- `errors` holds what is currently stored, not what is valid right now. To check validity without showing errors, use `isValid`. To validate on demand, use [`trigger`](/docs/useform/trigger).

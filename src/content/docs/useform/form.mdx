@@ -9,13 +9,13 @@ sidebar: apiLinks
 
 **Note**: This component is currently in **BETA**
 
-This component is optional and it takes care of the form submission by closely aligning with the standard native form.
+`Form` is an optional component that handles form submission for you. It renders a native `<form>` element, runs your validation through [`handleSubmit`](/docs/useform/handlesubmit), and then sends the data to your API. Loading, success, and error state end up in [`formState`](/docs/useform/formstate).
 
-By default, we will send a POST request with your form submission data as [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData). Set `encType` (or a `Content-Type` header via the `headers` prop) to `application/json` to send JSON instead.
+By default, it sends a POST request with your form submission data as [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData). Set `encType` (or a `Content-Type` header via the `headers` prop) to `application/json` to send JSON instead.
 
-- Progressively enhancement for your form.
-- Support both React Web and React Native.
-- Take care of form submission handling.
+- Progressive enhancement for your form.
+- Supports both React Web and React Native.
+- Handles submission, including server errors.
 
 ```javascript
 <Form
@@ -24,29 +24,67 @@ By default, we will send a POST request with your form submission data as [FormD
   onSubmit={() => {}} // function to be called before the request
   onSuccess={() => {}} // valid response
   onError={() => {}} // error response
-  validateStatus={(status) => status >= 200} // validate status code
+  validateStatus={(status) => status >= 200 && status < 300} // the default
 />
 ```
+
+### How it works
+
+---
+
+When the user submits, `Form` goes through these steps:
+
+1. **Validate.** The form is validated the same way as [`handleSubmit`](/docs/useform/handlesubmit). If validation fails, the request is not sent, and `onSubmit`, `onSuccess`, and `onError` are not called. Field errors appear in `formState.errors` as usual.
+2. **`onSubmit`.** Your `onSubmit` callback is called with the validated `data` and the same values encoded as `formData` and `formDataJson`. If it returns a promise, `Form` waits for it.
+3. **Send the request.**
+   - If `action` is a URL string, `Form` calls `fetch(action, { method, headers, body })`. Then it checks the response status with `validateStatus`. It calls `onSuccess({ response })` when the status is valid, and `onError({ response })` when it is not.
+   - If `action` is a function, `Form` calls it with the `FormData`. If the function throws, `onError({ error })` is called.
+   - If there is no `action`, nothing is sent. Only `onSubmit` runs, so you can send the request yourself.
+4. **Update form state.** `formState.isSubmitting` stays `true` until all of the above finishes. If the request fails, `formState.isSubmitSuccessful` is set to `false` and an error is set at `errors.root.server`.
 
 ### Props
 
 ---
 
-All props are optional
+All props are optional. Any other `<form>` attributes, such as `id`, `className`, or `aria-*`, are passed to the rendered `<form>` element.
 
-| Name             | Type                                                                                                                      | Description                                                                                                                                                      | Example                                                                                                            |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `control`        | <TypeText>`Control`</TypeText>                                                                                            | [`control`](/docs/useform/control) object provided by invoking `useForm`. Optional when using `FormProvider`.                                                    | <CodeArea withOutCopy rawData="<Form control={control} />"/>                                                       |
-| `action`         | <TypeText>`string \| (formData: FormData) => unknown`</TypeText>                                                          | URL to submit to, or <Since version="7.84.0" /> a function (Server Action style) invoked with the submission's `FormData`.                                       | <CodeArea withOutCopy rawData="<Form action={async (formData) => { 'use server'; await save(formData) }} />"/>     |
-| `method`         | <TypeText>`"post" \| "put" \| "delete"`</TypeText>                                                                        | HTTP method used when `action` is a URL string. `GET` is not supported since submissions are sent as a request body. Defaults to `post`.                         | <CodeArea withOutCopy rawData="<Form method='post' />"/>                                                           |
-| `encType`        | <TypeText>`"application/x-www-form-urlencoded" \| "multipart/form-data" \| "text/plain" \| "application/json"`</TypeText> | Sets the request's `Content-Type`. By default the submission is sent as `FormData`; set this (or the `headers` prop) to `application/json` to send JSON instead. | <CodeArea withOutCopy rawData="<Form encType='application/json' />"/>                                              |
-| `children`       | <TypeText>`React.ReactNode`</TypeText>                                                                                    | Form contents.                                                                                                                                                   | <CodeArea withOutCopy rawData="<Form>{children}</Form>"/>                                                          |
-| `render`         | <TypeText>`Function`</TypeText>                                                                                           | Render prop function suitable for headless component.                                                                                                            | <CodeArea withOutCopy rawData="<Form render={({ submit }) => <View/>} />" />                                       |
-| `onSubmit`       | <TypeText>`Function`</TypeText>                                                                                           | Function invoked after successful validation.                                                                                                                    | <CodeArea withOutCopy rawData="<Form onSubmit={({ data }) => mutation(data)} />"/>                                 |
-| `onSuccess`      | <TypeText>`Function`</TypeText>                                                                                           | Function called after successful request to the server.                                                                                                          | <CodeArea withOutCopy rawData="<Form onSuccess={({ response }) => {}} />" />                                       |
-| `onError`        | <TypeText>`Function`</TypeText>                                                                                           | Function called after failed request to the server.<br/><br/>`setError` function will be called to update errors state. `root.server` will be used as error key. | <CodeArea withOutCopy rawData="<Form onError={({ response }) => {}} />" />                                         |
-| `headers`        | <TypeText>`Record<string, string>`</TypeText>                                                                             | Request headers object.                                                                                                                                          | <CodeArea withOutCopy rawData="<Form headers={{ accessToken:  'xxx', 'Content-Type':  'application/json'  }} />"/> |
-| `validateStatus` | <TypeText>`(status: number) => boolean`</TypeText>                                                                        | Function to validate status code.                                                                                                                                | <CodeArea withOutCopy rawData="<Form validateStatus={status => status === 200} />" />                              |
+| Name             | Type                                                                                                                      | Description                                                                                                                                                                                                                                            | Example                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `control`        | <TypeText>`Control`</TypeText>                                                                                            | [`control`](/docs/useform/control) object provided by invoking `useForm`. Optional when using `FormProvider`.                                                                                                                                          | <CodeArea withOutCopy rawData="<Form control={control} />"/>                                                       |
+| `action`         | <TypeText>`string \| (formData: FormData) => unknown`</TypeText>                                                          | URL to submit to, or <Since version="7.84.0" /> a function (Server Action style) invoked with the submission's `FormData`.                                                                                                                             | <CodeArea withOutCopy rawData="<Form action={async (formData) => { 'use server'; await save(formData) }} />"/>     |
+| `method`         | <TypeText>`"post" \| "put" \| "delete"`</TypeText>                                                                        | HTTP method used when `action` is a URL string. `GET` is not supported since submissions are sent as a request body. Defaults to `post`.                                                                                                               | <CodeArea withOutCopy rawData="<Form method='post' />"/>                                                           |
+| `encType`        | <TypeText>`"application/x-www-form-urlencoded" \| "multipart/form-data" \| "text/plain" \| "application/json"`</TypeText> | Sets the request's `Content-Type` and how the body is encoded. See [Request body](#requestbody). By default the submission is sent as `FormData`.                                                                                                      | <CodeArea withOutCopy rawData="<Form encType='application/json' />"/>                                              |
+| `children`       | <TypeText>`React.ReactNode`</TypeText>                                                                                    | Form contents.                                                                                                                                                                                                                                         | <CodeArea withOutCopy rawData="<Form>{children}</Form>"/>                                                          |
+| `render`         | <TypeText>`({ submit }) => React.ReactNode`</TypeText>                                                                    | Render prop for headless use, such as React Native. When `render` is set, no `<form>` element is rendered. Call `submit()` to start the submission.                                                                                                    | <CodeArea withOutCopy rawData="<Form render={({ submit }) => <View/>} />" />                                       |
+| `onSubmit`       | <TypeText>[`FormSubmitHandler`](/ts#FormSubmitHandler)</TypeText>                                                         | Function invoked after successful validation and before the request is sent. Receives `{ data, event, method, formData, formDataJson }`.                                                                                                               | <CodeArea withOutCopy rawData="<Form onSubmit={({ data }) => mutation(data)} />"/>                                 |
+| `onSuccess`      | <TypeText>`({ response }) => void`</TypeText>                                                                             | Function called after a request to a URL `action` returns a status that passes `validateStatus`.                                                                                                                                                       | <CodeArea withOutCopy rawData="<Form onSuccess={({ response }) => {}} />" />                                       |
+| `onError`        | <TypeText>`({ response } \| { error }) => void`</TypeText>                                                                | Function called when the request fails. You get `{ response }` when the status fails `validateStatus`, and `{ error }` when `fetch` or a function `action` throws.<br/><br/>An error is also set on `formState.errors`, with `root.server` as the key. | <CodeArea withOutCopy rawData="<Form onError={({ response }) => {}} />" />                                         |
+| `headers`        | <TypeText>`Record<string, string>`</TypeText>                                                                             | Request headers object.                                                                                                                                                                                                                                | <CodeArea withOutCopy rawData="<Form headers={{ accessToken:  'xxx', 'Content-Type':  'application/json'  }} />"/> |
+| `validateStatus` | <TypeText>`(status: number) => boolean`</TypeText>                                                                        | Function to validate the response status code. Defaults to `status >= 200 && status < 300`.                                                                                                                                                            | <CodeArea withOutCopy rawData="<Form validateStatus={status => status === 200} />" />                              |
+
+#### onSubmit payload
+
+| Name           | Type                                               | Description                                                                                                     |
+| -------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `data`         | <TypeText>`TTransformedValues`</TypeText>          | The validated form values. If you use a [`resolver`](/docs/useform#resolver), these are the transformed values. |
+| `event`        | <TypeText>`React.BaseSyntheticEvent`</TypeText>    | The submit event. This is `undefined` when you call `submit()` from `render` without an event.                  |
+| `method`       | <TypeText>`"post" \| "put" \| "delete"`</TypeText> | The `method` prop.                                                                                              |
+| `formData`     | <TypeText>`FormData`</TypeText>                    | `data` encoded as `FormData`. This is the same body that is sent by default.                                    |
+| `formDataJson` | <TypeText>`string`</TypeText>                      | `data` encoded with `JSON.stringify`. This is the body that is sent for JSON requests.                          |
+
+#### Request body {#requestbody}
+
+The request body depends on `encType`, or on a `Content-Type` header in `headers`. The header name is matched without case sensitivity.
+
+| `encType` / `Content-Type`          | Body sent                                                                                       |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------- |
+| _(not set)_                         | `FormData`. The browser sets the `multipart/form-data` header and boundary.                     |
+| `multipart/form-data`               | `FormData`. `Form` does not set the `Content-Type` header, so the browser can add the boundary. |
+| `application/json`                  | `formDataJson` (the result of `JSON.stringify(data)`).                                          |
+| `application/x-www-form-urlencoded` | `URLSearchParams` made from the `FormData`. Files are sent as their file name only.             |
+| `text/plain`                        | One `name=value` line for each field. Files are sent as their file name only.                   |
+
+When values are encoded as `FormData`, nested objects and arrays use dot-notation keys, for example `user.name` and `items.0.title`. `undefined` values are skipped. Each file in a `FileList` is appended under the same key.
 
 <Admonition type="important" title="Rules">
 
@@ -62,7 +100,7 @@ All props are optional
     }}
   />
   ```
-- Progressive Enhancement only applicable for SSR framework.
+- Progressive enhancement is only applicable to SSR frameworks.
 
   ```javascript
   const { handleSubmit, control } = useForm({
@@ -80,8 +118,13 @@ All props are optional
   </form>
   ```
 
+- `Form` needs a `control`. Pass it as a prop, or render `Form` inside a [`FormProvider`](/docs/formprovider).
+- `onSuccess` is only called for a URL string `action`. When `action` is a function, there is no response to check, so treat the end of the submission as success, for example with `formState.isSubmitSuccessful`.
+- `onError` is only for request errors. Validation errors do not call `onError`; read them from `formState.errors`.
+- The `<form>` element gets `noValidate` only after it mounts. Before hydration, the browser's native validation (from `progressive: true`) protects the form. After hydration, React Hook Form validates it.
+
 </Admonition>
- 
+
 ### Examples
 
 ---
@@ -135,6 +178,132 @@ function App() {
 }
 ```
 
+**Send JSON and show the submission state**
+
+```tsx copy
+import { useForm, Form } from "react-hook-form"
+
+type FormValues = {
+  email: string
+}
+
+function App() {
+  const {
+    control,
+    register,
+    formState: { isSubmitting, isSubmitSuccessful, errors },
+  } = useForm<FormValues>()
+
+  return (
+    <Form
+      control={control}
+      action="/api/subscribe"
+      encType="application/json" // sends JSON.stringify(data)
+      headers={{ Authorization: `Bearer ${token}` }}
+      onError={async ({ response }) => {
+        // response is undefined when the network request itself failed
+        if (response) console.error(await response.text())
+      }}
+    >
+      <input {...register("email", { required: "Email is required" })} />
+      {errors.email && <p>{errors.email.message}</p>}
+      {errors.root?.server && (
+        <p role="alert">
+          Something went wrong ({errors.root.server.type || "network error"}).
+        </p>
+      )}
+      {isSubmitSuccessful && <p>Thanks for subscribing!</p>}
+      <button disabled={isSubmitting}>
+        {isSubmitting ? "Submitting..." : "Subscribe"}
+      </button>
+    </Form>
+  )
+}
+```
+
+`errors.root.server.type` holds the response status as a string, such as `"500"`. It is an empty string when `fetch` or a function `action` throws.
+
+**Server Action**
+
+```tsx copy
+// actions.ts
+"use server"
+
+export async function createPost(formData: FormData) {
+  await db.post.create({ data: { title: String(formData.get("title")) } })
+}
+```
+
+```tsx copy
+"use client"
+
+import { useForm, Form } from "react-hook-form"
+import { createPost } from "./actions"
+
+export function PostForm() {
+  const {
+    control,
+    register,
+    formState: { isSubmitSuccessful, errors },
+  } = useForm({ progressive: true })
+
+  return (
+    <Form control={control} action={createPost}>
+      <input {...register("title", { required: true })} />
+      {errors.root?.server && <p role="alert">Could not save the post.</p>}
+      {isSubmitSuccessful && <p>Post created.</p>}
+      <button>Create</button>
+    </Form>
+  )
+}
+```
+
+When `action` is a function, `Form` does not render `method` or `encType` on the `<form>` element, because React manages those for Server Actions.
+
+**With FormProvider**
+
+```javascript copy
+import { useForm, FormProvider, Form, useFormContext } from "react-hook-form"
+
+function NameInput() {
+  const { register } = useFormContext()
+  return <input {...register("name")} />
+}
+
+function App() {
+  const methods = useForm()
+
+  return (
+    <FormProvider {...methods}>
+      {/* No control prop: Form reads it from FormProvider */}
+      <Form action="/api">
+        <NameInput />
+        <button>submit</button>
+      </Form>
+    </FormProvider>
+  )
+}
+```
+
+**File upload**
+
+```javascript copy
+import { useForm, Form } from "react-hook-form"
+
+function App() {
+  const { control, register } = useForm()
+
+  return (
+    <Form control={control} action="/api/upload" encType="multipart/form-data">
+      <input type="text" {...register("title")} />
+      {/* each selected file is appended under "attachments" */}
+      <input type="file" multiple {...register("attachments")} />
+      <button>Upload</button>
+    </Form>
+  )
+}
+```
+
 **React Native**
 
 ```javascript copy
@@ -161,3 +330,14 @@ function App() {
   )
 }
 ```
+
+### Tips
+
+---
+
+- **Pick one place to send the request.** Use `action` to let `Form` call `fetch`, or leave out `action` and send the request in `onSubmit`. If you set both, `onSubmit` runs first and then the request is sent. This is useful for logging or analytics, but not for changing the payload.
+- **Return a promise from `onSubmit`.** `Form` waits for it before it sends the request, and `isSubmitting` stays `true` while it waits. If `onSubmit` throws, the request is not sent and the error is not caught for you.
+- **Show server errors with `errors.root.server`.** Request errors are stored there and not on a field, so they do not block the next submission. Root errors are cleared each time the form is submitted again.
+- **Do not set `Content-Type` for file uploads.** The browser must create the `multipart/form-data` header with its boundary. Leave `encType` unset or set it to `multipart/form-data`, and do not add a `Content-Type` header.
+- **Use `validateStatus` for APIs that use non-2xx codes on purpose.** For example, `validateStatus={(status) => status < 500}` treats a `409 Conflict` as a success, so you can read the body in `onSuccess`.
+- **Need more control?** If you need retries, request cancellation, or a data-fetching library, use [`handleSubmit`](/docs/useform/handlesubmit) on a plain `<form>`. `Form` is a convenience for simple submissions.

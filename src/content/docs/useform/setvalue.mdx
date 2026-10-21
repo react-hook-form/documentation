@@ -188,3 +188,11 @@ export default function App() {
 ---
 
 <YouTube youTubeId="qpv51sCH3fI" />
+
+### Tips
+
+---
+
+- When a value comes from the user through a custom widget, such as a map picker or a rich-text editor, pass `{ shouldDirty: true, shouldTouch: true, shouldValidate: true }`. The field then behaves the same as a native input that the user typed in.
+- To update several fields at once, use [`setValues`](/docs/useform/setvalues). It updates them with a single re-render, while calling `setValue` many times can cause more renders.
+- Do not call `setValue` during render. Call it in an event handler or an effect.

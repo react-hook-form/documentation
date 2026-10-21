@@ -206,3 +206,23 @@ export default function App() {
   )
 }
 ```
+
+### Tips
+
+---
+
+- `as` only wraps the message text and does not receive other props. To add a class name, an `id` for `aria-describedby`, or `role="alert"`, use `render`:
+
+  ```javascript
+  <ErrorMessage
+    name="email"
+    render={({ message }) => (
+      <p id="email-error" role="alert" className="field-error">
+        {message}
+      </p>
+    )}
+  />
+  ```
+
+- Each `ErrorMessage` subscribes only to the errors for its `name`, so you can use many of them without re-rendering the whole form.
+- Use `name="root.server"` to show the error set by the [`Form`](/docs/useform/form) component, or any root error you set with [`setError`](/docs/useform/seterror).

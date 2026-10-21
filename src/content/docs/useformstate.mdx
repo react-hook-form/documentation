@@ -142,3 +142,19 @@ export default function App() {
   )
 }
 ```
+
+### Tips
+
+---
+
+- Put `useFormState` in the leaf component that shows the state, such as a submit button or an error summary. Only that component re-renders:
+
+  ```javascript
+  function SubmitButton({ control }) {
+    const { isDirty, isSubmitting } = useFormState({ control })
+    return <button disabled={!isDirty || isSubmitting}>Save</button>
+  }
+  ```
+
+- Pass `name` to scope the subscription to one field or one section. Use it with [`getFieldState`](/docs/useform/getfieldstate) to read that field's `error`, `isDirty`, and `isTouched`.
+- You can call `useFormState` more than once in the same component. Each call has its own subscription and does not affect the others.

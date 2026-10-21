@@ -78,3 +78,18 @@ export default function App() {
 ```
 
 </TabGroup>
+
+### Tips
+
+---
+
+- Focus the first field when the form opens:
+
+  ```javascript
+  useEffect(() => {
+    setFocus("firstName")
+  }, [setFocus])
+  ```
+
+- You do not need `setFocus` to focus the first invalid field on submit. [`shouldFocusError`](/docs/useform#shouldFocusError) does this by default.
+- For a component that does not forward a DOM ref, give `field.ref` an object with a `focus` method. See the Tips section of [useController](/docs/usecontroller).

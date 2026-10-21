@@ -104,3 +104,31 @@ export default function App() {
   )
 }
 ```
+
+### Tips
+
+---
+
+- Use `FieldArray` when you cannot call a hook, for example when a field array is rendered conditionally or inside a loop. Hooks cannot be called conditionally, but components can be rendered conditionally.
+- For nested arrays, render a `FieldArray` inside another one's `render`, and build the name from the parent index:
+
+  ```javascript
+  <FieldArray
+    control={control}
+    name="sections"
+    render={({ fields }) =>
+      fields.map((section, index) => (
+        <FieldArray
+          key={section.id}
+          control={control}
+          name={`sections.${index}.questions`}
+          render={({ fields: questions, append }) => (
+            <Questions fields={questions} append={append} />
+          )}
+        />
+      ))
+    }
+  />
+  ```
+
+- Errors from `rules` are stored at `errors.<name>.root`, for example `errors.sections?.root?.message`. Show them next to the list, not next to one row.

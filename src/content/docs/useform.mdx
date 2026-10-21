@@ -885,3 +885,12 @@ The following list contains references to `useForm` return props.
 - [trigger](/docs/useform/trigger)
 - [control](/docs/useform/control)
 - [Form](/docs/useform/form)
+
+### Tips
+
+---
+
+- Give every field a default value in `defaultValues`, even if it is just `""`. `isDirty`, `dirtyFields`, `reset`, and controlled components all compare against `defaultValues`, so a missing default can make a field look dirty or switch from uncontrolled to controlled.
+- If you are not sure which `mode` to use, try `mode: "onTouched"`. Errors show after the user leaves a field, and then update on every change. Users are not shown errors while they are still typing for the first time.
+- To load data from an API, pass it to [`values`](#values) instead of calling `reset` in a `useEffect`. The form updates when the values change, and the values are compared deeply, so a new object with the same content does not reset the form.
+- In a large form, keep `useForm` in the parent and move the parts that change often into child components. Read values with [`useWatch`](/docs/usewatch) and state with [`useFormState`](/docs/useformstate) in those children, so the whole form does not re-render on every key press.

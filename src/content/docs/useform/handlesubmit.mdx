@@ -221,3 +221,19 @@ export default function App() {
 The following video tutorial explains the `handleSubmit` API in detail.
 
 <YouTube youTubeId="KzcPKB9SOEk" />
+
+### Tips
+
+---
+
+- `handleSubmit` does not block a second submission while the first one is still pending. Disable the submit button with `formState.isSubmitting`, or check it at the start of your handler.
+- Use the second argument, `onInvalid`, to react to failed validation, for example to log analytics or open the section that contains the first error:
+
+  ```javascript
+  handleSubmit(onValid, (errors) => {
+    analytics.track("form_invalid", { fields: Object.keys(errors) })
+  })
+  ```
+
+- Transform the data inside `onValid` (or in your resolver) and not in the inputs. Inputs keep their raw values, and you send the shape your API needs.
+- When you call `handleSubmit(onValid)()` without an event, nothing calls `preventDefault`. Use this to submit from a keyboard shortcut or a timer.

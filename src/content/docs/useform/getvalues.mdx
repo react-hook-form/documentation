@@ -167,3 +167,19 @@ export default function Form() {
 ```
 
 </TabGroup>
+
+### Tips
+
+---
+
+- To compare fields inside a validation rule, use the second argument of `validate` instead of `getValues`. It gets the current form values:
+
+  ```javascript
+  register("confirmPassword", {
+    validate: (value, formValues) =>
+      value === formValues.password || "Passwords do not match",
+  })
+  ```
+
+- Do not mutate the object that `getValues` returns. Nested objects are shared with the form's internal state, so changing them can change form values without updating the form state. Copy the value first, or use [`setValue`](/docs/useform/setvalue).
+- Use `getValues` in event handlers, for example to build a preview or to save a draft on click. In those places you need the latest values once, not a subscription.

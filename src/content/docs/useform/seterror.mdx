@@ -375,3 +375,28 @@ const App = () => {
 The following video explains the `setError` API in detail.
 
 <YouTube youTubeId="raMqvE0YyIY" />
+
+### Tips
+
+---
+
+- Map field errors from your API onto the form, and focus the first one:
+
+  ```javascript
+  const onSubmit = async (data) => {
+    const response = await save(data)
+    if (!response.ok) {
+      const { fieldErrors } = await response.json() // e.g. { email: "Already taken" }
+      Object.entries(fieldErrors).forEach(([name, message], index) => {
+        setError(
+          name,
+          { type: "server", message },
+          { shouldFocus: index === 0 }
+        )
+      })
+    }
+  }
+  ```
+
+- Use `root.*` for errors that do not belong to one field, such as "Network error" or "Too many attempts". Root errors are cleared on the next submission. Show them with [`ErrorMessage`](/docs/useformstate/errormessage) and `name="root.server"`.
+- Give server errors a `type` such as `"server"`. Then your UI can show them differently from client-side validation errors.

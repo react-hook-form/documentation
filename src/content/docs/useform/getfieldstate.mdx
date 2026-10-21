@@ -117,3 +117,21 @@ export default function App() {
   )
 }
 ```
+
+### Tips
+
+---
+
+- In a reusable field component, subscribe to only that field with `useFormState({ name })`, and pass the result to `getFieldState`. The component then re-renders only when that field's state changes:
+
+  ```javascript
+  function FieldError({ name }) {
+    const { getFieldState } = useFormContext()
+    const formState = useFormState({ name })
+    const { error, isTouched } = getFieldState(name, formState)
+
+    return isTouched && error ? <p role="alert">{error.message}</p> : null
+  }
+  ```
+
+- `getFieldState` is typed against your form values, so a misspelled nested path is a type error. Reading `errors.some.deep.path` by hand is not checked in the same way.

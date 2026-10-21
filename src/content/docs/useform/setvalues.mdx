@@ -130,3 +130,18 @@ const App = () => {
   )
 }
 ```
+
+### Tips
+
+---
+
+- Top-level keys are merged shallowly. `setValues({ address: { city: "Paris" } })` replaces the whole `address` object, so `address.street` is lost. To change one nested value, spread the current values in the callback form:
+
+  ```javascript
+  setValues((values) => ({
+    ...values,
+    address: { ...values.address, city: "Paris" },
+  }))
+  ```
+
+- Use `setValues` to fill a form from a template or a previous entry, so the user can still see what changed. If the data should become the new defaults, use [`reset`](/docs/useform/reset).

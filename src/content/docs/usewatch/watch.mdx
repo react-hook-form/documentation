@@ -49,3 +49,20 @@ const App = () => {
   )
 }
 ```
+
+### Tips
+
+---
+
+- Show and hide fields without re-rendering the whole form:
+
+  ```javascript
+  <Watch
+    control={control}
+    name="hasPhone"
+    render={(hasPhone) => hasPhone && <input {...register("phone")} />}
+  />
+  ```
+
+- Use `compute` to re-render only when a derived value changes. For example, with `name="items"`, `compute={(items = []) => items.length}` re-renders only when the number of items changes.
+- `Watch` is a component, so you can render it conditionally or inside a list. Hooks such as `useWatch` cannot be called that way.

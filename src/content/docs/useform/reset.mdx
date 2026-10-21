@@ -332,3 +332,12 @@ function App() {
 ---
 
 <YouTube youTubeId="qmCLBjyPwVk" />
+
+### Tips
+
+---
+
+- For a "Discard changes" button, call `reset()` with no arguments. The form goes back to the last default values.
+- After a successful save, call `reset(savedData)` so the saved data becomes the new baseline and `isDirty` goes back to `false`. If you only want to move the dirty baseline and keep errors, touched fields, and submission state, use [`resetDefaultValues`](/docs/useform/resetdefaultvalues).
+- When the server sends fresh data while the user is editing, use `reset(newData, { keepDirtyValues: true })`. Fields the user changed keep their values, and the other fields are updated.
+- To load data once from an API, use `useForm({ values })` instead of `reset` in a `useEffect`. See [which option to use](/docs/useform#values).

@@ -92,3 +92,24 @@ function NestedInput() {
   return <input {...register("test")} />
 }
 ```
+
+### Tips
+
+---
+
+- Wrap components that use `useFormContext` in a small test helper, so you can render them alone in unit tests:
+
+  ```tsx
+  import { render } from "@testing-library/react"
+
+  function renderWithForm(ui: React.ReactElement, defaultValues = {}) {
+    function Wrapper({ children }: { children: React.ReactNode }) {
+      const methods = useForm({ defaultValues })
+      return <FormProvider {...methods}>{children}</FormProvider>
+    }
+    return render(ui, { wrapper: Wrapper })
+  }
+  ```
+
+- `useFormContext` couples a component to one form shape. For an input that you reuse in many forms, take `name` (and optionally `control`) as props and use [`useController`](/docs/usecontroller), or look at [`useLens`](/docs/uselens).
+- Use the context only for the methods you need. For example, `const { register } = useFormContext()` in a leaf input. Read state with [`useFormState`](/docs/useformstate) and values with [`useWatch`](/docs/usewatch).

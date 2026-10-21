@@ -183,3 +183,33 @@ export const Calc = ({ control, setValue }) => {
   return <p>{output}</p>
 }
 ```
+
+### Tips
+
+---
+
+- Use `compute` to derive a small value from the form. The component re-renders only when the computed result changes (compared deeply), not on every key press:
+
+  ```javascript
+  const isAdult = useWatch({
+    control,
+    name: "age",
+    compute: (age) => Number(age) >= 18,
+  })
+  ```
+
+- For totals in a field array, watch the array in a small child component, so typing in one row does not re-render the whole list:
+
+  ```javascript
+  function Total({ control }) {
+    const total = useWatch({
+      control,
+      name: "items",
+      compute: (items = []) =>
+        items.reduce((sum, item) => sum + Number(item.price || 0), 0),
+    })
+    return <p>Total: {total}</p>
+  }
+  ```
+
+- Pass `name` to watch only what you need. `useWatch()` with no `name` watches the whole form.

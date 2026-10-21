@@ -121,3 +121,25 @@ export default function App() {
   )
 }
 ```
+
+### Tips
+
+---
+
+- Pick only the `formState` keys you need. The callback runs for each update to any of them, so a smaller selection means less work.
+- Pass `name` to limit the subscription to one part of the form, such as `subscribe({ name: "shipping", ... })`.
+- The callback can run on every key press. Debounce expensive work, such as saving to the server:
+
+  ```javascript
+  useEffect(() => {
+    const save = debounce((values) => api.saveDraft(values), 500)
+    const unsubscribe = subscribe({
+      formState: { values: true },
+      callback: ({ values }) => save(values),
+    })
+    return () => {
+      unsubscribe()
+      save.cancel()
+    }
+  }, [subscribe])
+  ```

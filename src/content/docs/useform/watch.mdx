@@ -298,3 +298,11 @@ function App() {
 ---
 
 <YouTube youTubeId="3qLd69WMqKk" />
+
+### Tips
+
+---
+
+- `watch` is fine for small forms and for simple conditional fields, such as `watch("hasPhone") && <input {...register("phone")} />`. As the form grows, move the watched part into a child component with [`useWatch`](/docs/usewatch) or the [`Watch`](/docs/usewatch/watch) component.
+- Watch only the fields you need, for example `watch("country")` and not `watch()`. Watching the whole form re-renders the host component on every key press.
+- To run side effects when values change, such as saving to `localStorage` or calling an analytics API, use [`subscribe`](/docs/useform/subscribe). It does not re-render.

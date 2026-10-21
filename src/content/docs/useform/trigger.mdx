@@ -134,3 +134,21 @@ export default function App() {
 The following video explains `trigger` API in detail.
 
 <YouTube youTubeId="-bcyJCDjksE" />
+
+### Tips
+
+---
+
+- In a multi-step form, validate only the current step's fields before going to the next step:
+
+  ```javascript
+  const onNext = async () => {
+    const isStepValid = await trigger(["firstName", "lastName"], {
+      shouldFocus: true,
+    })
+    if (isStepValid) setStep((step) => step + 1)
+  }
+  ```
+
+- For fields that depend on each other, such as `password` and `confirmPassword`, use the [`deps`](/docs/useform/register#options) option of `register`. You do not need to call `trigger` in an `onChange`.
+- Use `trigger("name", { shouldTouch: true })` to show an error for a field that the user skipped, without changing its value.

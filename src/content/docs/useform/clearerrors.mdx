@@ -124,3 +124,20 @@ const App = () => {
 ```
 
 </TabGroup>
+
+### Tips
+
+---
+
+- Clear a server error as soon as the user starts to fix it:
+
+  ```javascript
+  <input
+    {...register("email", {
+      onChange: () => clearErrors("root.server"),
+    })}
+  />
+  ```
+
+- `clearErrors("root")` clears every root error, for example `root.server` and `root.network`, because it removes everything under that path.
+- `clearErrors` does not re-validate. If a field is still invalid, its error comes back the next time validation runs. To check a field again right away, use [`trigger`](/docs/useform/trigger).

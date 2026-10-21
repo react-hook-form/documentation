@@ -139,6 +139,14 @@ export default function App() {
 }
 ```
 
+### Tips
+
+---
+
+- Use `resetDefaultValues` for an autosave form. After each save, move the baseline to the saved values, so `isDirty` shows only the changes that have not been saved yet. The user can keep typing, and the inputs are not touched.
+- Pass the values that were actually saved, for example the server response, and not the current form values. If the user typed while the request was in flight, those changes then stay dirty.
+- To also clear errors, touched fields, and submission state, use [`reset`](/docs/useform/reset) instead.
+
 ### Related
 
 ---

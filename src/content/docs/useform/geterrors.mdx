@@ -68,3 +68,19 @@ export default function App() {
   )
 }
 ```
+
+### Tips
+
+---
+
+- Use `getErrors` in event handlers and effects where you need the current errors but do not want a re-render. For example, in a multi-step form, find which steps have errors after validation:
+
+  ```javascript
+  const onNext = async () => {
+    await trigger()
+    const [account, address] = getErrors(["account", "address"])
+    setStepsWithErrors({ account: !!account, address: !!address })
+  }
+  ```
+
+- Do not render from `getErrors`. The value is not reactive, so the UI does not update when errors change. Use [`formState.errors`](/docs/useform/formstate) or [`ErrorMessage`](/docs/useformstate/errormessage) for UI.

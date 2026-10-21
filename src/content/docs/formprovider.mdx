@@ -63,3 +63,12 @@ function NestedInput() {
   return <input {...register("test")} />
 }
 ```
+
+### Tips
+
+---
+
+- Spread the whole `useForm` return value: `<FormProvider {...methods}>`. If you pass only some methods, child components that call [`useFormContext`](/docs/useformcontext) get an object with missing methods.
+- Inside a `FormProvider`, hooks such as [`useController`](/docs/usecontroller), [`useWatch`](/docs/usewatch), [`useFormState`](/docs/useformstate), and [`useFieldArray`](/docs/usefieldarray) can leave out `control`. They read it from context.
+- To have two forms on one page, render two `FormProvider`s next to each other, not one inside the other.
+- To share a form without React context, see [`createFormControl`](/docs/createFormControl).

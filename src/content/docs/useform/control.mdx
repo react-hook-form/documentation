@@ -66,3 +66,20 @@ function App() {
 ```
 
 </TabGroup>
+
+### Tips
+
+---
+
+- Think of `control` as an internal object that you only pass along. Give it to the APIs listed above, and do not read its properties or call its methods yourself. They are not part of the public API and can change in any release.
+- Inside a [`FormProvider`](/docs/formprovider), you usually do not need `control` at all. Hooks such as [`useController`](/docs/usecontroller), [`useWatch`](/docs/usewatch), and [`useFormState`](/docs/useformstate) read it from context.
+- If you pass `control` as a prop, type it as `Control<FormValues>` so that `name` props in the child are checked against your form type:
+
+  ```tsx
+  import type { Control } from "react-hook-form"
+
+  function EmailField({ control }: { control: Control<FormValues> }) {
+    const { field } = useController({ control, name: "email" })
+    return <input {...field} />
+  }
+  ```

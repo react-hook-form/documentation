@@ -136,3 +136,10 @@ export default function App() {
 ---
 
 <YouTube youTubeId="TM99g_NW5Gk" />
+
+### Tips
+
+---
+
+- For fields that show and hide, try the `shouldUnregister: true` option (on [`useForm`](/docs/useform#shouldUnregister) or [`register`](/docs/useform/register#options)) before you call `unregister` by hand. The field is removed when its input unmounts.
+- With a resolver, `unregister` does not change the schema. Make the schema conditional instead, for example with a discriminated union or `.optional()`, so hidden fields are not validated.
