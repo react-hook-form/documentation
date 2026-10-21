@@ -5,7 +5,7 @@ import { YouTube } from "./youtube"
 import TypeText from "../TypeText"
 import Since from "../Since"
 import Popup from "../Popup"
-import { Components } from "@mdx-js/react/lib"
+import type { MDXComponents as Components } from "mdx/types"
 import { Admonition } from "../Admonition"
 import { CodeSandBoxLink } from "../CodeSandbox"
 import tableStyles from "../../styles/table.module.css"
@@ -51,7 +51,7 @@ export const MDXComponents: Components = {
   },
   code({ className, children, ...props }) {
     return className ? (
-      <PrismSyntaxHighlight className={className} {...props}>
+      <PrismSyntaxHighlight className={className}>
         {children}
       </PrismSyntaxHighlight>
     ) : (
