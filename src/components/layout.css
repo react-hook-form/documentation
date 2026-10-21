@@ -803,6 +803,14 @@ pre[class*="language-"] {
   animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* On a first load the browser is still parsing and hydrating JS for ~300ms,
+   which drops frames mid-slide. Start after that; `both` holds the first
+   keyframe during the delay so the page doesn't flash in first. */
+.pageTransitionDelayed {
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
 /* On reload, Chrome restores scroll via scroll anchoring while the page is
    still translated by page-enter, so it scrolls 24px too far. That jumps the
    page mid-slide and drifts it another 24px on every refresh. */
