@@ -20,7 +20,7 @@ export default function Hero() {
     <>
       <section className={styles.hero} id="main">
         <h1 className={styles.headline}>
-          Build forms <span>without the friction.</span>
+          The React form library <span>without the friction.</span>
         </h1>
         <p className={styles.slogan}>{home.slogan}</p>
 
