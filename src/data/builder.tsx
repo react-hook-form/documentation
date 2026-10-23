@@ -1,6 +1,7 @@
 export default {
   title: "Form Builder",
-  description: "GUI for building forms with validation",
+  description:
+    "Free React form builder: drag and drop fields, add validation rules, and generate React Hook Form code instantly.",
   builder: {
     title: "Form Builder",
     description: "Build your form with code and example.",

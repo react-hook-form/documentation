@@ -3,7 +3,8 @@ import { useRouter } from "next/router"
 
 export const SITE_URL = "https://react-hook-form.com"
 const SITE_NAME = "React Hook Form"
-const DEFAULT_TITLE = "React Hook Form - Simple React forms validation"
+const DEFAULT_TITLE =
+  "React Hook Form - Performant React Form Library with Validation"
 const DEFAULT_DESCRIPTION =
   "Performant, flexible and extensible forms with easy-to-use validation."
 const OG_IMAGE = `${SITE_URL}/images/react-hook-form-og.png`
@@ -39,7 +40,12 @@ function SEO({
   noindex?: boolean
 }) {
   const router = useRouter()
-  const metaTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE
+  // Titles that already carry the brand (e.g. the homepage) skip the suffix.
+  const metaTitle = !title
+    ? DEFAULT_TITLE
+    : title.includes(SITE_NAME)
+      ? title
+      : `${title} | ${SITE_NAME}`
   const metaDescription = description || DEFAULT_DESCRIPTION
   const canonical = `${SITE_URL}${router.asPath.split(/[?#]/)[0]}`
   const schemas = [organizationSchema, websiteSchema, ...jsonLd]
