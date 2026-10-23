@@ -6,7 +6,7 @@
     </p>
 </div>
 
-<p align="center">Performant, flexible and extensible forms with easy to use validation.</p>
+<p align="center">❤️ Performant, flexible and extensible forms with easy to use validation.</p>
 
 ## Install
 
