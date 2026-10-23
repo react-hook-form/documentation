@@ -6,7 +6,7 @@ const ResourcesBindings = () => {
     <>
       <Seo
         title="3rd Party Bindings"
-        description="Third-party bindings and integrations for React Hook Form."
+        description="Third-party bindings for React Hook Form: connect your forms to UI libraries, state managers, and schema validation tools in React."
       />
       <ResourcePageBindings />
     </>

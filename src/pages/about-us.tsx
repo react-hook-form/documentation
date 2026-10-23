@@ -243,7 +243,7 @@ const AboutUs = () => {
     <>
       <Seo
         title="About us"
-        description="Meet the team behind React Hook Form."
+        description="Meet the maintainers and contributors behind React Hook Form, the open-source React form library used by millions of developers."
       />
       <div className={cards.page}>
         <PageHeader

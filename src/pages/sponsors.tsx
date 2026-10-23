@@ -227,7 +227,7 @@ const Sponsors = ({
     <>
       <Seo
         title="Sponsors"
-        description="Meet the sponsors who support the development of React Hook Form."
+        description="Meet the companies and individuals who sponsor React Hook Form and keep this open-source React form library free and maintained."
       />
       <div className={cards.page}>
         <PageHeader

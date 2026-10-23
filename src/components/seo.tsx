@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 export const SITE_URL = "https://react-hook-form.com"
 const SITE_NAME = "React Hook Form"
 const DEFAULT_TITLE =
-  "React Hook Form - Performant React Form Library with Validation"
+  "React Hook Form - Performant React Form Validation Library"
 const DEFAULT_DESCRIPTION =
   "Performant, flexible and extensible forms with easy-to-use validation."
 const OG_IMAGE = `${SITE_URL}/images/react-hook-form-og.png`

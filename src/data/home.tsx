@@ -1,9 +1,9 @@
 import typographyStyles from "../styles/typography.module.css"
 
 export default {
-  title: "React Hook Form - Performant React Form Library with Validation",
+  title: "React Hook Form - Performant React Form Validation Library",
   description:
-    "React Hook Form is a performant, lightweight React form library with easy validation. Zero dependencies, TypeScript support, and works with Zod, Yup and any UI library.",
+    "React Hook Form is a performant, lightweight React form library with easy validation. Zero dependencies, TypeScript support, works with Zod, Yup and any UI.",
 
   slogan:
     "A performant, flexible and extensible React form library with easy-to-use validation.",

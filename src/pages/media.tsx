@@ -63,7 +63,7 @@ const Media = () => {
     <>
       <Seo
         title="Media"
-        description="Logos, images, and brand assets for React Hook Form."
+        description="Download React Hook Form logos, images, and brand assets for articles, talks, and projects, with guidance on using them correctly."
       />
       <div className={cards.page}>
         <PageHeader

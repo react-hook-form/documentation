@@ -6,7 +6,7 @@ const ResourcesNewsletter = () => {
     <>
       <Seo
         title="Newsletter"
-        description="Stay up to date with React Hook Form news and releases."
+        description="Newsletters and release notes covering React Hook Form: new features, version updates, and tips for building better React forms."
       />
       <ResourcePageNewsletter />
     </>

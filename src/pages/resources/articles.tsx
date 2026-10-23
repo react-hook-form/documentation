@@ -6,7 +6,7 @@ const ResourcesArticles = () => {
     <>
       <Seo
         title="Articles"
-        description="Community articles and tutorials about React Hook Form."
+        description="Community articles and tutorials on React Hook Form: form validation, schema resolvers, TypeScript, and integrating React UI libraries."
       />
       <ResourcePageArticles />
     </>

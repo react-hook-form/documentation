@@ -13,13 +13,33 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   async redirects() {
+    const legacySite =
+      "https://react-hook-form-website-git-leagcy-hook-form.vercel.app"
+    // Locale prefixes from the old Gatsby site (English had no prefix).
+    const lang = ":lang(zh|jp|kr|es|pt|ru)"
+
     return [
       {
-        source: "/migrate-v6-to-v7",
-        destination:
-          "https://react-hook-form-website-git-leagcy-hook-form.vercel.app/migrate-v6-to-v7",
+        source: "/:path(migrate-v5-to-v6|migrate-v6-to-v7)",
+        destination: `${legacySite}/:path`,
         permanent: true,
       },
+      {
+        source: "/:version(v5|v6)/:path*",
+        destination: `${legacySite}/:version/:path*`,
+        permanent: true,
+      },
+      // The API reference moved from /api/* to /docs/*; keep old backlinks alive.
+      { source: "/api", destination: "/docs", permanent: true },
+      { source: "/api/:path*", destination: "/docs/:path*", permanent: true },
+      { source: `/${lang}`, destination: "/", permanent: true },
+      { source: `/${lang}/api`, destination: "/docs", permanent: true },
+      {
+        source: `/${lang}/api/:path*`,
+        destination: "/docs/:path*",
+        permanent: true,
+      },
+      { source: `/${lang}/:path*`, destination: "/:path*", permanent: true },
     ]
   },
 }
