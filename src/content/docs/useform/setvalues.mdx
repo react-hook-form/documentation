@@ -145,3 +145,60 @@ const App = () => {
   ```
 
 - Use `setValues` to fill a form from a template or a previous entry, so the user can still see what changed. If the data should become the new defaults, use [`reset`](/docs/useform/reset).
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### A nested sibling value disappears after `setValues`
+
+<Why>
+
+Top-level keys are merged shallowly. Updating `{ address: { city: "Paris" } }` replaces the complete `address` object rather than merging its nested properties.
+
+</Why>
+
+<Fix>
+
+Use the callback form and preserve the nested values you are not changing:
+
+```javascript
+setValues((values) => ({
+  ...values,
+  address: { ...values.address, city: "Paris" },
+}))
+```
+
+For one nested field, [`setValue("address.city", "Paris")`](/docs/useform/setvalue) is simpler.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### Errors, touched fields, or dirty state do not change
+
+<Why>
+
+`setValues` updates values, but validation and form-state updates are opt-in so a batch update does not do extra work by default.
+
+</Why>
+
+<Fix>
+
+Pass the state updates you need:
+
+```javascript
+setValues(values, {
+  shouldValidate: true,
+  shouldDirty: true,
+  shouldTouch: true,
+})
+```
+
+</Fix>
+
+</Troubleshoot>

@@ -917,6 +917,87 @@ lens.useValue() // Your custom method is now available with full type support
 
 This pattern allows you to add any custom functionality to lenses while maintaining full type safety and compatibility with the existing lens API.
 
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### A memoized component still re-renders when it receives a reflected lens
+
+<Why>
+
+An inline function passed to `reflect` has a new identity on every render. Because that function is part of the cache key, the reflected lens is also recreated.
+
+</Why>
+
+<Fix>
+
+Memoize the reflection function, or define it outside the component:
+
+```tsx
+const selectContact = useCallback(
+  ({ profile }) => ({
+    name: profile.focus("contact.firstName"),
+    phone: profile.focus("contact.phone"),
+  }),
+  []
+)
+
+const contactLens = lens.reflect(selectContact)
+```
+
+React Compiler can perform this optimization automatically when it is enabled.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `useFieldArray` does not accept a lens
+
+<Why>
+
+The standard React Hook Form hook expects `{ control, name }`, while the lenses package provides an enhanced hook designed to accept `lens.interop()` and work with `lens.map`.
+
+</Why>
+
+<Fix>
+
+Import the enhanced hook from `@hookform/lenses/rhf`:
+
+```tsx
+import { useFieldArray } from "@hookform/lenses/rhf"
+
+const itemsLens = lens.focus("items")
+const fieldArray = useFieldArray(itemsLens.interop())
+```
+
+Render its `fields` with `itemsLens.map`, and keep the generated field identifier as the React key.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### A value passed through `cast` has the wrong type at runtime
+
+<Why>
+
+`cast` changes only the TypeScript type. It does not parse, validate, or transform the underlying form value.
+
+</Why>
+
+<Fix>
+
+Validate or convert the data before treating it as the new type. Prefer `narrow`, `assert`, or a schema resolver when the runtime shape is not already guaranteed.
+
+</Fix>
+
+</Troubleshoot>
+
 <Admonition type="tip" title="Questions or Feedback?">
 
 Found a bug or have a feature request? Check out the [GitHub repository](https://github.com/react-hook-form/lenses) to report issues or contribute to the project.

@@ -143,3 +143,62 @@ export default function App() {
     }
   }, [subscribe])
   ```
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### The callback does not receive value changes
+
+<Why>
+
+`subscribe` only listens to the form-state properties selected in `formState`. Without `values: true`, changes to input values alone do not trigger a values subscription.
+
+</Why>
+
+<Fix>
+
+Select values explicitly, and optionally limit the work to a field or section:
+
+```javascript
+return subscribe({
+  name: "shipping",
+  formState: { values: true },
+  callback: ({ values }) => save(values.shipping),
+})
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### The callback runs multiple times for one change
+
+<Why>
+
+A new subscription is being created on each render, or an effect creates one without removing the previous subscription.
+
+</Why>
+
+<Fix>
+
+Create the subscription in an effect and return the unsubscribe function:
+
+```javascript
+useEffect(
+  () =>
+    subscribe({
+      formState: { values: true },
+      callback: ({ values }) => console.log(values),
+    }),
+  [subscribe]
+)
+```
+
+</Fix>
+
+</Troubleshoot>

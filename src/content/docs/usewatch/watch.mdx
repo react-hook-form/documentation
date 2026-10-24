@@ -66,3 +66,52 @@ const App = () => {
 
 - Use `compute` to re-render only when a derived value changes. For example, with `name="items"`, `compute={(items = []) => items.length}` re-renders only when the number of items changes.
 - `Watch` is a component, so you can render it conditionally or inside a list. Hooks such as `useWatch` cannot be called that way.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `Watch` cannot find the form control
+
+<Why>
+
+The component has no `control` prop and is not rendered inside the matching [`FormProvider`](/docs/formprovider).
+
+</Why>
+
+<Fix>
+
+Pass `control` from the same `useForm` instance that owns the fields, or render `Watch` under `<FormProvider {...methods}>`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### The rendered value is `undefined` on the first render
+
+<Why>
+
+The watched field has not registered yet and no initial value is available.
+
+</Why>
+
+<Fix>
+
+Set the field in `defaultValues` on `useForm`, or pass `defaultValue` to `Watch`:
+
+```javascript
+<Watch
+  control={control}
+  name="email"
+  defaultValue=""
+  render={(email) => <span>{email}</span>}
+/>
+```
+
+</Fix>
+
+</Troubleshoot>

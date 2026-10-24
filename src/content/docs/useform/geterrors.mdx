@@ -84,3 +84,48 @@ export default function App() {
   ```
 
 - Do not render from `getErrors`. The value is not reactive, so the UI does not update when errors change. Use [`formState.errors`](/docs/useform/formstate) or [`ErrorMessage`](/docs/useformstate/errormessage) for UI.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `getErrors()` is empty even though a field value is invalid
+
+<Why>
+
+`getErrors` reads errors that are already stored; it does not run validation. If the current validation mode has not checked the field yet, there is no error to return.
+
+</Why>
+
+<Fix>
+
+Validate first, then read the result:
+
+```javascript
+await trigger("email")
+const emailError = getErrors("email")
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### An error rendered with `getErrors` does not update
+
+<Why>
+
+`getErrors` intentionally does not subscribe or cause a re-render. It is a snapshot API for handlers and effects.
+
+</Why>
+
+<Fix>
+
+Render errors with [`ErrorMessage`](/docs/useformstate/errormessage), `formState.errors`, or `useFormState({ name })`. Keep `getErrors` for imperative reads.
+
+</Fix>
+
+</Troubleshoot>

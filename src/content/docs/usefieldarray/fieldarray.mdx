@@ -132,3 +132,57 @@ export default function App() {
   ```
 
 - Errors from `rules` are stored at `errors.<name>.root`, for example `errors.sections?.root?.message`. Show them next to the list, not next to one row.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### Rows show the wrong values after removing or moving an item
+
+<Why>
+
+The rendered rows use the array index as their React key. After an item moves, React reuses the DOM for a different field, so inputs and their form state no longer line up.
+
+</Why>
+
+<Fix>
+
+Use the generated field identifier as the key:
+
+```javascript
+fields.map((field, index) => (
+  <input key={field.id} {...register(`items.${index}.name`)} />
+))
+```
+
+In v8, use `field.key` instead of `field.id`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### A newly appended row has missing or uncontrolled fields
+
+<Why>
+
+`append`, `prepend`, `insert`, and `update` require complete row objects. Passing `{}` or a partial object leaves fields without initial values.
+
+</Why>
+
+<Fix>
+
+Pass every field in the row, including empty defaults:
+
+```javascript
+append({ name: "", quantity: 1 })
+```
+
+Use [`setValue`](/docs/useform/setvalue) when you only need to change one property of an existing row.
+
+</Fix>
+
+</Troubleshoot>

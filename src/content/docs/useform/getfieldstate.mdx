@@ -135,3 +135,48 @@ export default function App() {
   ```
 
 - `getFieldState` is typed against your form values, so a misspelled nested path is a type error. Reading `errors.some.deep.path` by hand is not checked in the same way.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `isDirty`, `isTouched`, and `invalid` are always `false`
+
+<Why>
+
+The field name may not be registered, or the component has not subscribed to the matching form-state properties. `getFieldState` reads state; it does not create every subscription by itself.
+
+</Why>
+
+<Fix>
+
+Check that the name exactly matches a registered field. Then read the required state from `formState`, or pass a scoped `useFormState` result:
+
+```javascript
+const formState = useFormState({ control, name: "email" })
+const emailState = getFieldState("email", formState)
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### A field state is stale inside an event handler
+
+<Why>
+
+The component never subscribed to the state being read. Reading `getFieldState` only inside a click handler does not cause the component to re-render when that state changes.
+
+</Why>
+
+<Fix>
+
+For reactive UI, call `useFormState({ name })` during render and pass its result to `getFieldState`. For a one-time read, call `getFieldState` in the handler after the operation that updates the field.
+
+</Fix>
+
+</Troubleshoot>

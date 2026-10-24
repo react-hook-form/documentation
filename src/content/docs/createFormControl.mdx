@@ -150,3 +150,51 @@ function App() {
   ```
 
 - In tests, you can create a control, render your form with it, and then call methods like `setValue` or `trigger` directly, without simulating every user event.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### Two forms unexpectedly share values and errors
+
+<Why>
+
+They use the same `createFormControl` instance. A control created at module scope is a singleton, so every component—and every server request—can share its state.
+
+</Why>
+
+<Fix>
+
+Create one stable control per form instance:
+
+```javascript
+const [form] = useState(() =>
+  createFormControl({ defaultValues: { name: "" } })
+)
+```
+
+Do not recreate it on every render, and avoid a module-scoped control during server rendering.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### Form state changes but the React UI does not update
+
+<Why>
+
+Calling methods on a standalone control updates the form, but React components only re-render for state they subscribe to.
+
+</Why>
+
+<Fix>
+
+Connect the control with `useForm({ formControl })`, and read reactive state with `useFormState({ control })` or values with `useWatch({ control })`. Use `formControl.subscribe` only for side effects that do not render UI.
+
+</Fix>
+
+</Troubleshoot>

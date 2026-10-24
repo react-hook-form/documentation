@@ -226,3 +226,69 @@ export default function App() {
 
 - Each `ErrorMessage` subscribes only to the errors for its `name`, so you can use many of them without re-rendering the whole form.
 - Use `name="root.server"` to show the error set by the [`Form`](/docs/useform/form) component, or any root error you set with [`setError`](/docs/useform/seterror).
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### The field is invalid but `ErrorMessage` renders nothing
+
+<Why>
+
+The validation rule may not include a message. For example, `required: true` creates an error without display text, so the default renderer has nothing to show.
+
+</Why>
+
+<Fix>
+
+Give each rule a message, or use `render` to provide a fallback:
+
+```javascript
+<input {...register("email", { required: "Email is required" })} />
+<ErrorMessage
+  name="email"
+  render={({ message }) => <p role="alert">{message || "Invalid value"}</p>}
+/>
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `messages` is `undefined` in the render prop
+
+<Why>
+
+React Hook Form stores all failed rules in `messages` only when the form uses `criteriaMode: "all"`. The default mode keeps the first relevant error.
+
+</Why>
+
+<Fix>
+
+Initialize the form with `useForm({ criteriaMode: "all" })`, or render the single `message` value instead.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `ErrorMessage` cannot find the form control
+
+<Why>
+
+No `control` prop was passed and the component is outside a [`FormProvider`](/docs/formprovider).
+
+</Why>
+
+<Fix>
+
+Pass `control` from `useForm`, or place `ErrorMessage` inside `<FormProvider {...methods}>`.
+
+</Fix>
+
+</Troubleshoot>

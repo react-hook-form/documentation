@@ -147,6 +147,46 @@ export default function App() {
 - Pass the values that were actually saved, for example the server response, and not the current form values. If the user typed while the request was in flight, those changes then stay dirty.
 - To also clear errors, touched fields, and submission state, use [`reset`](/docs/useform/reset) instead.
 
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### The inputs do not change after `resetDefaultValues`
+
+<Why>
+
+This method changes only the baseline used for dirty comparison. It deliberately preserves the current values so edits made while a save request is in flight are not lost.
+
+</Why>
+
+<Fix>
+
+Use [`reset(values)`](/docs/useform/reset) when you want to replace both the current values and the default values. Use `resetDefaultValues(values)` only when the inputs should stay untouched.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `isDirty` is still `true` after a successful save
+
+<Why>
+
+The current values differ from the new baseline. This commonly happens when the user types while the request is in flight, or when only part of the saved object is passed to `resetDefaultValues`.
+
+</Why>
+
+<Fix>
+
+Pass the complete values that the server actually saved. If the user made newer edits during the request, leave `isDirty` as `true`—those edits have not been saved yet.
+
+</Fix>
+
+</Troubleshoot>
+
 ### Related
 
 ---
