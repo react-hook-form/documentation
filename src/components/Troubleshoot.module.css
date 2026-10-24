@@ -1,0 +1,56 @@
+.card {
+  margin: var(--space-6) 0;
+  border: 1px solid var(--color-border-muted);
+  border-left: 4px solid var(--color-orange);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.card > h4 {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-muted);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Error messages are shown as code; keep them readable instead of tiny chips. */
+.card > h4 code {
+  font-size: 0.9em;
+  white-space: normal;
+}
+
+.block {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+}
+
+.block > :last-child {
+  margin-bottom: 0;
+}
+
+.block + .block {
+  border-top: 1px dashed var(--color-border-muted);
+}
+
+.label {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.fix {
+  background: rgba(46, 204, 113, 0.06);
+}
+
+.fix .label {
+  color: var(--color-green);
+}
+
+:global(.light) .fix .label {
+  color: #1e8449;
+}
