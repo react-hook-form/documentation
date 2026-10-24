@@ -205,3 +205,43 @@ export const Calc = ({ control, setValue }) => {
   ```
 
 - Pass `name` to watch only what you need. `useWatch()` with no `name` watches the whole form.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `useWatch` returns `undefined` on the first render
+
+<Why>
+
+`useWatch` runs before the input registers, so on the first render it returns the field's default value. With no default value, that is `undefined`.
+
+</Why>
+
+<Fix>
+
+Set the field in `defaultValues` on `useForm`, or pass `defaultValue` to `useWatch`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `Cannot read properties of null (reading '_getWatch')`
+
+<Why>
+
+`useWatch` could not find a form: no `control` was passed and the component is not inside a [`FormProvider`](/docs/formprovider).
+
+</Why>
+
+<Fix>
+
+Pass `control` from `useForm`, or wrap the tree in `<FormProvider {...methods}>`.
+
+</Fix>
+
+</Troubleshoot>

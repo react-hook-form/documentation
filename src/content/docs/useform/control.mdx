@@ -19,48 +19,97 @@ This object contains methods for registering components into React Hook Form. Pa
 
 ---
 
+A complete form where a reusable input component receives `control` as a prop. The parent owns the form; the child only connects to it.
+
 <TabGroup buttonLabels={["TS", "JS"]}>
 
-```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
-import { useForm, Controller } from "react-hook-form"
-import { TextField } from "@mui/material"
+```tsx copy
+import {
+  useForm,
+  useController,
+  type Control,
+  type FieldPath,
+  type FieldValues,
+} from "react-hook-form"
 
-type FormInputs = {
+type FormValues = {
   firstName: string
+  email: string
 }
 
-function App() {
-  const { control, handleSubmit } = useForm<FormInputs>()
-  const onSubmit = (data: FormInputs) => console.log(data)
+type TextInputProps<T extends FieldValues> = {
+  control: Control<T>
+  name: FieldPath<T>
+  label: string
+}
+
+function TextInput<T extends FieldValues>({
+  control,
+  name,
+  label,
+}: TextInputProps<T>) {
+  const { field, fieldState } = useController({
+    control,
+    name,
+    rules: { required: `${label} is required` },
+  })
+
+  return (
+    <label>
+      {label}
+      <input {...field} aria-invalid={fieldState.invalid} />
+      {fieldState.error && <p role="alert">{fieldState.error.message}</p>}
+    </label>
+  )
+}
+
+export default function App() {
+  const { control, handleSubmit } = useForm<FormValues>({
+    defaultValues: { firstName: "", email: "" },
+  })
+  const onSubmit = (data: FormValues) => console.log(data)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        render={({ field }) => <input {...field} />}
-        name="firstName"
-        control={control}
-        defaultValue=""
-      />
-
-      <input type="submit" />
+      <TextInput control={control} name="firstName" label="First name" />
+      <TextInput control={control} name="email" label="Email" />
+      <button type="submit">Submit</button>
     </form>
   )
 }
 ```
 
-```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
-import { useForm, Controller } from "react-hook-form"
+```javascript copy
+import { useForm, useController } from "react-hook-form"
 
-function App() {
-  const { control } = useForm()
+function TextInput({ control, name, label }) {
+  const { field, fieldState } = useController({
+    control,
+    name,
+    rules: { required: `${label} is required` },
+  })
 
   return (
-    <Controller
-      render={({ field }) => <input {...field} />}
-      name="firstName"
-      control={control}
-      defaultValue=""
-    />
+    <label>
+      {label}
+      <input {...field} aria-invalid={fieldState.invalid} />
+      {fieldState.error && <p role="alert">{fieldState.error.message}</p>}
+    </label>
+  )
+}
+
+export default function App() {
+  const { control, handleSubmit } = useForm({
+    defaultValues: { firstName: "", email: "" },
+  })
+  const onSubmit = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <TextInput control={control} name="firstName" label="First name" />
+      <TextInput control={control} name="email" label="Email" />
+      <button type="submit">Submit</button>
+    </form>
   )
 }
 ```
@@ -73,13 +122,71 @@ function App() {
 
 - Think of `control` as an internal object that you only pass along. Give it to the APIs listed above, and do not read its properties or call its methods yourself. They are not part of the public API and can change in any release.
 - Inside a [`FormProvider`](/docs/formprovider), you usually do not need `control` at all. Hooks such as [`useController`](/docs/usecontroller), [`useWatch`](/docs/usewatch), and [`useFormState`](/docs/useformstate) read it from context.
-- If you pass `control` as a prop, type it as `Control<FormValues>` so that `name` props in the child are checked against your form type:
+- If you pass `control` as a prop, type it as `Control<FormValues>`, or make the component generic to reuse it across forms. See [the TypeScript error below](#TypeControlFormValuesisnotassignabletotypeControlFieldValues) if the types don't line up.
 
-  ```tsx
-  import type { Control } from "react-hook-form"
+### Troubleshooting
 
-  function EmailField({ control }: { control: Control<FormValues> }) {
-    const { field } = useController({ control, name: "email" })
-    return <input {...field} />
-  }
-  ```
+---
+
+<Troubleshoot>
+
+#### `Cannot read properties of null (reading '_names')`
+
+<Why>
+
+`useController` or `Controller` could not find a form. The component is rendered outside a [`FormProvider`](/docs/formprovider) and no `control` prop was passed. Hooks such as `useWatch` fail the same way, with a different property name in the message.
+
+</Why>
+
+<Fix>
+
+Pass `control` from `useForm`, or wrap the tree in `<FormProvider {...methods}>`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### A field is missing from the submitted data
+
+<Why>
+
+The field is connected to a different form than the one that submits. Usually `useForm` was called twice — once in the parent and again in a child — and the field received the child's `control` while the parent's `handleSubmit` runs.
+
+</Why>
+
+<Fix>
+
+Call `useForm` once and pass that `control` down, or use `FormProvider`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `Type 'Control<FormValues>' is not assignable to type 'Control<FieldValues>'`
+
+<Why>
+
+`Control` is tied to one exact form shape. A prop typed as `Control<FieldValues>`, or as a smaller shape such as `Control<{ email: string }>`, does not accept the `control` of a larger form.
+
+</Why>
+
+<Fix>
+
+For a component used by one form, type the prop as `Control<FormValues>`. For a component reused across forms, make it generic, as `TextInput` does in the example above. `name` is then checked against the form that owns `control`:
+
+```tsx
+function TextInput<T extends FieldValues>(props: {
+  control: Control<T>
+  name: FieldPath<T>
+}) {
+  // ...
+}
+```
+
+</Fix>
+
+</Troubleshoot>

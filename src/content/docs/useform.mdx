@@ -802,6 +802,129 @@ The following list contains references to `useForm` return props.
 - [control](/docs/useform/control)
 - [Form](/docs/useform/form)
 
+### Examples
+
+---
+
+A complete sign-up form: default values, validation rules, error messages, and an async submit that disables the button while it runs.
+
+<TabGroup buttonLabels={["TS", "JS"]}>
+
+```tsx copy
+import { useForm } from "react-hook-form"
+
+type FormValues = {
+  email: string
+  password: string
+}
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({
+    defaultValues: { email: "", password: "" },
+    mode: "onTouched",
+  })
+
+  const onSubmit = async (data: FormValues) => {
+    await fetch("/api/sign-up", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        aria-invalid={errors.email ? "true" : "false"}
+        {...register("email", {
+          required: "Email is required",
+          pattern: { value: /\S+@\S+\.\S+/, message: "Enter a valid email" },
+        })}
+      />
+      {errors.email && <p role="alert">{errors.email.message}</p>}
+
+      <label htmlFor="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        aria-invalid={errors.password ? "true" : "false"}
+        {...register("password", {
+          required: "Password is required",
+          minLength: { value: 8, message: "Use at least 8 characters" },
+        })}
+      />
+      {errors.password && <p role="alert">{errors.password.message}</p>}
+
+      <button type="submit" disabled={isSubmitting}>
+        Sign up
+      </button>
+    </form>
+  )
+}
+```
+
+```javascript copy
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    defaultValues: { email: "", password: "" },
+    mode: "onTouched",
+  })
+
+  const onSubmit = async (data) => {
+    await fetch("/api/sign-up", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        aria-invalid={errors.email ? "true" : "false"}
+        {...register("email", {
+          required: "Email is required",
+          pattern: { value: /\S+@\S+\.\S+/, message: "Enter a valid email" },
+        })}
+      />
+      {errors.email && <p role="alert">{errors.email.message}</p>}
+
+      <label htmlFor="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        aria-invalid={errors.password ? "true" : "false"}
+        {...register("password", {
+          required: "Password is required",
+          minLength: { value: 8, message: "Use at least 8 characters" },
+        })}
+      />
+      {errors.password && <p role="alert">{errors.password.message}</p>}
+
+      <button type="submit" disabled={isSubmitting}>
+        Sign up
+      </button>
+    </form>
+  )
+}
+```
+
+</TabGroup>
+
 ### Tips
 
 ---
@@ -810,3 +933,76 @@ The following list contains references to `useForm` return props.
 - If you are not sure which `mode` to use, try `mode: "onTouched"`. Errors show after the user leaves a field, and then update on every change. Users are not shown errors while they are still typing for the first time.
 - To load data from an API, pass it to [`values`](#values) instead of calling `reset` in a `useEffect`. The form updates when the values change, and the values are compared deeply, so a new object with the same content does not reset the form.
 - In a large form, keep `useForm` in the parent and move the parts that change often into child components. Read values with [`useWatch`](/docs/usewatch) and state with [`useFormState`](/docs/useformstate) in those children, so the whole form does not re-render on every key press.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### Fields stay empty after data loads from an API
+
+<Why>
+
+`defaultValues` is read once, on the first render, and then cached. If the data arrives later, the new `defaultValues` object is ignored.
+
+</Why>
+
+<Fix>
+
+Pass the data to [`values`](/docs/useform#values). The form updates whenever `values` changes:
+
+```javascript
+const { data } = useQuery(...)
+const { register } = useForm({ values: data })
+```
+
+Or call [`reset(data)`](/docs/useform/reset) once the data arrives.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### Errors only appear after the first submit
+
+<Why>
+
+This is the default. With `mode: "onSubmit"`, fields are not validated until the form is submitted. After that, `reValidateMode` (`"onChange"` by default) re-checks them as the user types.
+
+</Why>
+
+<Fix>
+
+Set [`mode`](#mode) to validate earlier, for example `useForm({ mode: "onTouched" })` to show errors when the user leaves a field.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `formState.isValid` (or another value) is always `false` in an event handler
+
+<Why>
+
+`formState` only tracks the values your component reads during render. If you read `formState.isValid` only inside a click handler or effect, the form never subscribed to it, so it is not kept up to date.
+
+</Why>
+
+<Fix>
+
+Read the value during render, for example by destructuring it:
+
+```javascript
+const {
+  formState: { isValid },
+} = useForm({ mode: "onChange" })
+
+<button disabled={!isValid}>Submit</button>
+```
+
+</Fix>
+
+</Troubleshoot>

@@ -75,25 +75,37 @@ The following table contains information about properties which `useController` 
 import { TextField } from "@mui/material"
 import { useController, useForm } from "react-hook-form"
 
-function Input({ control, name }) {
-  const {
-    field,
-    fieldState: { invalid, isTouched, isDirty },
-    formState: { touchedFields, dirtyFields },
-  } = useController({
+function Input({ control, name, label }) {
+  const { field, fieldState } = useController({
     name,
     control,
-    rules: { required: true },
+    rules: { required: `${label} is required` },
   })
 
   return (
     <TextField
+      label={label}
       onChange={field.onChange} // send the value to hook form
       onBlur={field.onBlur} // notify when the input is touched or blurred
       value={field.value} // input value
       name={field.name} // send the input name
       inputRef={field.ref} // send input ref, so we can focus on the input when an error appears
+      error={fieldState.invalid}
+      helperText={fieldState.error?.message}
     />
+  )
+}
+
+export default function App() {
+  const { handleSubmit, control } = useForm({
+    defaultValues: { firstName: "" },
+  })
+
+  return (
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <Input control={control} name="firstName" label="First name" />
+      <button type="submit">Submit</button>
+    </form>
   )
 }
 ```
@@ -310,3 +322,67 @@ export default function App() {
   <input {...input} />
   <input {...checkbox} />
   ```
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `A component is changing an uncontrolled input to be controlled`
+
+<Why>
+
+The field has no default value, so `field.value` is `undefined` on the first render. When the user types, the value becomes a string, and React warns that the input changed from uncontrolled to controlled.
+
+</Why>
+
+<Fix>
+
+Give the field a default value in `useForm`, even if it is just `""`:
+
+```javascript
+useForm({ defaultValues: { firstName: "" } })
+```
+
+You can also pass `defaultValue` to `useController`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### Changing `defaultValue` does not update the input
+
+<Why>
+
+The `defaultValue` option of `useController` is only read when the field first registers. Changing it later does not update the field.
+
+</Why>
+
+<Fix>
+
+Use `reset` or `setValue` to change the value after the first render, or pass data that loads later to [`values`](/docs/useform#values) on `useForm`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `Cannot read properties of null (reading '_names')`
+
+<Why>
+
+`useController` could not find a form: no `control` was passed and the component is not inside a [`FormProvider`](/docs/formprovider).
+
+</Why>
+
+<Fix>
+
+Pass `control` from `useForm`, or wrap the tree in `<FormProvider {...methods}>`. See [`control`](/docs/useform/control#Cannotreadpropertiesofnullreadingnames).
+
+</Fix>
+
+</Troubleshoot>

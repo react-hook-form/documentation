@@ -645,3 +645,33 @@ export default function App() {
   )
 }
 ```
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### The field array is empty after data loads from an API
+
+<Why>
+
+`fields` is built from `defaultValues`, which `useForm` reads once on the first render. Rows in data that arrives later are ignored.
+
+</Why>
+
+<Fix>
+
+Pass the data to [`values`](/docs/useform#values). The form updates whenever `values` changes:
+
+```javascript
+const { data } = useQuery(...)
+const { control } = useForm({ values: data })
+const { fields } = useFieldArray({ control, name: "items" })
+```
+
+Or call [`reset(data)`](/docs/useform/reset) once the data arrives.
+
+</Fix>
+
+</Troubleshoot>

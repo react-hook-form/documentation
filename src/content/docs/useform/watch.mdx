@@ -306,3 +306,34 @@ function App() {
 - `watch` is fine for small forms and for simple conditional fields, such as `watch("hasPhone") && <input {...register("phone")} />`. As the form grows, move the watched part into a child component with [`useWatch`](/docs/usewatch) or the [`Watch`](/docs/usewatch/watch) component.
 - Watch only the fields you need, for example `watch("country")` and not `watch()`. Watching the whole form re-renders the host component on every key press.
 - To run side effects when values change, such as saving to `localStorage` or calling an analytics API, use [`subscribe`](/docs/useform/subscribe). It does not re-render.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### A `useEffect` that depends on `watch()` runs on every render
+
+<Why>
+
+`watch()` returns a new object on every render, even when no value changed, so React always sees a changed dependency.
+
+</Why>
+
+<Fix>
+
+To run code when values change, use [`subscribe`](/docs/useform/subscribe) instead of an effect. To render values, use [`useWatch`](/docs/usewatch), which returns the same value until a watched field changes.
+
+```javascript
+useEffect(() => {
+  return subscribe({
+    formState: { values: true },
+    callback: ({ values }) => save(values),
+  })
+}, [subscribe])
+```
+
+</Fix>
+
+</Troubleshoot>

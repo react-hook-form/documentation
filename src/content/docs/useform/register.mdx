@@ -345,3 +345,65 @@ const firstName = register('firstName', { required: true })
 ```
 
 If you also need the input's ref yourself, see [How to share ref usage](/faqs#Howtosharerefusage).
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### A number input is submitted as a string
+
+<Why>
+
+Input values in the DOM are always strings, so `<input type="number">` gives you `"5"`, not `5`.
+
+</Why>
+
+<Fix>
+
+Add `valueAsNumber`, or `setValueAs` for your own conversion:
+
+```javascript
+<input type="number" {...register("age", { valueAsNumber: true })} />
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### A field in a custom input component is missing from the submitted data
+
+<Why>
+
+`register` reads the value through the `ref` of the actual `<input>`. If your component takes the props but does not pass `ref` on to the `<input>`, the field has no value and cannot be focused on errors.
+
+</Why>
+
+<Fix>
+
+Pass all props, including `ref`, to the `<input>`. If the component uses a different prop name such as `inputRef`, see [How to work with `innerRef`, `inputRef`](#HowtoworkwithinnerRefinputRef).
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### A field registered with `disabled: true` is missing from the submitted data
+
+<Why>
+
+Disabling a field through `register` excludes its value from the data passed to `handleSubmit`.
+
+</Why>
+
+<Fix>
+
+If the user should see the value but not change it, and you still need it in the submitted data, use `readOnly` instead: `<input readOnly {...register("id")} />`.
+
+</Fix>
+
+</Troubleshoot>

@@ -238,3 +238,83 @@ The following video tutorial explains the `handleSubmit` API in detail.
 
 - Transform the data inside `onValid` (or in your resolver) and not in the inputs. Inputs keep their raw values, and you send the shape your API needs.
 - When you call `handleSubmit(onValid)()` without an event, nothing calls `preventDefault`. Use this to submit from a keyboard shortcut or a timer.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `onSubmit` is never called and nothing happens
+
+<Why>
+
+Validation failed. `handleSubmit` only calls your handler when every field is valid. If you do not render `errors`, the form looks like it ignores the click.
+
+</Why>
+
+<Fix>
+
+Render `formState.errors`, or pass a second callback to see what failed:
+
+```javascript
+<form onSubmit={handleSubmit(onSubmit, (errors) => console.log(errors))}>
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### The page reloads and `onSubmit` never runs
+
+<Why>
+
+`handleSubmit(onSubmit)` returns the submit handler. Wrapping it in an arrow function, as in `onSubmit={() => handleSubmit(onSubmit)}`, creates that handler but never calls it, so the browser submits the form natively and reloads the page.
+
+</Why>
+
+<Fix>
+
+Pass the result directly:
+
+```javascript
+<form onSubmit={handleSubmit(onSubmit)}>
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### An error thrown in `onSubmit` is not shown to the user
+
+<Why>
+
+If `onSubmit` throws (or its promise rejects), `handleSubmit` rethrows the error and sets `isSubmitSuccessful` to `false`. Nothing is added to `formState.errors`.
+
+</Why>
+
+<Fix>
+
+Catch the error and store it with [`setError`](/docs/useform/seterror) under a `root` key:
+
+```javascript
+const onSubmit = async (data) => {
+  try {
+    await save(data)
+  } catch {
+    setError("root.server", { message: "Could not save. Try again." })
+  }
+}
+
+{
+  errors.root?.server && <p role="alert">{errors.root.server.message}</p>
+}
+```
+
+</Fix>
+
+</Troubleshoot>

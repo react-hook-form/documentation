@@ -169,6 +169,13 @@ export function mdxToMarkdown(raw) {
       continue
     }
 
+    // Troubleshooting cards: keep the heading, label the Why/Fix blocks.
+    if (/^<\/?(Troubleshoot|Why|Fix)>\s*$/.test(line)) {
+      if (line.startsWith("<Why>")) out.push(`${quote}**Why it happens:**`)
+      if (line.startsWith("<Fix>")) out.push(`${quote}**Fix:**`)
+      continue
+    }
+
     const youtube = line.match(/^<YouTube youTubeId="([^"]+)"\s*\/>/)
     if (youtube) {
       out.push(

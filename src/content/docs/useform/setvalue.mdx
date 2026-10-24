@@ -196,3 +196,33 @@ export default function App() {
 - When a value comes from the user through a custom widget, such as a map picker or a rich-text editor, pass `{ shouldDirty: true, shouldTouch: true, shouldValidate: true }`. The field then behaves the same as a native input that the user typed in.
 - To update several fields at once, use [`setValues`](/docs/useform/setvalues). It updates them with a single re-render, while calling `setValue` many times can cause more renders.
 - Do not call `setValue` during render. Call it in an event handler or an effect.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `isDirty` and errors don't change after `setValue`
+
+<Why>
+
+By default, `setValue` only updates the value. It does not validate the field or mark it as dirty or touched.
+
+</Why>
+
+<Fix>
+
+Pass the options you need:
+
+```javascript
+setValue("email", value, {
+  shouldValidate: true,
+  shouldDirty: true,
+  shouldTouch: true,
+})
+```
+
+</Fix>
+
+</Troubleshoot>

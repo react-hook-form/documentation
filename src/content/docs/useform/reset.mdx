@@ -341,3 +341,25 @@ function App() {
 - After a successful save, call `reset(savedData)` so the saved data becomes the new baseline and `isDirty` goes back to `false`. If you only want to move the dirty baseline and keep errors, touched fields, and submission state, use [`resetDefaultValues`](/docs/useform/resetdefaultvalues).
 - When the server sends fresh data while the user is editing, use `reset(newData, { keepDirtyValues: true })`. Fields the user changed keep their values, and the other fields are updated.
 - To load data once from an API, use `useForm({ values })` instead of `reset` in a `useEffect`. See [which option to use](/docs/useform#values).
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `reset()` clears the form instead of going back to the loaded data
+
+<Why>
+
+`reset()` with no arguments goes back to the default values. If you loaded the data with `setValue`, the default values never changed, so the form is reset to the original empty values.
+
+</Why>
+
+<Fix>
+
+Load the data with `reset(data)` or [`values`](/docs/useform#values). The loaded data then becomes the default values, and a later `reset()` returns to it.
+
+</Fix>
+
+</Troubleshoot>

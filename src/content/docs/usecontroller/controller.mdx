@@ -74,22 +74,23 @@ The following table contains information about properties which `Controller` pro
 
 ```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v6-controller-ts-jwyzw"
 import ReactDatePicker from "react-datepicker"
-import { TextField } from "@mui/material"
 import { useForm, Controller } from "react-hook-form"
 
 type FormValues = {
-  ReactDatepicker: string
+  ReactDatepicker: Date | null
 }
 
-function App() {
-  const { handleSubmit, control } = useForm<FormValues>()
+export default function App() {
+  const { handleSubmit, control } = useForm<FormValues>({
+    defaultValues: { ReactDatepicker: null },
+  })
 
   return (
     <form onSubmit={handleSubmit((data) => console.log(data))}>
       <Controller
         control={control}
         name="ReactDatepicker"
-        render={({ field: { onChange, onBlur, value, ref } }) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <ReactDatePicker
             onChange={onChange} // send the value to hook form
             onBlur={onBlur} // notify when the input is touched or blurred
@@ -106,18 +107,19 @@ function App() {
 
 ```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5"
 import ReactDatePicker from "react-datepicker"
-import { TextField } from "@mui/material"
 import { useForm, Controller } from "react-hook-form"
 
-function App() {
-  const { handleSubmit, control } = useForm()
+export default function App() {
+  const { handleSubmit, control } = useForm({
+    defaultValues: { ReactDatepicker: null },
+  })
 
   return (
     <form onSubmit={handleSubmit((data) => console.log(data))}>
       <Controller
         control={control}
         name="ReactDatepicker"
-        render={({ field: { onChange, onBlur, value, ref } }) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <ReactDatePicker
             onChange={onChange}
             onBlur={onBlur}
@@ -255,3 +257,49 @@ The following video showcases what's inside Controller and how it was built.
   ```
 
 </Admonition>
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `A component is changing an uncontrolled input to be controlled`
+
+<Why>
+
+The field has no default value, so `field.value` is `undefined` on the first render. When the user types, the value becomes a string, and React warns that the input changed from uncontrolled to controlled.
+
+</Why>
+
+<Fix>
+
+Give the field a default value in `useForm`, even if it is just `""`:
+
+```javascript
+useForm({ defaultValues: { firstName: "" } })
+```
+
+You can also pass `defaultValue` to `Controller`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### Changing the `defaultValue` prop does not update the input
+
+<Why>
+
+The `defaultValue` prop of `Controller` is only read when the field first registers. Changing it later does not update the field.
+
+</Why>
+
+<Fix>
+
+Use `reset` or `setValue` to change the value after the first render, or pass data that loads later to [`values`](/docs/useform#values) on `useForm`.
+
+</Fix>
+
+</Troubleshoot>
