@@ -6,6 +6,7 @@ const STATIC_PATHS = [
   "/",
   "/get-started",
   "/docs",
+  "/guides",
   "/ts",
   "/advanced-usage",
   "/faqs",

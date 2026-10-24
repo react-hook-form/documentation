@@ -2,6 +2,26 @@ export default {
   article: [
     {
       type: "article",
+      title: "Advanced Multistep Forms with React Hook Form",
+      url: "https://claritydev.net/blog/advanced-multistep-forms-with-react",
+      authorUrl: "https://claritydev.net",
+      author: "Alex Khomenko",
+      description:
+        "Extend a multi-step form with draft saving, flexible step navigation, and a confirmation screen for incomplete answers.",
+      version: "7",
+    },
+    {
+      type: "article",
+      title: "Display Warning for Unsaved Form Data on Page Exit",
+      url: "https://claritydev.net/blog/display-warning-for-unsaved-form-data-on-page-exit",
+      authorUrl: "https://claritydev.net",
+      author: "Alex Khomenko",
+      description:
+        "Use form dirty state with navigation and page-exit prompts to help users avoid losing unsaved changes.",
+      version: "7",
+    },
+    {
+      type: "article",
       title: "How to Create and Validate Forms With React Hook Form",
       url: "https://catalins.tech/react-forms-with-react-hook-form/",
       authorUrl: "https://catalins.tech/",
@@ -16,6 +36,7 @@ export default {
       type: "article",
       title: "Powerful Form Validation With React Hook Form and Zod",
       url: "https://catalins.tech/form-validation-with-react-hook-form-zod-typescript/",
+      recommendedOrder: 2,
       authorUrl: "https://catalins.tech/",
       author: "Catalin Pit",
       description:
@@ -28,6 +49,7 @@ export default {
       type: "article",
       title: "Managing forms with React Hook Form",
       url: "https://claritydev.net/blog/managing-forms-with-react-hook-form",
+      recommendedOrder: 1,
       authorUrl: "https://claritydev.net",
       author: "Alex Khomenko",
       description:
@@ -40,6 +62,7 @@ export default {
       type: "article",
       title: "Testing React Hook Form With React Testing Library",
       url: "https://claritydev.net/blog/testing-react-hook-form-with-react-testing-library",
+      recommendedOrder: 3,
       authorUrl: "https://claritydev.net",
       author: "Alex Khomenko",
       description:
@@ -52,6 +75,7 @@ export default {
       type: "article",
       title: "Build a Multistep Form With React Hook Form",
       url: "https://claritydev.net/blog/build-a-multistep-form-with-react-hook-form",
+      recommendedOrder: 4,
       authorUrl: "https://claritydev.net",
       author: "Alex Khomenko",
       description:
@@ -540,7 +564,7 @@ export default {
       authorUrl: "",
       author: "",
       description:
-        "A highly-rated walkthrough of building a production-ready form with React Hook Form, covering schema validation with Zod, TypeScript integration, and realistic server-side error handling.",
+        "A walkthrough of form validation with Zod, TypeScript, and server-side error handling.",
       version: "7",
     },
     {
@@ -671,6 +695,7 @@ export default {
       type: "video",
       title: "React Hook Form V7 - Get Started",
       url: "https://www.youtube.com/watch?v=DN8v7_RbVlc",
+      recommendedOrder: 1,
       authorUrl: "https://www.youtube.com/channel/UC9qgXurGpQzePCx928oyIZg",
       author: "Bill Luo",
       description:
@@ -996,14 +1021,46 @@ export default {
   binding: [
     {
       type: "binding",
+      title: "React Hook Form Persist",
+      url: "https://github.com/tiaanduplessis/react-hook-form-persist",
+      description:
+        "Save and restore form drafts using sessionStorage, localStorage, or a custom storage adapter, with options to include or exclude fields.",
+      version: "7",
+    },
+    {
+      type: "binding",
+      title: "React Phone Number Input",
+      url: "https://github.com/catamphetamine/react-phone-number-input#react-hook-form",
+      description:
+        "International phone inputs with built-in React Hook Form adapters, with or without a country selector.",
+    },
+    {
+      type: "binding",
+      title: "KoliBri React Hook Form Adapter",
+      url: "https://public-ui.github.io/en/docs/get-started/react-hook-form",
+      description:
+        "Connect KoliBri UI components to form values, validation errors, touched state, and disabled state using controller components.",
+      version: "7",
+    },
+    {
+      type: "binding",
+      title: "React Native Paper Form Builder",
+      url: "https://github.com/fateh999/react-native-paper-form-builder",
+      description:
+        "Build React Native forms with Paper components, React Hook Form validation, dropdowns, autocomplete, checkboxes, and switches.",
+    },
+    {
+      type: "binding",
       url: "https://github.com/aranlucas/react-hook-form-mantine",
+      recommendedOrder: 3,
       title: "Mantine React Hook Form bindings",
       description:
-        "A wrapper around Mantine input components to use with react-hook-form.",
+        "Controller-based wrappers for Mantine text, select, date, slider, and grouped inputs, with field values and validation errors wired into the UI.",
     },
     {
       type: "binding",
       url: "https://www.npmjs.com/package/react-hook-form-mui",
+      recommendedOrder: 2,
       title: "MUI React Hook Form bindings",
       description:
         "This project simplifies the use of react-hook-form and Material-UI.",
@@ -1017,16 +1074,18 @@ export default {
     {
       type: "binding",
       url: "https://github.com/jsun969/react-hook-form-antd",
+      recommendedOrder: 4,
       title: "Ant Design React Hook Form binding",
       description:
-        "A component to use React Hook Form instead of Ant Design form",
+        "Connect Ant Design Form.Item components to React Hook Form. The documented requirements are React Hook Form 7 and Ant Design 5.",
     },
     {
       type: "binding",
       url: "https://ui.shadcn.com/docs/forms/react-hook-form",
+      recommendedOrder: 1,
       title: "Building forms with React Hook Form and Zod",
       description:
-        "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source",
+        "The shadcn/ui guide to building forms with React Hook Form, schema validation, and accessible field errors.",
     },
     {
       type: "binding",

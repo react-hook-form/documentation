@@ -14,20 +14,21 @@ const PRIMARY = [
   { href: "/get-started", label: nav.getStarted },
   { href: "/docs", label: "API", match: ["/docs"] },
   {
-    href: "/advanced-usage",
-    label: nav.advanced,
-    match: ["/advanced-usage", "/migrate-v7-to-v8"],
+    href: "/guides",
+    label: nav.guides,
+    match: ["/guides", "/integrations", "/ts", "/faqs", "/migrate-v7-to-v8"],
   },
+  { href: "/advanced-usage", label: nav.advanced },
 ]
 
 const RESOURCES = [
   {
-    heading: "Learn",
+    heading: "Explore",
     links: [
-      { href: "/integrations", label: "Integrations" },
-      { href: "/ts", label: "TypeScript" },
+      { href: "/resources", label: "Resource directory" },
       { href: "/resources/articles", label: "Articles & Tutorials" },
-      { href: "/faqs", label: nav.faqs },
+      { href: "/resources/videos", label: "Videos" },
+      { href: "/resources/newsletters", label: "Newsletter archive" },
     ],
   },
   {
@@ -100,8 +101,6 @@ export default function Nav() {
   const isActive = (href: string, match?: string[]) =>
     pathname === href || !!match?.some((m) => pathname.startsWith(m))
   const resourcesActive =
-    pathname === "/integrations" ||
-    pathname.startsWith("/integrations/") ||
     pathname === "/resources" ||
     pathname.startsWith("/resources/") ||
     RESOURCES.some((group) =>

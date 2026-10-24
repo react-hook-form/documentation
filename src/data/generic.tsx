@@ -11,9 +11,9 @@ export default {
     buttonText: "Checkout API",
   },
   advanceUsage: {
-    title: "Guides",
+    title: "Advanced",
     description: `Learn how to build complex and accessible forms`,
-    buttonText: `Explore Guides`,
+    buttonText: `Explore Advanced Patterns`,
   },
   needYourSupport: {
     title: "Thank you for your support",

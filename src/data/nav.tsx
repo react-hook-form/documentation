@@ -1,7 +1,8 @@
 const Nav = {
   home: "Home",
   getStarted: "Get Started",
-  advanced: "Guides",
+  advanced: "Advanced",
+  guides: "Guides",
   tools: {
     devTools: "DevTools",
     formBuilder: "Form Builder",

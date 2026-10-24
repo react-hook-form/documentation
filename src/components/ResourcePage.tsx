@@ -1,9 +1,11 @@
+import Link from "next/link"
 import Footer from "./Footer"
 import ResourceList from "./ResourceList"
 import type { ResourceKind } from "./ResourceList"
 import StarRepo from "./StarRepo"
 import resources from "../data/resources"
 import cards from "../styles/cards.module.css"
+import styles from "./ResourcePage.module.css"
 
 export const RESOURCE_PAGES: Record<
   ResourceKind,
@@ -20,13 +22,13 @@ export const RESOURCE_PAGES: Record<
     href: "/resources/videos",
   },
   newsletter: {
-    title: "Newsletters",
-    lead: "Newsletters and publications that have featured React Hook Form.",
+    title: "Newsletter Archive",
+    lead: "Earlier newsletters and publications featuring React Hook Form. Browse the project’s history, or see release notes for current changes.",
     href: "/resources/newsletters",
   },
   binding: {
     title: "Community Integrations",
-    lead: "Community-built bindings for popular UI libraries.",
+    lead: "Connect UI libraries with community packages and integration examples. Check each project’s documentation for supported versions.",
     href: "/resources/3rd-party-bindings",
   },
 }
@@ -38,6 +40,25 @@ export default function ResourcePage({ kind }: { kind: ResourceKind }) {
     <div className={cards.page}>
       <main>
         <ResourceList
+          navigation={
+            <nav
+              className={styles.navigation}
+              aria-label="Resource collections"
+            >
+              <Link href="/resources">Resources</Link>
+              {(["article", "video", "binding", "newsletter"] as const).map(
+                (resourceKind) => (
+                  <Link
+                    key={resourceKind}
+                    href={RESOURCE_PAGES[resourceKind].href}
+                    aria-current={kind === resourceKind ? "page" : undefined}
+                  >
+                    {RESOURCE_PAGES[resourceKind].title}
+                  </Link>
+                )
+              )}
+            </nav>
+          }
           kind={kind}
           title={title}
           lead={lead}

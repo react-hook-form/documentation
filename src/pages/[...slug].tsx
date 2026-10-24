@@ -19,7 +19,7 @@ const SEGMENT_LABEL_OVERRIDES: Record<string, string> = { docs: "API" }
 
 const SIDEBAR_TITLES: Record<Doc["sidebar"], string> = {
   apiLinks: "API Reference",
-  advancedLinks: "Guides",
+  advancedLinks: "Advanced",
   tsLinks: "TypeScript",
   faqLinks: "FAQs",
   getStartedLinks: "Get Started",

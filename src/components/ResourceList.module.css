@@ -152,3 +152,22 @@ a.author:hover {
   padding-top: var(--space-3);
   padding-bottom: var(--space-3);
 }
+
+.orderNote {
+  margin: 0 0 var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.recommended {
+  display: inline-block;
+  margin-top: var(--space-3);
+  color: var(--color-accent-text);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.row .recommended {
+  margin-top: 0;
+}

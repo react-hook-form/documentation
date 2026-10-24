@@ -1,5 +1,5 @@
-import { useState, type JSX } from "react"
-import { useForm } from "react-hook-form"
+import { useState, type JSX, type ReactNode } from "react"
+import { useForm, useWatch } from "react-hook-form"
 import clsx from "clsx"
 import PageHeader from "./PageHeader"
 import SegmentedControl from "./SegmentedControl"
@@ -15,6 +15,7 @@ interface Resource {
   author?: string
   url: string
   authorUrl?: string
+  recommendedOrder?: number
 }
 
 interface ResourceListFormData {
@@ -25,7 +26,7 @@ const NOUNS: Record<ResourceKind, [string, string]> = {
   article: ["article", "articles"],
   video: ["video", "videos"],
   newsletter: ["newsletter", "newsletters"],
-  binding: ["binding", "bindings"],
+  binding: ["integration", "integrations"],
 }
 
 export const RESOURCE_ICONS: Record<ResourceKind, JSX.Element> = {
@@ -69,20 +70,33 @@ export default function ResourceList({
   title,
   lead,
   resources,
+  navigation,
 }: {
   kind: ResourceKind
   title: string
   lead: string
   resources: Resource[]
+  navigation?: ReactNode
 }) {
-  const { register, watch } = useForm<ResourceListFormData>({
+  const { register, control } = useForm<ResourceListFormData>({
     mode: "onChange",
   })
   const [layout, setLayout] = useState<"grid" | "list">("grid")
 
   // Plain substring match: user input never goes through RegExp.
-  const query = (watch("filterResources") ?? "").trim().toLowerCase()
-  const filtered = resources.filter(({ title, author, description, version }) =>
+  const query = useWatch({ control, name: "filterResources", defaultValue: "" })
+    .trim()
+    .toLowerCase()
+  // Curated starting points first; then prefer newer library versions.
+  // Stable sorting preserves the source order for equally ranked resources.
+  const sorted = [...resources].sort(
+    (a, b) =>
+      (a.recommendedOrder ?? Number.MAX_SAFE_INTEGER) -
+        (b.recommendedOrder ?? Number.MAX_SAFE_INTEGER) ||
+      Number.parseInt(b.version ?? "0", 10) -
+        Number.parseInt(a.version ?? "0", 10)
+  )
+  const filtered = sorted.filter(({ title, author, description, version }) =>
     `${title} ${author ?? ""} ${description ?? ""} ${version ? `v${version}` : ""}`
       .toLowerCase()
       .includes(query)
@@ -92,7 +106,16 @@ export default function ResourceList({
   return (
     <>
       <PageHeader eyebrow="Resources" title={title} lead={lead} />
+      {navigation}
 
+      {resources.some(
+        (resource) => resource.recommendedOrder !== undefined
+      ) && (
+        <p className={styles.orderNote}>
+          Recommended starting points appear first. Version badges show the
+          library version covered by each example.
+        </p>
+      )}
       <div className={styles.toolbar}>
         <label className={styles.search}>
           <svg viewBox="0 0 24 24" aria-hidden>
@@ -132,7 +155,15 @@ export default function ResourceList({
           )}
         >
           {filtered.map(
-            ({ url, title, author, authorUrl, version, description }) => (
+            ({
+              url,
+              title,
+              author,
+              authorUrl,
+              version,
+              description,
+              recommendedOrder,
+            }) => (
               <li
                 key={url + title}
                 className={clsx(cards.card, layout === "list" && styles.row)}
@@ -141,6 +172,9 @@ export default function ResourceList({
                   <span className={cards.icon}>{RESOURCE_ICONS[kind]}</span>
                   {version && <span className={cards.badge}>v{version}</span>}
                   <div className={styles.content}>
+                    {recommendedOrder !== undefined && (
+                      <span className={styles.recommended}>Recommended</span>
+                    )}
                     <h2 className={clsx(cards.title, styles.title)}>
                       <a
                         href={url}

@@ -1,0 +1,86 @@
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-3);
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.navigation a {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-full);
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+}
+
+.navigation a:hover,
+.navigation a[aria-current="page"] {
+  border-color: var(--color-accent-text);
+  background: var(--color-surface);
+}
+
+.navigation a:focus-visible {
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: 3px;
+}
+
+.section {
+  margin-bottom: var(--space-12);
+}
+
+.sectionHeading {
+  margin-bottom: var(--space-5);
+}
+
+.sectionHeading h2,
+.updates h2 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-2xl);
+  letter-spacing: -0.02em;
+  scroll-margin-top: 90px;
+}
+
+.sectionHeading > p:not(.eyebrow),
+.note,
+.updates > p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-2);
+  color: var(--color-accent-text);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.note {
+  margin-top: var(--space-4);
+}
+
+.updates {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border-muted);
+}
+
+.updates .navigation {
+  margin-top: var(--space-4);
+  margin-bottom: 0;
+}
+
+.intro {
+  margin: 0 0 var(--space-8);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}

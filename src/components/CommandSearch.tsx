@@ -38,7 +38,7 @@ const ANCHOR_GROUPS: { group: string; page: string; links: Pages }[] = [
     page: "/get-started",
     links: sidebar.getStartedLinks,
   },
-  { group: "Guides", page: "/advanced-usage", links: sidebar.advancedLinks },
+  { group: "Advanced", page: "/advanced-usage", links: sidebar.advancedLinks },
   { group: "TypeScript", page: "/ts", links: sidebar.tsLinks },
   { group: "FAQs", page: "/faqs", links: sidebar.faqLinks },
   {
@@ -93,6 +93,18 @@ const TASKS: Result[] = [
 ].map((task) => ({ ...task, group: "Common tasks" }))
 
 const LOCAL_INDEX: Result[] = [
+  {
+    group: "Guides",
+    title: "Guides",
+    href: "/guides",
+    keywords: "learning path tutorials examples integrations advanced",
+  },
+  {
+    group: "Resources",
+    title: "Resource directory",
+    href: "/resources",
+    keywords: "community tools videos articles",
+  },
   ...TASKS,
   ...sidebar.apiLinks.flatMap((page) => [
     { group: "API", title: page.name, href: page.pathname },
@@ -117,6 +129,7 @@ const LOCAL_INDEX: Result[] = [
 const QUICK_LINKS: Result[] = [
   ...TASKS.slice(0, 5),
   { group: "Jump to", title: "Get Started", href: "/get-started" },
+  { group: "Jump to", title: "Guides", href: "/guides" },
   { group: "Jump to", title: "useForm", href: "/docs/useform" },
   { group: "Jump to", title: "register", href: "/docs/useform/register" },
   {

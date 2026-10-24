@@ -22,7 +22,7 @@ const SECTIONS = [
   ["integrationLinks", "Integrations"],
   ["apiLinks", "API Reference"],
   ["tsLinks", "TypeScript"],
-  ["advancedLinks", "Guides"],
+  ["advancedLinks", "Advanced"],
   ["faqLinks", "FAQs"],
   ["migrateV7ToV8Links", "Migrate to v8"],
 ]
@@ -228,6 +228,7 @@ function renderLlmsTxt(docs) {
 
 - Package: [react-hook-form on npm](https://www.npmjs.com/package/react-hook-form)
 - Source: [github.com/react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form)
+- Guides and learning paths: [Guides](${SITE_URL}/guides)
 - Schema resolvers (Zod, Yup, Valibot, etc.): [@hookform/resolvers](https://github.com/react-hook-form/resolvers)
 - Full documentation in a single file: [llms-full.txt](${SITE_URL}/llms-full.txt)
 
@@ -239,7 +240,7 @@ ${sections.join("\n\n")}
 
 - [DevTools](${SITE_URL}/dev-tools): Visual debugging for React Hook Form.
 - [Form Builder](${SITE_URL}/form-builder): Generate form code with validation.
-- [3rd-Party Bindings](${SITE_URL}/resources/3rd-party-bindings): Community bindings for UI libraries.
+- [Community Integrations](${SITE_URL}/resources/3rd-party-bindings): Community bindings for UI libraries.
 `
 }
 
