@@ -1,6 +1,13 @@
 import { Pages } from "../../types/types"
 
 export const advancedLinks: Pages = [
+  { name: "Editing saved data", pathname: "#EditingSavedData" },
+  { name: "Handling server errors", pathname: "#HandlingServerErrors" },
+  { name: "Conditional fields", pathname: "#ConditionalFields" },
+  {
+    name: "Isolating form subscriptions",
+    pathname: "#IsolatingFormSubscriptions",
+  },
   {
     name: "Accessibility (A11y)",
     pathname: "#AccessibilityA11y",

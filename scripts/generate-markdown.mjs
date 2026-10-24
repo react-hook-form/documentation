@@ -22,7 +22,7 @@ const SECTIONS = [
   ["integrationLinks", "Integrations"],
   ["apiLinks", "API Reference"],
   ["tsLinks", "TypeScript"],
-  ["advancedLinks", "Advanced Usage"],
+  ["advancedLinks", "Guides"],
   ["faqLinks", "FAQs"],
   ["migrateV7ToV8Links", "Migrate to v8"],
 ]
