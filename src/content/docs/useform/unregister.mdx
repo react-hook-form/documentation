@@ -79,51 +79,73 @@ The example below shows what to expect when you invoke the `unregister` method.
 
 <TabGroup buttonLabels={["TS", "JS"]}>
 
-```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-unregister-v6-ts-forked-4k2ey"
+```tsx copy
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
-interface IFormInputs {
-  firstName: string
-  lastName?: string
+type FormInputs = {
+  name: string
+  addPhone: boolean
+  phone?: string
 }
 
 export default function App() {
-  const { register, handleSubmit, unregister } = useForm<IFormInputs>()
-  const onSubmit = (data: IFormInputs) => console.log(data)
+  const { register, handleSubmit, unregister, watch } = useForm<FormInputs>({
+    defaultValues: { name: "", addPhone: false, phone: "" },
+  })
+  const addPhone = watch("addPhone")
+  const onSubmit = (data: FormInputs) => console.log(data)
 
   useEffect(() => {
-    register("lastName")
-  }, [register])
+    // the phone input is already unmounted here, so the field stays removed
+    if (!addPhone) unregister("phone")
+  }, [addPhone, unregister])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <button type="button" onClick={() => unregister("lastName")}>
-        unregister
-      </button>
-      <input type="submit" />
+      <input {...register("name")} placeholder="Name" />
+
+      <label>
+        <input type="checkbox" {...register("addPhone")} />
+        Add a phone number
+      </label>
+
+      {addPhone && <input {...register("phone")} placeholder="Phone" />}
+
+      <button type="submit">Submit</button>
     </form>
   )
 }
 ```
 
-```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unregister-v6-forked-qs8o6"
+```javascript copy
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
-  const { register, handleSubmit, unregister } = useForm()
+  const { register, handleSubmit, unregister, watch } = useForm({
+    defaultValues: { name: "", addPhone: false, phone: "" },
+  })
+  const addPhone = watch("addPhone")
+  const onSubmit = (data) => console.log(data)
 
   useEffect(() => {
-    register("lastName")
-  }, [register])
+    // the phone input is already unmounted here, so the field stays removed
+    if (!addPhone) unregister("phone")
+  }, [addPhone, unregister])
 
   return (
-    <form>
-      <button type="button" onClick={() => unregister("lastName")}>
-        unregister
-      </button>
-      <input type="submit" />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("name")} placeholder="Name" />
+
+      <label>
+        <input type="checkbox" {...register("addPhone")} />
+        Add a phone number
+      </label>
+
+      {addPhone && <input {...register("phone")} placeholder="Phone" />}
+
+      <button type="submit">Submit</button>
     </form>
   )
 }
@@ -143,3 +165,25 @@ export default function App() {
 
 - For fields that show and hide, try the `shouldUnregister: true` option (on [`useForm`](/docs/useform#shouldUnregister) or [`register`](/docs/useform/register#options)) before you call `unregister` by hand. The field is removed when its input unmounts.
 - With a resolver, `unregister` does not change the schema. Make the schema conditional instead, for example with a discriminated union or `.optional()`, so hidden fields are not validated.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### The field comes back right after `unregister`
+
+<Why>
+
+The input is still rendered. On the next render, its `register` call registers the field again, with the value still in the input.
+
+</Why>
+
+<Fix>
+
+Remove the input from the page first, then call `unregister`. Or use the `shouldUnregister: true` option, which unregisters the field automatically when its input unmounts.
+
+</Fix>
+
+</Troubleshoot>

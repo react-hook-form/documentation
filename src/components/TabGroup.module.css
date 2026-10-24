@@ -1,34 +1,73 @@
+.root {
+  margin: var(--space-5) 0;
+}
+
 .buttonTabGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
+  display: grid;
+  grid-auto-columns: minmax(max-content, 1fr);
+  grid-auto-flow: column;
+  gap: var(--space-1);
+  max-width: 100%;
+  padding: var(--space-1);
+  overflow-x: auto;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .buttonTabGroup > button {
-  color: var(--color-text);
-  background: var(--color-background);
-  padding: var(--space-1) var(--space-2);
+  min-height: 36px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
-  border: none;
-  transition: var(--transition);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  flex: 1 1 auto;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: var(--transition-interactive);
 }
 
 .buttonTabGroup > button:hover {
-  background: var(--color-secondary);
+  background: color-mix(
+    in srgb,
+    var(--color-surface-elevated) 75%,
+    transparent
+  );
+  color: var(--color-text);
 }
 
-.buttonTabGroup > button:disabled {
-  border-top: 1px solid var(--color-secondary);
-  background: var(--color-primary);
-  color: white;
-  cursor: not-allowed;
+.buttonTabGroup > button:focus-visible {
+  z-index: 1;
+  outline-offset: 1px;
 }
 
-@media (min-width: 768px) {
-  .buttonTabGroup > button {
-    padding: var(--space-1) var(--space-5);
-  }
+.buttonTabGroup > .active,
+.buttonTabGroup > .active:hover {
+  border-color: color-mix(in srgb, var(--color-accent-text) 45%, transparent);
+  background: color-mix(in srgb, var(--color-accent-text) 16%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  color: var(--color-accent-text);
+  cursor: default;
+}
+
+.panel {
+  margin-top: var(--space-2);
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panel :global(pre:first-child) {
+  margin-top: 0;
+}
+
+:global(.light) .buttonTabGroup {
+  background: var(--color-surface);
+  box-shadow: none;
 }

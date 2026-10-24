@@ -33,7 +33,8 @@ Render-optimization isolation only applies when you target a single field by pas
 
 <TabGroup buttonLabels={["TS", "JS"]} >
 
-```tsx copy sandbox="https://codesandbox.io/s/react-hook-form-v6-ts-triggervalidation-forked-xs7hl"
+```tsx copy
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 
 type FormInputs = {
@@ -46,42 +47,47 @@ export default function App() {
     register,
     trigger,
     formState: { errors },
-  } = useForm<FormInputs>()
+  } = useForm<FormInputs>({
+    defaultValues: { firstName: "", lastName: "" },
+  })
+  const [status, setStatus] = useState("")
+
+  const check = async (names?: keyof FormInputs | (keyof FormInputs)[]) => {
+    const isValid = await trigger(names, { shouldFocus: true })
+    setStatus(isValid ? "All checked fields are valid" : "Fix the errors above")
+  }
 
   return (
     <form>
-      <input {...register("firstName", { required: true })} />
-      <input {...register("lastName", { required: true })} />
-      <button
-        type="button"
-        onClick={() => {
-          trigger("lastName")
-        }}
-      >
+      <input
+        {...register("firstName", { required: "First name is required" })}
+        placeholder="First name"
+      />
+      {errors.firstName && <p role="alert">{errors.firstName.message}</p>}
+
+      <input
+        {...register("lastName", { required: "Last name is required" })}
+        placeholder="Last name"
+      />
+      {errors.lastName && <p role="alert">{errors.lastName.message}</p>}
+
+      <button type="button" onClick={() => check("lastName")}>
         Trigger
       </button>
-      <button
-        type="button"
-        onClick={() => {
-          trigger(["firstName", "lastName"])
-        }}
-      >
+      <button type="button" onClick={() => check(["firstName", "lastName"])}>
         Trigger Multiple
       </button>
-      <button
-        type="button"
-        onClick={() => {
-          trigger()
-        }}
-      >
+      <button type="button" onClick={() => check()}>
         Trigger All
       </button>
+      <p>{status}</p>
     </form>
   )
 }
 ```
 
-```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-v6-triggervalidation-forked-8w9tn"
+```javascript copy
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 
 export default function App() {
@@ -89,37 +95,40 @@ export default function App() {
     register,
     trigger,
     formState: { errors },
-  } = useForm()
+  } = useForm({
+    defaultValues: { firstName: "", lastName: "" },
+  })
+  const [status, setStatus] = useState("")
+
+  const check = async (names) => {
+    const isValid = await trigger(names, { shouldFocus: true })
+    setStatus(isValid ? "All checked fields are valid" : "Fix the errors above")
+  }
 
   return (
     <form>
-      <input {...register("firstName", { required: true })} />
-      <input {...register("lastName", { required: true })} />
-      <button
-        type="button"
-        onClick={async () => {
-          const result = await trigger("lastName")
-          // const result = await trigger("lastName", { shouldFocus: true }); allowed to focus input
-        }}
-      >
+      <input
+        {...register("firstName", { required: "First name is required" })}
+        placeholder="First name"
+      />
+      {errors.firstName && <p role="alert">{errors.firstName.message}</p>}
+
+      <input
+        {...register("lastName", { required: "Last name is required" })}
+        placeholder="Last name"
+      />
+      {errors.lastName && <p role="alert">{errors.lastName.message}</p>}
+
+      <button type="button" onClick={() => check("lastName")}>
         Trigger
       </button>
-      <button
-        type="button"
-        onClick={async () => {
-          const result = await trigger(["firstName", "lastName"])
-        }}
-      >
+      <button type="button" onClick={() => check(["firstName", "lastName"])}>
         Trigger Multiple
       </button>
-      <button
-        type="button"
-        onClick={() => {
-          trigger()
-        }}
-      >
+      <button type="button" onClick={() => check()}>
         Trigger All
       </button>
+      <p>{status}</p>
     </form>
   )
 }
@@ -152,3 +161,48 @@ The following video explains `trigger` API in detail.
 
 - For fields that depend on each other, such as `password` and `confirmPassword`, use the [`deps`](/docs/useform/register#options) option of `register`. You do not need to call `trigger` in an `onChange`.
 - Use `trigger("name", { shouldTouch: true })` to show an error for a field that the user skipped, without changing its value.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `if (!trigger("email"))` never runs
+
+<Why>
+
+`trigger` returns a `Promise<boolean>`, not a boolean. A promise is always truthy, so `!trigger(...)` is always `false`.
+
+</Why>
+
+<Fix>
+
+Await the result:
+
+```javascript
+const isValid = await trigger("email")
+if (!isValid) return
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `trigger` returns `true` for a field that should fail
+
+<Why>
+
+`trigger` only validates fields that are registered. A field whose input is not rendered (for example, a step of a wizard that is not on screen) or a misspelled name has no rules to check, so it passes.
+
+</Why>
+
+<Fix>
+
+Check that the field's input is rendered and the name matches its `register` call. To validate fields that are not on screen, use a [`resolver`](/docs/useform#resolver), which checks all values against the schema.
+
+</Fix>
+
+</Troubleshoot>

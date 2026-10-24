@@ -146,3 +146,25 @@ export default function App() {
 
 - Pass `name` to scope the subscription to one field or one section. Use it with [`getFieldState`](/docs/useform/getfieldstate) to read that field's `error`, `isDirty`, and `isTouched`.
 - You can call `useFormState` more than once in the same component. Each call has its own subscription and does not affect the others.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `Cannot read properties of null (reading '_formState')`
+
+<Why>
+
+`useFormState` could not find a form: no `control` was passed and the component is not inside a [`FormProvider`](/docs/formprovider).
+
+</Why>
+
+<Fix>
+
+Pass `control` from `useForm`, or render the component inside `<FormProvider {...methods}>`.
+
+</Fix>
+
+</Troubleshoot>

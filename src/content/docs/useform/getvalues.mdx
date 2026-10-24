@@ -125,7 +125,7 @@ type Inputs = {
   key4: Date
 }
 
-export default function App() {
+function FlatForm() {
   const { register, getValues } = useForm<Inputs>()
 
   getValues()
@@ -144,7 +144,7 @@ type Inputs1 = {
   key4: string[]
 }
 
-export default function Form() {
+function NestedForm() {
   const { register, getValues } = useForm<Inputs1>()
 
   getValues()
@@ -183,3 +183,25 @@ export default function Form() {
 
 - Do not mutate the object that `getValues` returns. Nested objects are shared with the form's internal state, so changing them can change form values without updating the form state. Copy the value first, or use [`setValue`](/docs/useform/setvalue).
 - Use `getValues` in event handlers, for example to build a preview or to save a draft on click. In those places you need the latest values once, not a subscription.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### A value shown with `getValues` doesn't update as the user types
+
+<Why>
+
+`getValues` reads the current values once and does not subscribe to changes, so the component does not re-render when the input changes.
+
+</Why>
+
+<Fix>
+
+To render a value, use [`useWatch`](/docs/usewatch) (or [`watch`](/docs/useform/watch)), which re-renders when the value changes. Keep `getValues` for event handlers.
+
+</Fix>
+
+</Troubleshoot>

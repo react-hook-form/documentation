@@ -114,3 +114,47 @@ return <button disabled={!isDirty || !isValid} />;
 - A common submit button pattern is `disabled={!isDirty || isSubmitting}`. It prevents an empty submission and a double submission. Remember to destructure both values before you use them.
 - Use `isSubmitSuccessful` to show a confirmation message, or to reset the form in a `useEffect` after a successful submission (see [`reset`](/docs/useform/reset)).
 - `errors` holds what is currently stored, not what is valid right now. To check validity without showing errors, use `isValid`. To validate on demand, use [`trigger`](/docs/useform/trigger).
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `isDirty` stays `true` after the user clears the field
+
+<Why>
+
+`isDirty` compares the current values with `defaultValues`. A field without a default value starts as `undefined`, and after the user types and deletes the text its value is `""`. That is not equal to `undefined`, so the field is still dirty.
+
+</Why>
+
+<Fix>
+
+Give every field a default value in `useForm`, even if it is just `""`:
+
+```javascript
+useForm({ defaultValues: { firstName: "" } })
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### A `formState` value is stale when you read it in a handler
+
+<Why>
+
+`formState` only tracks the values your component reads during render. A value you read only inside an event handler or effect is never subscribed to.
+
+</Why>
+
+<Fix>
+
+Destructure the value during render, as in `const { formState: { isValid } } = useForm()`. See [`useForm`](/docs/useform#formStateisValidoranothervalueisalwaysfalseinaneventhandler) for an example.
+
+</Fix>
+
+</Troubleshoot>

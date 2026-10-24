@@ -400,3 +400,32 @@ The following video explains the `setError` API in detail.
 
 - Use `root.*` for errors that do not belong to one field, such as "Network error" or "Too many attempts". Root errors are cleared on the next submission. Show them with [`ErrorMessage`](/docs/useformstate/errormessage) and `name="root.server"`.
 - Give server errors a `type` such as `"server"`. Then your UI can show them differently from client-side validation errors.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### An error set with `setError` disappears on submit and doesn't stop `onSubmit`
+
+<Why>
+
+`setError` adds an error to the form state, but it does not add a validation rule. On submit, `handleSubmit` validates the form again and clears errors that are not backed by a rule, including `root.*` errors. If every field passes, your `onSubmit` runs.
+
+</Why>
+
+<Fix>
+
+Use `setError` to show errors that come back from the server after a submit. For errors that must block submission, add the check as a validation rule instead:
+
+```javascript
+register("username", {
+  validate: async (value) =>
+    (await isUsernameFree(value)) || "This username is taken",
+})
+```
+
+</Fix>
+
+</Troubleshoot>

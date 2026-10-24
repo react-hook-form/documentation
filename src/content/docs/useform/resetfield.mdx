@@ -150,3 +150,25 @@ The following video tutorial demonstrates `resetField` API.
 - Use `resetField` for a per-field "Undo" or "Cancel" button in an inline editor. Only that field's value and state change.
 - After you save one field, call `resetField(name, { defaultValue: savedValue })`. The saved value becomes the new default, so the field is no longer dirty.
 - To reset many fields at the same time, use [`reset`](/docs/useform/reset) with the `keep*` options. One call is easier to follow than many `resetField` calls.
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `resetField` goes back to an empty value instead of the saved one
+
+<Why>
+
+`resetField` restores the field's default value. If you loaded or saved the value with `setValue`, the default value never changed.
+
+</Why>
+
+<Fix>
+
+Pass the saved value as the new default: `resetField("name", { defaultValue: savedValue })`. To load data for the whole form, use [`values`](/docs/useform#values) or [`reset(data)`](/docs/useform/reset).
+
+</Fix>
+
+</Troubleshoot>

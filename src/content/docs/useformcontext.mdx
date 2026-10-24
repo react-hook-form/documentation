@@ -105,3 +105,69 @@ function NestedInput() {
 
 - `useFormContext` couples a component to one form shape. For an input that you reuse in many forms, take `name` (and optionally `control`) as props and use [`useController`](/docs/usecontroller), or look at [`useLens`](/docs/uselens).
 - Use the context only for the methods you need. For example, `const { register } = useFormContext()` in a leaf input. Read state with [`useFormState`](/docs/useformstate) and values with [`useWatch`](/docs/usewatch).
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `Cannot destructure property 'register' of 'useFormContext(...)' as it is null`
+
+<Why>
+
+`useFormContext()` returns `null` outside a [`FormProvider`](/docs/formprovider). The exact wording depends on your bundler, but the message always ends in `as it is null`.
+
+</Why>
+
+<Fix>
+
+Render the component inside a `FormProvider` that receives the whole `useForm` return value:
+
+```javascript
+const methods = useForm()
+
+<FormProvider {...methods}>
+  <NestedInput />
+</FormProvider>
+```
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### `handleSubmit is not a function` (or another method is `undefined`)
+
+<Why>
+
+Only some methods were passed to `FormProvider`, for example `<FormProvider register={register}>`. `useFormContext()` returns exactly what the provider received, so the other methods are missing.
+
+</Why>
+
+<Fix>
+
+Spread the whole `useForm` return value: `<FormProvider {...methods}>`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### A field inside a nested `FormProvider` is missing from the submitted data
+
+<Why>
+
+`useFormContext` uses the nearest `FormProvider`. When one provider is rendered inside another, fields under the inner one register with the inner form, and the outer form's `handleSubmit` never sees them.
+
+</Why>
+
+<Fix>
+
+Use one `FormProvider` per form. To show two forms on one page, render the providers next to each other, not one inside the other.
+
+</Fix>
+
+</Troubleshoot>

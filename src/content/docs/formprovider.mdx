@@ -72,3 +72,43 @@ function NestedInput() {
 - Inside a `FormProvider`, hooks such as [`useController`](/docs/usecontroller), [`useWatch`](/docs/usewatch), [`useFormState`](/docs/useformstate), and [`useFieldArray`](/docs/usefieldarray) can leave out `control`. They read it from context.
 - To have two forms on one page, render two `FormProvider`s next to each other, not one inside the other.
 - To share a form without React context, see [`createFormControl`](/docs/createFormControl).
+
+### Troubleshooting
+
+---
+
+<Troubleshoot>
+
+#### `handleSubmit is not a function` (or another method is `undefined`)
+
+<Why>
+
+Only some methods were passed to `FormProvider`, for example `<FormProvider register={register}>`. `useFormContext()` returns exactly what the provider received, so the other methods are missing.
+
+</Why>
+
+<Fix>
+
+Spread the whole `useForm` return value: `<FormProvider {...methods}>`.
+
+</Fix>
+
+</Troubleshoot>
+
+<Troubleshoot>
+
+#### A field inside a nested `FormProvider` is missing from the submitted data
+
+<Why>
+
+`useFormContext` uses the nearest `FormProvider`. When one provider is rendered inside another, fields under the inner one register with the inner form, and the outer form's `handleSubmit` never sees them.
+
+</Why>
+
+<Fix>
+
+Use one `FormProvider` per form. To show two forms on one page, render the providers next to each other, not one inside the other.
+
+</Fix>
+
+</Troubleshoot>
