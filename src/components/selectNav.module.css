@@ -1,23 +1,88 @@
 .root {
-  width: 100%;
-  margin-top: 1rem;
-  background: none;
-  appearance: none;
-  color: var(--color-text);
-  border: 1px solid var(--color-light-blue);
-  border-radius: 3px;
-  padding-left: 15px;
-  padding-right: 15px;
-  cursor: pointer;
   position: relative;
+  width: 100%;
+  margin-top: var(--space-4);
+  overflow: hidden;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-surface-elevated) 72%, transparent),
+    color-mix(in srgb, var(--color-surface) 88%, transparent)
+  );
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-interactive);
 }
 
 .root:hover {
-  border: 1px solid var(--color-secondary);
+  border-color: color-mix(in srgb, var(--color-accent-text) 65%, transparent);
 }
 
-.root > option {
-  color: black;
+.root:focus-within {
+  border-color: var(--color-accent-text);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--color-accent-text) 18%, transparent);
+}
+
+:global(.light) .root {
+  background: white;
+}
+
+.select {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 50px;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0 46px 0 var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.select > option,
+.select > optgroup {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+:global(.light) .select > option,
+:global(.light) .select > optgroup {
+  background: white;
+}
+
+.chevron {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chevron {
+  right: var(--space-4);
+  width: 14px;
+  height: 14px;
+  color: var(--color-text-muted);
+  stroke-width: 1.75;
+  transition: color var(--transition-fast);
+}
+
+.root:hover .chevron,
+.root:focus-within .chevron {
+  color: var(--color-accent-text);
 }
 
 @media (min-width: 768px) {
