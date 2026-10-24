@@ -1,0 +1,60 @@
+---
+title: React Hook Form with React 19
+seoTitle: React Hook Form React 19 Actions Guide
+description: Combine React 19 form actions with validation, progressive enhancement, and form state.
+metaDescription: Use React Hook Form with React 19 form actions, progressive enhancement, Server Actions, useActionState, validation, and submission state.
+sidebar: integrationLinks
+---
+
+React 19 form actions and React Hook Form solve complementary problems. React actions coordinate mutations and returned state; React Hook Form manages field registration, client validation, errors, dirty state, and fine-grained subscriptions.
+
+## Submit to an action
+
+Pass a function to the [`Form` component's `action` prop](/docs/useform/form#Props). The action receives `FormData` after client validation succeeds.
+
+```tsx copy
+"use client"
+
+import { Form, useForm } from "react-hook-form"
+import { createAccount } from "./actions"
+
+export function AccountForm() {
+  const {
+    control,
+    register,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm<{ email: string }>({ progressive: true })
+
+  return (
+    <Form control={control} action={createAccount}>
+      <input
+        type="email"
+        {...register("email", { required: "Email is required" })}
+      />
+      {errors.email && <p role="alert">{errors.email.message}</p>}
+      {errors.root?.server && <p role="alert">Could not create the account.</p>}
+      {isSubmitSuccessful && <p>Account created.</p>}
+      <button disabled={isSubmitting}>Create account</button>
+    </Form>
+  )
+}
+```
+
+With `progressive: true`, compatible rules are rendered as native attributes before hydration. React Hook Form takes over validation after hydration.
+
+## When to use useActionState
+
+Use React's `useActionState` when the value returned by an action drives additional UI, such as a server-generated confirmation or multiple field errors. Map server field errors to React Hook Form with [`setError`](/docs/useform/seterror).
+
+Use React Hook Form's `formState` when you mainly need:
+
+- `errors`, `isValid`, and validation state
+- `isDirty`, `dirtyFields`, and touched state
+- `isSubmitting` and `isSubmitSuccessful`
+- isolated subscriptions through [`useFormState`](/docs/useformstate)
+
+## Avoid duplicate submissions
+
+Choose one owner for the request. Give `Form` an `action`, or omit it and send the request inside `onSubmit`. Supplying both means `onSubmit` runs first and then the action runs.
+
+See the [Next.js guide](/integrations/nextjs), [`Form` API](/docs/useform/form), and [advanced useActionState example](/advanced-usage#ServerActionsuseActionState).

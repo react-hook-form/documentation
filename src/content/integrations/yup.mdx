@@ -1,0 +1,70 @@
+---
+title: React Hook Form with Yup
+seoTitle: React Hook Form Yup Validation Guide
+description: Validate React forms with Yup schemas and yupResolver.
+metaDescription: Use React Hook Form with Yup and yupResolver. Learn installation, TypeScript inference, validation errors, schema casting, and form context.
+sidebar: integrationLinks
+---
+
+Use [`yupResolver`](https://github.com/react-hook-form/resolvers#yup) to connect a Yup object schema to React Hook Form. The resolver validates before submission and maps Yup errors into [`formState.errors`](/docs/useform/formstate).
+
+## Installation
+
+```bash
+npm install react-hook-form @hookform/resolvers yup
+```
+
+## Complete TypeScript example
+
+```tsx copy
+import { yupResolver } from "@hookform/resolvers/yup"
+import { useForm } from "react-hook-form"
+import * as yup from "yup"
+
+const schema = yup
+  .object({
+    name: yup.string().required("Name is required"),
+    email: yup.string().email("Enter a valid email").required(),
+  })
+  .required()
+
+type FormValues = yup.InferType<typeof schema>
+
+export function ContactForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({ resolver: yupResolver(schema) })
+
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <input {...register("name")} />
+      {errors.name && <p role="alert">{errors.name.message}</p>}
+      <input {...register("email")} />
+      {errors.email && <p role="alert">{errors.email.message}</p>}
+      <button type="submit">Send</button>
+    </form>
+  )
+}
+```
+
+## Passing context to Yup
+
+Pass dynamic validation context through `useForm`, not through the resolver's schema options. React Hook Form's context takes precedence.
+
+```tsx
+useForm<FormValues, { plan: "free" | "paid" }>({
+  resolver: yupResolver(schema),
+  context: { plan: "paid" },
+})
+```
+
+## Common issues
+
+- Use `yup.InferType<typeof schema>` to keep form values aligned with the schema.
+- Decide whether Yup should cast values or whether inputs should use `valueAsNumber` and `setValueAs`.
+- Avoid defining the same rule in both Yup and `register`.
+- Set `criteriaMode: "all"` when the UI should show every failing rule for a field.
+
+See [all schema resolvers](/integrations/resolvers), [`useForm`](/docs/useform), and the [TypeScript guide](/ts).

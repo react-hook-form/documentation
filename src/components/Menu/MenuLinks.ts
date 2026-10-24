@@ -542,11 +542,11 @@ export const getStartedLinks: Pages = [
 ]
 
 export const integrationLinks: Pages = [
-  { name: "Zod", pathname: "#Zod" },
-  { name: "Yup", pathname: "#Yup" },
-  { name: "All schema resolvers", pathname: "#Allschemaresolvers" },
-  { name: "Next.js", pathname: "#Nextjs" },
-  { name: "shadcn/ui", pathname: "#shadcnui" },
-  { name: "React 19", pathname: "#React19" },
-  { name: "Choose an integration", pathname: "#Chooseanintegration" },
+  { name: "Overview", pathname: "/integrations" },
+  { name: "Schema Resolvers", pathname: "/integrations/resolvers" },
+  { name: "Zod", pathname: "/integrations/zod" },
+  { name: "Yup", pathname: "/integrations/yup" },
+  { name: "Next.js", pathname: "/integrations/nextjs" },
+  { name: "shadcn/ui", pathname: "/integrations/shadcn-ui" },
+  { name: "React 19", pathname: "/integrations/react-19" },
 ]

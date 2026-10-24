@@ -1,0 +1,72 @@
+---
+title: React Hook Form Schema Resolvers
+seoTitle: "React Hook Form Resolvers: Complete Guide"
+description: Compare every official schema resolver by package, type inference, and criteria mode.
+metaDescription: Compare every official React Hook Form resolver for Zod, Yup, Valibot, ArkType, AJV, Joi, TypeBox, Standard Schema, and more.
+sidebar: integrationLinks
+---
+
+The [`@hookform/resolvers`](https://github.com/react-hook-form/resolvers) package connects external validation libraries to [`useForm`](/docs/useform). A resolver receives the complete form values, validates them against a schema, and returns normalized values and errors.
+
+## Installation
+
+Install React Hook Form, the resolver package, and your chosen schema library:
+
+```bash
+npm install react-hook-form @hookform/resolvers <validation-library>
+```
+
+Every adapter follows the same integration pattern:
+
+```tsx
+import { useForm } from "react-hook-form"
+import { libraryResolver } from "@hookform/resolvers/library"
+
+const form = useForm({
+  resolver: libraryResolver(schema),
+})
+```
+
+## Resolver comparison
+
+“Infers values” means the resolver can infer the submitted output from its schema. `criteriaMode` describes whether the adapter can return only the first error or all errors for a field.
+
+| Schema library                                                            | Resolver                                                                  | Install                                 | Infers values | `criteriaMode`      |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | --------------------------------------- | ------------- | ------------------- |
+| [AJV](https://github.com/ajv-validator/ajv)                               | `ajvResolver` from `@hookform/resolvers/ajv`                              | `ajv`                                   | No            | `firstError \| all` |
+| [ata-validator](https://github.com/nicholasgasior/ata-validator)          | `ataResolver` from `@hookform/resolvers/ata-validator`                    | `ata-validator`                         | No            | `firstError \| all` |
+| [ArkType](https://github.com/arktypeio/arktype)                           | `arktypeResolver` from `@hookform/resolvers/arktype`                      | `arktype`                               | Yes           | `firstError`        |
+| [Class Validator](https://github.com/typestack/class-validator)           | `classValidatorResolver` from `@hookform/resolvers/class-validator`       | `class-validator`                       | Yes           | `firstError \| all` |
+| [computed-types](https://github.com/neuledge/computed-types)              | `computedTypesResolver` from `@hookform/resolvers/computed-types`         | `computed-types`                        | Yes           | `firstError`        |
+| [Effect](https://github.com/Effect-TS/effect)                             | `effectTsResolver` from `@hookform/resolvers/effect-ts`                   | `effect`                                | Yes           | `firstError \| all` |
+| [fluentvalidation-ts](https://github.com/AlexJPotter/fluentvalidation-ts) | `fluentValidationResolver` from `@hookform/resolvers/fluentvalidation-ts` | `fluentvalidation-ts`                   | No            | `firstError`        |
+| [io-ts](https://github.com/gcanti/io-ts)                                  | `ioTsResolver` from `@hookform/resolvers/io-ts`                           | `io-ts`                                 | Yes           | `firstError`        |
+| [Joi](https://github.com/sideway/joi)                                     | `joiResolver` from `@hookform/resolvers/joi`                              | `joi`                                   | No            | `firstError \| all` |
+| [Nope](https://github.com/bvego/nope-validator)                           | `nopeResolver` from `@hookform/resolvers/nope`                            | `nope-validator`                        | No            | `firstError`        |
+| [Standard Schema](https://github.com/standard-schema/standard-schema)     | `standardSchemaResolver` from `@hookform/resolvers/standard-schema`       | A compatible schema library             | Yes           | `firstError \| all` |
+| [Superstruct](https://github.com/ianstormtaylor/superstruct)              | `superstructResolver` from `@hookform/resolvers/superstruct`              | `superstruct`                           | Yes           | `firstError`        |
+| [typanion](https://github.com/arcanis/typanion)                           | `typanionResolver` from `@hookform/resolvers/typanion`                    | `typanion`                              | Yes           | `firstError`        |
+| [TypeBox](https://github.com/sinclairzx81/typebox)                        | `typeboxResolver` from `@hookform/resolvers/typebox`                      | `@sinclair/typebox`                     | Yes           | `firstError \| all` |
+| [TypeSchema](https://typeschema.com)                                      | `typeschemaResolver` from `@hookform/resolvers/typeschema`                | `@typeschema/main` and a schema library | No            | `firstError \| all` |
+| [Valibot](https://github.com/fabian-hiller/valibot)                       | `valibotResolver` from `@hookform/resolvers/valibot`                      | `valibot`                               | Yes           | `firstError \| all` |
+| [Vest](https://github.com/ealush/vest)                                    | `vestResolver` from `@hookform/resolvers/vest`                            | `vest`                                  | No            | `firstError \| all` |
+| [VineJS](https://github.com/vinejs/vine)                                  | `vineResolver` from `@hookform/resolvers/vine`                            | `@vinejs/vine`                          | Yes           | `firstError \| all` |
+| [Yup](/integrations/yup)                                                  | `yupResolver` from `@hookform/resolvers/yup`                              | `yup`                                   | Yes           | `firstError \| all` |
+| [Zod](/integrations/zod)                                                  | `zodResolver` from `@hookform/resolvers/zod`                              | `zod`                                   | Yes           | `firstError \| all` |
+
+## Resolver options
+
+Resolvers accept an optional third argument:
+
+```tsx
+resolver(schema, schemaOptions, {
+  mode: "async", // or "sync"
+  raw: false,
+})
+```
+
+- Async mode is the default. Use `sync` only when the schema performs no asynchronous work.
+- Set `raw: true` when submitted values should remain unparsed instead of using the schema's transformed output.
+- Pass a form value type to `useForm` when the comparison table says inference is unavailable.
+
+For detailed working examples, see the dedicated [Zod guide](/integrations/zod) and [Yup guide](/integrations/yup). The [official resolvers repository](https://github.com/react-hook-form/resolvers) maintains quick starts for every adapter.
