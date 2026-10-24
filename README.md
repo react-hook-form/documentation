@@ -28,4 +28,3 @@ Thanks go to these wonderful people! [[Become a contributor](CONTRIBUTING.md)].
 
 <br />
 <br />
-

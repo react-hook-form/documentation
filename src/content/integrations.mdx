@@ -1,0 +1,300 @@
+---
+title: React Hook Form Integrations
+seoTitle: React Hook Form Resolvers and Integrations
+description: Use every official schema resolver plus practical integrations for Next.js, shadcn/ui, and React 19.
+metaDescription: Use React Hook Form with every official schema resolver, including Zod, Yup, Valibot, ArkType, AJV and Standard Schema, plus Next.js and React 19.
+sidebar: integrationLinks
+---
+
+React Hook Form works with schema validation libraries, controlled UI components, and modern React frameworks without changing how your form data is managed. These examples show the smallest useful setup for popular integrations.
+
+## Zod {#Zod}
+
+Use [`zodResolver`](https://github.com/react-hook-form/resolvers#zod) to validate with a Zod schema. The resolver converts Zod issues into React Hook Form errors, so messages are available through [`formState.errors`](/docs/useform/formstate).
+
+```bash
+npm install react-hook-form @hookform/resolvers zod
+```
+
+```tsx copy
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm, type SubmitHandler } from "react-hook-form"
+import { z } from "zod"
+
+const schema = z.object({
+  email: z.string().email("Enter a valid email address"),
+  age: z.number().min(18, "You must be at least 18"),
+})
+
+type FormValues = z.infer<typeof schema>
+
+export function ProfileForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({ resolver: zodResolver(schema) })
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("email")} />
+      {errors.email && <p role="alert">{errors.email.message}</p>}
+
+      <input type="number" {...register("age", { valueAsNumber: true })} />
+      {errors.age && <p role="alert">{errors.age.message}</p>}
+
+      <button type="submit">Save</button>
+    </form>
+  )
+}
+```
+
+`valueAsNumber` converts the input string before validation. If a schema transforms its input into a different output type, pass separate input and output generics to [`useForm`](/docs/useform): `useForm<z.input<typeof schema>, unknown, z.output<typeof schema>>()`.
+
+## Yup {#Yup}
+
+Use [`yupResolver`](https://github.com/react-hook-form/resolvers#yup) when your project already models validation with Yup.
+
+```bash
+npm install react-hook-form @hookform/resolvers yup
+```
+
+```tsx copy
+import { yupResolver } from "@hookform/resolvers/yup"
+import { useForm } from "react-hook-form"
+import * as yup from "yup"
+
+const schema = yup
+  .object({
+    name: yup.string().required("Name is required"),
+    email: yup.string().email().required("Email is required"),
+  })
+  .required()
+
+type FormValues = yup.InferType<typeof schema>
+
+export function ContactForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({ resolver: yupResolver(schema) })
+
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      <input {...register("name")} />
+      {errors.name && <p role="alert">{errors.name.message}</p>}
+
+      <input {...register("email")} />
+      {errors.email && <p role="alert">{errors.email.message}</p>}
+
+      <button type="submit">Send</button>
+    </form>
+  )
+}
+```
+
+Use one validation source for each rule. Keeping required, length, and format rules in the schema avoids maintaining the same rule in both `register` and Yup.
+
+## All schema resolvers {#Allschemaresolvers}
+
+The [`@hookform/resolvers`](https://github.com/react-hook-form/resolvers) package supports the schema libraries below. Install React Hook Form, the resolver package, and the validation library you choose:
+
+```bash
+npm install react-hook-form @hookform/resolvers <validation-library>
+```
+
+Every adapter follows the same pattern:
+
+```tsx
+import { useForm } from "react-hook-form"
+import { libraryResolver } from "@hookform/resolvers/library"
+
+const form = useForm({
+  resolver: libraryResolver(schema),
+})
+```
+
+The inference column indicates whether the resolver can infer submitted values from the schema. `criteriaMode` indicates whether it can return only the first error per field or all field errors.
+
+| Schema library                                                            | Resolver import and call                                                          | Library package                                    | Infers values | `criteriaMode`      |
+| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------- | ------------- | ------------------- |
+| [AJV](https://github.com/ajv-validator/ajv)                               | `ajvResolver(schema)` from `@hookform/resolvers/ajv`                              | `ajv`                                              | No            | `firstError \| all` |
+| [ata-validator](https://github.com/nicholasgasior/ata-validator)          | `ataResolver(schema)` from `@hookform/resolvers/ata-validator`                    | `ata-validator`                                    | No            | `firstError \| all` |
+| [ArkType](https://github.com/arktypeio/arktype)                           | `arktypeResolver(schema)` from `@hookform/resolvers/arktype`                      | `arktype`                                          | Yes           | `firstError`        |
+| [Class Validator](https://github.com/typestack/class-validator)           | `classValidatorResolver(schema)` from `@hookform/resolvers/class-validator`       | `class-validator`                                  | Yes           | `firstError \| all` |
+| [computed-types](https://github.com/neuledge/computed-types)              | `computedTypesResolver(schema)` from `@hookform/resolvers/computed-types`         | `computed-types`                                   | Yes           | `firstError`        |
+| [Effect](https://github.com/Effect-TS/effect)                             | `effectTsResolver(schema)` from `@hookform/resolvers/effect-ts`                   | `effect`                                           | Yes           | `firstError \| all` |
+| [fluentvalidation-ts](https://github.com/AlexJPotter/fluentvalidation-ts) | `fluentValidationResolver(schema)` from `@hookform/resolvers/fluentvalidation-ts` | `fluentvalidation-ts`                              | No            | `firstError`        |
+| [io-ts](https://github.com/gcanti/io-ts)                                  | `ioTsResolver(schema)` from `@hookform/resolvers/io-ts`                           | `io-ts`                                            | Yes           | `firstError`        |
+| [Joi](https://github.com/sideway/joi)                                     | `joiResolver(schema)` from `@hookform/resolvers/joi`                              | `joi`                                              | No            | `firstError \| all` |
+| [Nope](https://github.com/bvego/nope-validator)                           | `nopeResolver(schema)` from `@hookform/resolvers/nope`                            | `nope-validator`                                   | No            | `firstError`        |
+| [Standard Schema](https://github.com/standard-schema/standard-schema)     | `standardSchemaResolver(schema)` from `@hookform/resolvers/standard-schema`       | A Standard Schema-compatible library               | Yes           | `firstError \| all` |
+| [Superstruct](https://github.com/ianstormtaylor/superstruct)              | `superstructResolver(schema)` from `@hookform/resolvers/superstruct`              | `superstruct`                                      | Yes           | `firstError`        |
+| [typanion](https://github.com/arcanis/typanion)                           | `typanionResolver(schema)` from `@hookform/resolvers/typanion`                    | `typanion`                                         | Yes           | `firstError`        |
+| [TypeBox](https://github.com/sinclairzx81/typebox)                        | `typeboxResolver(schema)` from `@hookform/resolvers/typebox`                      | `@sinclair/typebox`                                | Yes           | `firstError \| all` |
+| [TypeSchema](https://typeschema.com)                                      | `typeschemaResolver(schema)` from `@hookform/resolvers/typeschema`                | `@typeschema/main` plus a supported schema library | No            | `firstError \| all` |
+| [Valibot](https://github.com/fabian-hiller/valibot)                       | `valibotResolver(schema)` from `@hookform/resolvers/valibot`                      | `valibot`                                          | Yes           | `firstError \| all` |
+| [Vest](https://github.com/ealush/vest)                                    | `vestResolver(schema)` from `@hookform/resolvers/vest`                            | `vest`                                             | No            | `firstError \| all` |
+| [VineJS](https://github.com/vinejs/vine)                                  | `vineResolver(schema)` from `@hookform/resolvers/vine`                            | `@vinejs/vine`                                     | Yes           | `firstError \| all` |
+| [Yup](#Yup)                                                               | `yupResolver(schema)` from `@hookform/resolvers/yup`                              | `yup`                                              | Yes           | `firstError \| all` |
+| [Zod](#Zod)                                                               | `zodResolver(schema)` from `@hookform/resolvers/zod`                              | `zod`                                              | Yes           | `firstError \| all` |
+
+### Resolver-specific notes
+
+- **AJV and ata-validator** use JSON Schema objects. With AJV, use constraints such as `minLength: 1` as well as `required` when an empty string should fail validation.
+- **TypeBox** accepts a TypeBox schema or a compiled `TypeCheck`. Register custom TypeBox kinds and formats before passing a schema that uses them.
+- **Standard Schema** works with libraries that implement the Standard Schema interface, including compatible versions of Zod and ArkType.
+- **TypeSchema** provides a common adapter over its supported validation libraries; install the underlying schema library too.
+- **Effect** uses `effectTsResolver` and currently targets the version documented by the resolver package. Check the [official resolver example](https://github.com/react-hook-form/resolvers#effect-ts) when upgrading Effect across major versions.
+- **Class Validator** uses a decorated class as its schema and requires the decorator settings documented by Class Validator.
+- **Yup context** belongs on `useForm({ context })`; do not put it in `yupResolver` schema options because form context takes precedence.
+
+Resolvers accept an optional third argument for resolver behavior. Async validation is the default; use `{ mode: "sync" }` only when the schema performs no asynchronous work. `{ raw: true }` returns raw input values instead of the schema's parsed output.
+
+## Next.js {#Nextjs}
+
+In the Next.js App Router, call `useForm` from a Client Component. You can submit with [`handleSubmit`](/docs/useform/handlesubmit), or pass a Server Action to React Hook Form's [`Form` component](/docs/useform/form).
+
+```tsx copy
+// app/profile/actions.ts
+"use server"
+
+export async function updateProfile(formData: FormData) {
+  const name = String(formData.get("name") ?? "")
+  if (!name) throw new Error("Name is required")
+
+  // Authenticate, validate again on the server, and update the database.
+}
+```
+
+```tsx copy
+// app/profile/profile-form.tsx
+"use client"
+
+import { Form, useForm } from "react-hook-form"
+import { updateProfile } from "./actions"
+
+export function ProfileForm() {
+  const {
+    control,
+    register,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm<{ name: string }>({ progressive: true })
+
+  return (
+    <Form control={control} action={updateProfile}>
+      <input {...register("name", { required: "Name is required" })} />
+      {errors.name && <p role="alert">{errors.name.message}</p>}
+      {errors.root?.server && <p role="alert">Could not save your profile.</p>}
+      {isSubmitSuccessful && <p>Profile saved.</p>}
+      <button disabled={isSubmitting}>Save</button>
+    </Form>
+  )
+}
+```
+
+Client-side validation improves feedback, but it is not a security boundary. Authenticate the request and validate untrusted values again inside the Server Action. See [Server Actions and `useActionState`](/advanced-usage#ServerActionsuseActionState) for a lower-level pattern.
+
+## shadcn/ui {#shadcnui}
+
+The [shadcn/ui Form component](https://ui.shadcn.com/docs/components/form) composes React Hook Form's [`FormProvider`](/docs/formprovider) and [`Controller`](/docs/usecontroller/controller). Define `defaultValues` for controlled fields, then pass the object returned by `useForm` to the UI component.
+
+```tsx copy
+"use client"
+
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+
+const schema = z.object({
+  username: z.string().min(2, "Enter at least two characters"),
+})
+
+export function UsernameForm() {
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
+    defaultValues: { username: "" },
+  })
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(console.log)}>
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Save</Button>
+      </form>
+    </Form>
+  )
+}
+```
+
+The shadcn/ui `Form` above provides context; it is different from React Hook Form's submission-oriented [`Form` component](/docs/useform/form). Use `register` directly for native inputs and `FormField` or `Controller` for controlled components.
+
+## React 19 {#React19}
+
+React 19 form actions and React Hook Form can be used together. Use `progressive: true` to render native validation attributes before hydration, and pass a function to the [`Form` component's `action` prop](/docs/useform/form#Props).
+
+```tsx copy
+"use client"
+
+import { Form, useForm } from "react-hook-form"
+import { createAccount } from "./actions"
+
+export function AccountForm() {
+  const {
+    control,
+    register,
+    formState: { errors, isSubmitting },
+  } = useForm<{ email: string }>({ progressive: true })
+
+  return (
+    <Form control={control} action={createAccount}>
+      <input
+        type="email"
+        {...register("email", { required: "Email is required" })}
+      />
+      {errors.email && <p role="alert">{errors.email.message}</p>}
+      <button disabled={isSubmitting}>Create account</button>
+    </Form>
+  )
+}
+```
+
+Use React's `useActionState` when the action's returned result drives additional UI. Use `formState` when you mainly need validation errors, dirty fields, submitting state, and submission success from React Hook Form.
+
+## Choose an integration {#Chooseanintegration}
+
+| Goal                                        | Recommended API                                                                          |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Validate with Zod or Yup                    | A resolver passed to [`useForm`](/docs/useform#resolver)                                 |
+| Use a controlled UI component               | [`Controller`](/docs/usecontroller/controller) or [`useController`](/docs/usecontroller) |
+| Share form methods through a component tree | [`FormProvider`](/docs/formprovider) and [`useFormContext`](/docs/useformcontext)        |
+| Submit to an endpoint or Server Action      | [`Form`](/docs/useform/form)                                                             |
+| Own the complete request lifecycle          | [`handleSubmit`](/docs/useform/handlesubmit)                                             |
+| Build repeatable dynamic rows               | [`useFieldArray`](/docs/usefieldarray)                                                   |
+
+For the fundamentals, start with the [React Hook Form getting-started guide](/get-started). For reusable patterns, accessibility, testing, and Server Actions, continue to [advanced usage](/advanced-usage).
