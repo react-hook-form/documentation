@@ -11,9 +11,9 @@ export default {
     buttonText: "Checkout API",
   },
   advanceUsage: {
-    title: "Advanced Usage",
+    title: "Guides",
     description: `Learn how to build complex and accessible forms`,
-    buttonText: `Learn Advanced Usage`,
+    buttonText: `Explore Guides`,
   },
   needYourSupport: {
     title: "Thank you for your support",
@@ -42,7 +42,7 @@ export default {
   blog: "Articles/Blog",
   video: "Videos",
   newsletter: "Newsletter",
-  binding: "3rd Party Bindings",
+  binding: "Community Integrations",
   liveDemo: "Live Demo",
   control: (
     <>

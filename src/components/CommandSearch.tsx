@@ -38,7 +38,7 @@ const ANCHOR_GROUPS: { group: string; page: string; links: Pages }[] = [
     page: "/get-started",
     links: sidebar.getStartedLinks,
   },
-  { group: "Advanced", page: "/advanced-usage", links: sidebar.advancedLinks },
+  { group: "Guides", page: "/advanced-usage", links: sidebar.advancedLinks },
   { group: "TypeScript", page: "/ts", links: sidebar.tsLinks },
   { group: "FAQs", page: "/faqs", links: sidebar.faqLinks },
   {

@@ -13,21 +13,21 @@ import styles from "./Nav.module.css"
 const PRIMARY = [
   { href: "/get-started", label: nav.getStarted },
   { href: "/docs", label: "API", match: ["/docs"] },
-  { href: "/advanced-usage", label: nav.advanced },
+  {
+    href: "/advanced-usage",
+    label: nav.advanced,
+    match: ["/advanced-usage", "/migrate-v7-to-v8"],
+  },
 ]
 
 const RESOURCES = [
   {
     heading: "Learn",
     links: [
-      { href: "/resources", label: "All resources" },
       { href: "/integrations", label: "Integrations" },
       { href: "/ts", label: "TypeScript" },
+      { href: "/resources/articles", label: "Articles & Tutorials" },
       { href: "/faqs", label: nav.faqs },
-      { href: "/migrate-v7-to-v8", label: "Migrate to v8" },
-      { href: "/resources/articles", label: "Articles" },
-      { href: "/resources/videos", label: "Videos" },
-      { href: "/resources/newsletters", label: "Newsletters" },
     ],
   },
   {
@@ -35,41 +35,21 @@ const RESOURCES = [
     links: [
       { href: "/form-builder", label: nav.tools.formBuilder },
       { href: "/dev-tools", label: nav.tools.devTools },
-      { href: "/resources/3rd-party-bindings", label: "3rd-Party Bindings" },
-      { href: "/sponsors", label: nav.sponsors },
+      {
+        href: "/resources/3rd-party-bindings",
+        label: "Community Integrations",
+      },
       { href: "https://discord.gg/yYv7GZ8", label: "Discord ↗" },
-      { href: "https://twitter.com/HookForm", label: "X / Twitter ↗" },
+      {
+        href: "https://github.com/react-hook-form/react-hook-form",
+        label: "GitHub ↗",
+      },
     ],
   },
 ]
 
-// The mobile menu has room for a full Community group (matching the footer's
-// Community column), so it splits "Tools & community" in two.
-const MOBILE_GROUPS = [
-  RESOURCES[0],
-  {
-    heading: "Tools",
-    links: [
-      { href: "/form-builder", label: nav.tools.formBuilder },
-      { href: "/dev-tools", label: nav.tools.devTools },
-      { href: "/resources/3rd-party-bindings", label: "3rd-Party Bindings" },
-    ],
-  },
-  {
-    heading: "Community",
-    links: [
-      { href: "/about-us", label: "About us" },
-      { href: "/media", label: "Media" },
-      { href: "/sponsors", label: nav.sponsors },
-      {
-        href: "https://opencollective.com/react-hook-form",
-        label: "Open Collective ↗",
-      },
-      { href: "https://discord.gg/yYv7GZ8", label: "Discord ↗" },
-      { href: "https://twitter.com/HookForm", label: "X / Twitter ↗" },
-    ],
-  },
-]
+// Keep the same resource hierarchy on desktop and mobile.
+const MOBILE_GROUPS = RESOURCES
 
 const RELEASES_URL =
   "https://github.com/react-hook-form/react-hook-form/releases"
@@ -119,9 +99,14 @@ export default function Nav() {
 
   const isActive = (href: string, match?: string[]) =>
     pathname === href || !!match?.some((m) => pathname.startsWith(m))
-  const resourcesActive = RESOURCES.some((group) =>
-    group.links.some((link) => pathname === link.href)
-  )
+  const resourcesActive =
+    pathname === "/integrations" ||
+    pathname.startsWith("/integrations/") ||
+    pathname === "/resources" ||
+    pathname.startsWith("/resources/") ||
+    RESOURCES.some((group) =>
+      group.links.some((link) => pathname === link.href)
+    )
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4)

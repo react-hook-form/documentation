@@ -5,7 +5,7 @@ const ResourcesBindings = () => {
   return (
     <>
       <Seo
-        title="React Hook Form Integrations and Bindings"
+        title="React Hook Form Community Integrations"
         description="Third-party bindings for React Hook Form: connect your forms to UI libraries, state managers, and schema validation tools in React."
       />
       <ResourcePageBindings />

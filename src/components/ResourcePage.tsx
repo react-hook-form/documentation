@@ -10,7 +10,7 @@ export const RESOURCE_PAGES: Record<
   { title: string; lead: string; href: string }
 > = {
   article: {
-    title: "Articles",
+    title: "Articles & Tutorials",
     lead: "Tutorials and deep dives written by the community.",
     href: "/resources/articles",
   },
@@ -25,7 +25,7 @@ export const RESOURCE_PAGES: Record<
     href: "/resources/newsletters",
   },
   binding: {
-    title: "3rd-Party Bindings",
+    title: "Community Integrations",
     lead: "Community-built bindings for popular UI libraries.",
     href: "/resources/3rd-party-bindings",
   },

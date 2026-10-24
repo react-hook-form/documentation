@@ -11,7 +11,8 @@ const COLUMNS = [
       { href: "/integrations", label: "Integrations" },
       { href: "/docs", label: "API" },
       { href: "/ts", label: "TypeScript" },
-      { href: "/advanced-usage", label: "Advanced" },
+      { href: "/advanced-usage", label: "Guides" },
+      { href: "/migrate-v7-to-v8", label: "Migrate to v8 (beta)" },
       { href: "/faqs", label: "FAQs" },
     ],
   },
@@ -22,7 +23,10 @@ const COLUMNS = [
       { href: "/resources/articles", label: "Articles" },
       { href: "/resources/videos", label: "Videos" },
       { href: "/resources/newsletters", label: "Newsletters" },
-      { href: "/resources/3rd-party-bindings", label: "3rd-Party Bindings" },
+      {
+        href: "/resources/3rd-party-bindings",
+        label: "Community Integrations",
+      },
     ],
   },
   {
@@ -30,7 +34,6 @@ const COLUMNS = [
     links: [
       { href: "/form-builder", label: "Form Builder" },
       { href: "/dev-tools", label: "DevTools" },
-      { href: "/migrate-v7-to-v8", label: "Migrate to v8 (beta)" },
       {
         href: "https://github.com/react-hook-form/react-hook-form/releases",
         label: "Releases",
