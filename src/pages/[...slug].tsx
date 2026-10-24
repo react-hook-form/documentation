@@ -9,6 +9,7 @@ import Menu from "@/components/Menu/Menu"
 import DocsToc from "@/components/DocsToc"
 import V8Notice from "@/components/V8Notice"
 import DocPageActions from "@/components/DocPageActions"
+import { SelectNav } from "@/components/selectNav"
 import Link from "next/link"
 import styles from "@/components/DocsPage.module.css"
 import { Pages } from "@/types/types"
@@ -178,6 +179,7 @@ export default function Page({
             </h1>
             <p className={styles.description}>{doc.description}</p>
             <DocPageActions slug={doc.slug} />
+            <SelectNav pages={doc.pages} basePath={doc.slug} />
           </header>
 
           <V8Notice slug={doc.slug} />

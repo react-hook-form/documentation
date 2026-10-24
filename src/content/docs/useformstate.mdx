@@ -6,19 +6,6 @@ metaDescription: Subscribe to specific form state properties and isolate re-rend
 sidebar: apiLinks
 ---
 
-<SelectNav
-  options={[
-    {
-      label: "FormState",
-      value: "/docs/useformstate/formstate",
-    },
-    {
-      label: "ErrorMessage",
-      value: "/docs/useformstate/errormessage",
-    },
-  ]}
-/>
-
 ## \</> `useFormState:` <TypeText>([UseFormStateProps](/ts#UseFormStateProps)) => [FormState](/ts#FormState)</TypeText>
 
 This custom hook allows you to subscribe to each form state, and isolate re-renders at the custom hook level. It has its own scope in terms of form state subscription, so it does not affect other `useFormState` or `useForm` hooks. Using this hook can reduce the re-render impact on large and complex form applications.

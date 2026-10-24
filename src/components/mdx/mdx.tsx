@@ -9,8 +9,6 @@ import type { MDXComponents as Components } from "mdx/types"
 import { Admonition } from "../Admonition"
 import { CodeSandBoxLink } from "../CodeSandbox"
 import tableStyles from "../../styles/table.module.css"
-import { SelectNav } from "@/components/selectNav"
-import { TsSelectNav } from "@/components/TsSelectNav"
 import CodeArea from "@/components/CodeArea"
 
 export const MDXComponents: Components = {
@@ -28,8 +26,6 @@ export const MDXComponents: Components = {
   // a: Link,
   // img: ResponsiveImage,
   // Layout,
-  SelectNav,
-  TsSelectNav,
   CodeArea,
   table(props) {
     return (
