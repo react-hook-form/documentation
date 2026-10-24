@@ -64,15 +64,15 @@ export const advancedLinks: Pages = [
 
 export const faqLinks: Pages = [
   {
-    name: "Performance of React Hook Form",
+    name: "Why is React Hook Form performant?",
     pathname: "#PerformanceofReactHookForm",
   },
   {
-    name: "How to create an accessible input error and message?",
+    name: "How do I make validation errors accessible?",
     pathname: "#Howtocreateanaccessibleinputerrorandmessage",
   },
   {
-    name: "Does it work with Class Components?",
+    name: "Does React Hook Form work with class components?",
     pathname: "#DoesitworkwithClassComponents",
   },
   {
@@ -84,27 +84,47 @@ export const faqLinks: Pages = [
     pathname: "#Howtoresettheform",
   },
   {
+    name: "Why are my validation errors not showing?",
+    pathname: "#Whyaremyvalidationerrorsnotshowing",
+  },
+  {
+    name: "Why is handleSubmit not calling my submit function?",
+    pathname: "#WhyisHandleSubmitnotcallingmysubmitfunction",
+  },
+  {
     name: "How to initialize form values?",
     pathname: "#Howtoinitializeformvalues",
+  },
+  {
+    name: "Should I use register or Controller?",
+    pathname: "#ShouldIuseregisterorController",
+  },
+  {
+    name: "How do I use a schema library?",
+    pathname: "#HowdoIuseaschemavalidator",
+  },
+  {
+    name: "Why is isDirty false or stuck on true?",
+    pathname: "#WhyisisDirtyincorrect",
   },
   {
     name: "How to share ref usage?",
     pathname: "#Howtosharerefusage",
   },
   {
-    name: "What if you don't have access to ref?",
+    name: "What if a custom input does not expose a ref?",
     pathname: "#Whatifyoudonthaveaccesstoref",
   },
   {
-    name: "Why is the first keystroke not working?",
+    name: "Why does a controlled input ignore the first keystroke?",
     pathname: "#Whyisthefirstkeystrokenotworking",
   },
   {
-    name: "React Hook Form, Formik or Redux Form?",
+    name: "How does React Hook Form differ from Formik and Redux Form?",
     pathname: "#ReactHookFormFormikorReduxForm",
   },
   {
-    name: "watch vs getValues vs state",
+    name: "When should I use watch, useWatch, subscribe, or getValues?",
     pathname: "#watchvsgetValuesvsstate",
   },
   {
@@ -114,6 +134,14 @@ export const faqLinks: Pages = [
   {
     name: "How to work with modal or tab forms?",
     pathname: "#Howtoworkwithmodalortabforms",
+  },
+  {
+    name: "How do I show errors returned by a server?",
+    pathname: "#HowdoIshowservererrors",
+  },
+  {
+    name: "Why do tests show an act warning?",
+    pathname: "#Whydoestestingshowanactwarning",
   },
 ]
 

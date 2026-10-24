@@ -104,6 +104,7 @@ export function mdxToMarkdown(raw) {
   let tabIndex = 0
   let quoteDepth = 0
   let jsxBlock = null
+  let nextStep = false
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i]
@@ -112,6 +113,26 @@ export function mdxToMarkdown(raw) {
     if (fence) {
       out.push(quote + line)
       if (line.trim() === fence) fence = null
+      continue
+    }
+
+    if (/^<\/?NextSteps>\s*$/.test(line)) continue
+
+    const nextStepOpen = line.match(
+      /^\s*<NextStep href="([^"]+)" title="([^"]+)">/
+    )
+    if (nextStepOpen) {
+      const [, href, title] = nextStepOpen
+      out.push(`${quote}- [${title}](${absolute(href)})`)
+      nextStep = true
+      continue
+    }
+    if (/^\s*<\/NextStep>/.test(line)) {
+      nextStep = false
+      continue
+    }
+    if (nextStep && line.trim()) {
+      out.push(`${quote}  ${transformInline(line.trim())}`)
       continue
     }
 
@@ -217,7 +238,7 @@ function renderLlmsTxt(docs) {
       .filter((doc) => doc.sidebar === sidebar)
       .map(
         (doc) =>
-          `- [${doc.title}](${SITE_URL}${doc.slug}.md): ${doc.description}`
+          `- [${doc.title}](${SITE_URL}${doc.slug}.md): ${doc.metaDescription ?? doc.description}`
       )
     return items.length ? `## ${heading}\n\n${items.join("\n")}` : ""
   }).filter(Boolean)

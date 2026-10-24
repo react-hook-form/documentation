@@ -16,7 +16,7 @@ const PRIMARY = [
   {
     href: "/guides",
     label: nav.guides,
-    match: ["/guides", "/integrations", "/ts", "/faqs", "/migrate-v7-to-v8"],
+    match: ["/guides", "/integrations", "/ts", "/migrate-v7-to-v8"],
   },
   { href: "/advanced-usage", label: nav.advanced },
 ]
@@ -25,6 +25,7 @@ const RESOURCES = [
   {
     heading: "Explore",
     links: [
+      { href: "/faqs", label: nav.faqs },
       { href: "/resources", label: "Resource directory" },
       { href: "/resources/articles", label: "Articles & Tutorials" },
       { href: "/resources/videos", label: "Videos" },
