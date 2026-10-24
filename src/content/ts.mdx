@@ -339,12 +339,7 @@ The type of [`useForm`](/docs/useform#validate)'s `validate` option — form-lev
 
 ```tsx copy
 export type ValidateFormEventType =
-  | "blur"
-  | "focusout"
-  | "change"
-  | "submit"
-  | "trigger"
-  | "valid"
+  "blur" | "focusout" | "change" | "submit" | "trigger" | "valid"
 
 export type ValidateForm<TFormValues extends FieldValues> = (props: {
   formValues: TFormValues
@@ -505,9 +500,7 @@ The type of the `reset` function.
 ```tsx copy
 export type UseFormReset<TFieldValues extends FieldValues> = (
   values?:
-    | DefaultValues<TFieldValues>
-    | TFieldValues
-    | ResetAction<TFieldValues>,
+    DefaultValues<TFieldValues> | TFieldValues | ResetAction<TFieldValues>,
   keepStateOptions?: KeepStateOptions
 ) => void
 ```
@@ -660,10 +653,7 @@ The type of the `getErrors` function. This type is overloaded; it can be called 
 
 ```tsx copy
 export type ErrorNamespacePath =
-  | "root"
-  | `root.${string}`
-  | "form"
-  | `form.${string}`
+  "root" | `root.${string}` | "form" | `form.${string}`
 
 export type GetErrorsResult<
   TFieldValues extends FieldValues,
@@ -867,8 +857,8 @@ export type FormProps<
 ```tsx copy
 export type UseFieldArrayReturn<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends
-    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TFieldArrayName extends FieldArrayPath<TFieldValues> =
+    FieldArrayPath<TFieldValues>,
   TKeyName extends string = "id",
 > = {
   swap: UseFieldArraySwap
@@ -906,8 +896,8 @@ export type FieldArrayMethodProps = {
 ```tsx copy
 export type UseFieldArrayProps<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends
-    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TFieldArrayName extends FieldArrayPath<TFieldValues> =
+    FieldArrayPath<TFieldValues>,
   TKeyName extends string = "id",
   TTransformedValues = TFieldValues,
 > = {
@@ -937,8 +927,8 @@ export type UseFieldArrayProps<
 ```tsx copy
 export type FieldArrayProps<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends
-    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TFieldArrayName extends FieldArrayPath<TFieldValues> =
+    FieldArrayPath<TFieldValues>,
   TKeyName extends string = "id",
 > = {
   render: (
@@ -1141,8 +1131,8 @@ export type FieldValues = Record<string, any>
 ```tsx copy
 export type FieldArrayWithId<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends
-    FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+  TFieldArrayName extends FieldArrayPath<TFieldValues> =
+    FieldArrayPath<TFieldValues>,
   TKeyName extends string = "id",
 > = FieldArray<TFieldValues, TFieldArrayName> & Record<TKeyName, string>
 ```

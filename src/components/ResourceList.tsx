@@ -208,9 +208,7 @@ export default function ResourceList({
                       <span className={styles.author}>{author}</span>
                     )
                   ) : null}
-                  <span className={styles.host}>
-                    {hostOf(url) || "Open"} ↗
-                  </span>
+                  <span className={styles.host}>{hostOf(url) || "Open"} ↗</span>
                 </div>
               </li>
             )
