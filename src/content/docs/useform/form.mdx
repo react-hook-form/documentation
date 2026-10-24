@@ -1,7 +1,8 @@
 ---
-title: Form
-description: Form submission component with built-in state management.
-metaDescription: React Hook Form's Form component handles submission to a URL or callback, with built-in loading, error, and success state management.
+title: Form Component
+seoTitle: "Form Component: Submit React Forms to APIs"
+description: Submit validated React forms to an API, Server Action, or callback with built-in loading, error, and success state management.
+metaDescription: Use React Hook Form's Form component to validate and submit React forms to APIs or Server Actions, with built-in loading, success, and error states.
 sidebar: apiLinks
 ---
 
@@ -9,7 +10,7 @@ sidebar: apiLinks
 
 **Note**: This component is currently in **BETA**
 
-`Form` is an optional component that handles form submission for you. It renders a native `<form>` element, runs your validation through [`handleSubmit`](/docs/useform/handlesubmit), and then sends the data to your API. Loading, success, and error state end up in [`formState`](/docs/useform/formstate).
+React Hook Form's `Form` component is an optional form submission component. It renders a native `<form>` element, runs your validation through [`handleSubmit`](/docs/useform/handlesubmit), and then sends the data to an API, a Server Action, or your callback. Loading, success, and error state end up in [`formState`](/docs/useform/formstate).
 
 By default, it sends a POST request with your form submission data as [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData). Set `encType` (or a `Content-Type` header via the `headers` prop) to `application/json` to send JSON instead.
 
@@ -126,6 +127,19 @@ When values are encoded as `FormData`, nested objects and arrays use dot-notatio
 - The `<form>` element gets `noValidate` only after it mounts. Before hydration, the browser's native validation (from `progressive: true`) protects the form. After hydration, React Hook Form validates it.
 
 </Admonition>
+
+### Form component vs handleSubmit
+
+---
+
+Both APIs validate with the rules configured in `useForm`. Choose based on who should own the request:
+
+| Use                                          | Best when                                                                                                                                                                                |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`Form`](/docs/useform/form)                 | You want React Hook Form to encode the data, send the request, and expose request success or failure through `formState`. It also supports progressive enhancement and function actions. |
+| [`handleSubmit`](/docs/useform/handlesubmit) | You need complete control over the submission, such as retries, cancellation, multiple requests, custom serialization, or integration with a data-fetching library.                      |
+
+Use `Form` with a URL `action` for a conventional API endpoint, a function `action` for a Server Action-style workflow, or no `action` when your `onSubmit` callback sends the request itself.
 
 ### Examples
 

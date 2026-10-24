@@ -109,6 +109,7 @@ export const getStaticProps = ({
     props: {
       doc: {
         title: doc.title,
+        seoTitle: doc.seoTitle ?? doc.title,
         description: doc.description,
         metaDescription: doc.metaDescription ?? doc.description,
         slug: doc.slug,
@@ -131,7 +132,7 @@ export default function Page({
   return (
     <>
       <Seo
-        title={doc.title}
+        title={doc.seoTitle}
         description={doc.metaDescription}
         jsonLd={doc.jsonLd}
       />
