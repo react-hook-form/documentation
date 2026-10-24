@@ -430,6 +430,11 @@
   transform: scale(0.94);
 }
 
+.tab:focus-visible {
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: -2px;
+}
+
 .tabActive {
   color: var(--color-accent-text) !important;
 }

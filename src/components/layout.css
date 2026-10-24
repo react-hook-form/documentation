@@ -264,8 +264,15 @@ button::-moz-focus-inner {
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring,
 button:-moz-focusring {
-  /* NOTE: This doesn't look right */
-  outline: 1px dotted ButtonText;
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
 }
 
 button:active {
@@ -471,22 +478,33 @@ a.active {
 }
 
 a.skip-main {
-  top: 70px;
-  left: -999px;
-  position: absolute;
-  width: 110px;
-  overflow: hidden;
-  z-index: -999;
+  position: fixed;
+  z-index: 1000;
+  top: max(var(--space-3), env(safe-area-inset-top));
+  left: max(var(--space-3), env(safe-area-inset-left));
+  width: auto;
+  padding: 10px var(--space-4);
+  transform: translateY(calc(-100% - var(--space-6)));
+  border: 1px solid var(--color-accent-text);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-elevated);
+  box-shadow: var(--shadow-md);
+  color: var(--color-text) !important;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: 0;
+  transition:
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
 }
+
 a.skip-main:focus,
 a.skip-main:active {
-  top: 70px;
-  width: 110px;
-  left: 50px;
-  height: auto;
-  overflow: auto;
-  font-size: 15px;
-  z-index: 999;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .more.icon {
