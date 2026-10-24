@@ -14,7 +14,7 @@ export const Doc = defineDocumentType(() => ({
   filePathPattern: "**/*.mdx",
   fields: {
     title: { type: "string", required: true },
-    seoTitle: { type: "string", required: false },
+    seoTitle: { type: "string", required: true },
     description: { type: "string", required: true },
     metaDescription: { type: "string", required: false },
     sidebar: {
