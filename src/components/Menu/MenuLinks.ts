@@ -540,3 +540,13 @@ export const getStartedLinks: Pages = [
     pathname: "#Designandphilosophy",
   },
 ]
+
+export const integrationLinks: Pages = [
+  { name: "Zod", pathname: "#Zod" },
+  { name: "Yup", pathname: "#Yup" },
+  { name: "All schema resolvers", pathname: "#Allschemaresolvers" },
+  { name: "Next.js", pathname: "#Nextjs" },
+  { name: "shadcn/ui", pathname: "#shadcnui" },
+  { name: "React 19", pathname: "#React19" },
+  { name: "Choose an integration", pathname: "#Chooseanintegration" },
+]

@@ -19,6 +19,7 @@ const INDEX = join(ROOT, ".contentlayer/generated/Doc/_index.json")
 // Mirrors the sidebar order in the site navigation.
 const SECTIONS = [
   ["getStartedLinks", "Get Started"],
+  ["integrationLinks", "Integrations"],
   ["apiLinks", "API Reference"],
   ["tsLinks", "TypeScript"],
   ["advancedLinks", "Advanced Usage"],

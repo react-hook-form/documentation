@@ -8,6 +8,7 @@ const COLUMNS = [
     heading: "Docs",
     links: [
       { href: "/get-started", label: "Get Started" },
+      { href: "/integrations", label: "Integrations" },
       { href: "/docs", label: "API" },
       { href: "/ts", label: "TypeScript" },
       { href: "/advanced-usage", label: "Advanced" },

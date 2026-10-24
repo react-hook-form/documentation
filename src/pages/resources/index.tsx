@@ -13,6 +13,11 @@ const KINDS = Object.keys(RESOURCE_PAGES) as ResourceKind[]
 
 const TOOLS = [
   {
+    title: "Integration Guides",
+    lead: "Use React Hook Form with Zod, Yup, Next.js, shadcn/ui and React 19.",
+    href: "/integrations",
+  },
+  {
     title: "Form Builder",
     lead: "Generate a form and its validation code visually.",
     href: "/form-builder",
@@ -28,7 +33,7 @@ export default function ResourcesIndex() {
   return (
     <>
       <Seo
-        title="Resources"
+        title="React Hook Form Resources"
         description="Articles, videos, newsletters, bindings and tools for React Hook Form."
       />
       <div className={cards.page}>

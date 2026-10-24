@@ -9,6 +9,7 @@ const STATIC_PATHS = [
   "/ts",
   "/advanced-usage",
   "/faqs",
+  "/integrations",
   "/migrate-v7-to-v8",
   "/dev-tools",
   "/form-builder",

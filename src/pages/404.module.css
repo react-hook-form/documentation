@@ -1,7 +1,270 @@
 .container {
-  padding: 2rem;
+  position: relative;
+  display: grid;
+  min-height: calc(100vh - 76px);
+  overflow: hidden;
+  padding: var(--space-10) 20px var(--space-16);
+  isolation: isolate;
+}
+
+.container::before,
+.container::after {
+  position: absolute;
+  z-index: -1;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  content: "";
+  filter: blur(100px);
+  opacity: 0.16;
+}
+
+.container::before {
+  top: -220px;
+  left: -180px;
+  background: var(--color-light-pink);
+}
+
+.container::after {
+  right: -200px;
+  bottom: -240px;
+  background: var(--color-medium-blue);
 }
 
 .root {
-  text-align: center;
+  display: grid;
+  width: min(1080px, 100%);
+  margin: auto;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.copy {
+  max-width: 610px;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--color-accent-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.copy h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.lead {
+  max-width: 570px;
+  margin: var(--space-6) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-6);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-weight: 650;
+  text-decoration: none;
+  transition: var(--transition-interactive);
+}
+
+.primaryAction {
+  background: var(--color-accent-solid);
+  color: white;
+}
+
+.primaryAction:hover {
+  background: var(--color-secondary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.primaryAction span {
+  transition: transform var(--transition-fast);
+}
+
+.primaryAction:hover span {
+  transform: translateX(3px);
+}
+
+.secondaryAction {
+  border-color: var(--color-border-muted);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.secondaryAction:hover {
+  border-color: var(--color-accent-text);
+  color: var(--color-text);
+  transform: translateY(-2px);
+}
+
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible,
+.suggestions a:focus-visible {
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: 3px;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-6);
+  font-size: var(--text-sm);
+}
+
+.suggestions span {
+  color: var(--color-text-muted);
+}
+
+.suggestions a {
+  color: var(--color-text);
+  text-underline-offset: 4px;
+}
+
+.visual {
+  position: relative;
+  width: min(460px, 100%);
+  margin: 0 auto;
+  padding: 64px 0 24px;
+}
+
+.number {
+  position: absolute;
+  top: -24px;
+  right: -4px;
+  color: var(--color-surface-elevated);
+  font-size: clamp(7rem, 24vw, 12rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.09em;
+  user-select: none;
+}
+
+.errorCard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  box-shadow: var(--shadow-md);
+  transform: rotate(1.5deg);
+  animation: float 5s ease-in-out infinite;
+}
+
+.cardBar {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid var(--color-border-muted);
+  background: var(--color-surface-elevated);
+}
+
+.cardBar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-border-input);
+}
+
+.cardBar span:first-child {
+  background: var(--color-accent-text);
+}
+
+.cardBar code {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.errorCard pre {
+  margin: 0;
+  padding: var(--space-7) var(--space-6);
+  color: var(--color-text);
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+  line-height: 1.8;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-top: 1px solid var(--color-border-muted);
+  color: var(--color-accent-text);
+  font-size: var(--text-xs);
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 15%, transparent);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: rotate(1.5deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(0.5deg) translateY(-8px);
+  }
+}
+
+@media (min-width: 900px) {
+  .root {
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  }
+}
+
+@media (max-width: 599px) {
+  .container {
+    min-height: auto;
+    padding-top: var(--space-9);
+  }
+
+  .actions {
+    display: grid;
+  }
+
+  .visual {
+    padding-top: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .errorCard {
+    animation: none;
+  }
 }

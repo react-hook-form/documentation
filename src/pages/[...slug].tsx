@@ -22,6 +22,7 @@ const SIDEBAR_TITLES: Record<Doc["sidebar"], string> = {
   tsLinks: "TypeScript",
   faqLinks: "FAQs",
   getStartedLinks: "Get Started",
+  integrationLinks: "Integrations",
   migrateV7ToV8Links: "Migrate to v8",
 }
 
@@ -69,12 +70,31 @@ function getBreadcrumbSchema(doc: Doc) {
 }
 
 function getArticleSchema(doc: Doc) {
+  const url = `${SITE_URL}${doc.slug}`
+
   return {
     "@context": "https://schema.org",
     "@type": "TechArticle",
     headline: doc.title,
     description: doc.metaDescription ?? doc.description,
-    url: `${SITE_URL}${doc.slug}`,
+    url,
+    image: `${SITE_URL}/images/react-hook-form-og.png`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    author: {
+      "@type": "Organization",
+      name: "React Hook Form",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "React Hook Form",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/logo/react-hook-form-logo.png`,
+      },
+    },
+    inLanguage: "en",
     isPartOf: { "@type": "WebSite", url: SITE_URL, name: "React Hook Form" },
   }
 }
@@ -135,6 +155,7 @@ export default function Page({
         title={doc.seoTitle}
         description={doc.metaDescription}
         jsonLd={doc.jsonLd}
+        type="article"
       />
 
       <div className={styles.layout}>

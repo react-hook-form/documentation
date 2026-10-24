@@ -33,11 +33,13 @@ function SEO({
   description,
   jsonLd = [],
   noindex = false,
+  type = "website",
 }: {
   title: string
   description?: string
   jsonLd?: object[]
   noindex?: boolean
+  type?: "website" | "article"
 }) {
   const router = useRouter()
   // Titles that already carry the brand (e.g. the homepage) skip the suffix.
@@ -63,9 +65,10 @@ function SEO({
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:image:alt" content={`${SITE_NAME} documentation`} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@HookForm" />
@@ -73,6 +76,7 @@ function SEO({
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={OG_IMAGE} />
+      <meta name="twitter:image:alt" content={`${SITE_NAME} documentation`} />
 
       {schemas.map((schema, i) => (
         <script

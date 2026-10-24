@@ -21,6 +21,7 @@ const RESOURCES = [
     heading: "Learn",
     links: [
       { href: "/resources", label: "All resources" },
+      { href: "/integrations", label: "Integrations" },
       { href: "/ts", label: "TypeScript" },
       { href: "/faqs", label: nav.faqs },
       { href: "/migrate-v7-to-v8", label: "Migrate to v8" },

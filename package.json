@@ -65,6 +65,7 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "markdown": "node scripts/generate-markdown.mjs",
+    "seo:check": "pnpm run build && node scripts/check-seo.mjs",
     "lint:ci": "contentlayer2 build && next typegen && eslint src",
     "now-build": "pnpm run build",
     "start": "next start",

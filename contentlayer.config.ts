@@ -24,6 +24,7 @@ export const Doc = defineDocumentType(() => ({
         "tsLinks",
         "faqLinks",
         "getStartedLinks",
+        "integrationLinks",
         "migrateV7ToV8Links",
       ],
       required: true,
