@@ -5,6 +5,7 @@ import rehypeMdxCodeProps from "rehype-mdx-code-props"
 import emoji from "remark-emoji"
 import * as sidebar from "./src/components/Menu/MenuLinks"
 import { rehypeHeadingAnchors } from "./src/components/logic/rehypeHeadingAnchors"
+import { rehypeTipsSections } from "./src/components/logic/rehypeTipsSections"
 import type { Pages } from "./src/types/types"
 
 export const Doc = defineDocumentType(() => ({
@@ -64,6 +65,10 @@ export default makeSource({
   documentTypes: [Doc],
   mdx: {
     remarkPlugins: [remarkGfm, remarkHeadingId, emoji],
-    rehypePlugins: [rehypeMdxCodeProps, rehypeHeadingAnchors],
+    rehypePlugins: [
+      rehypeMdxCodeProps,
+      rehypeHeadingAnchors,
+      rehypeTipsSections,
+    ],
   },
 })

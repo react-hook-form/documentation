@@ -35,30 +35,30 @@
 /** Customization */
 .admonitionWarning {
   background-color: rgba(230, 126, 34, 0.1);
-  border-left: 8px solid var(--color-orange);
+  border-left: 4px solid var(--color-orange);
 }
 
 .admonitionTip {
   background-color: rgba(46, 204, 113, 0.1);
-  border-left: 8px solid var(--color-green);
+  border-left: 4px solid var(--color-green);
 }
 
 .admonitionCaution {
   background-color: rgba(231, 76, 60, 0.1);
-  border-left: 8px solid var(--color-secondary);
+  border-left: 4px solid var(--color-secondary);
 }
 
 .admonitionImportant {
   background-color: rgb(25, 60, 71, 0.1);
-  border-left: 8px solid var(--color-blue);
+  border-left: 4px solid var(--color-blue);
 }
 
 .admonitionNote {
   background-color: rgb(71, 71, 72, 0.1);
-  border-left: 8px solid var(--color-text);
+  border-left: 4px solid var(--color-text);
 }
 
 .admonitionQuestion {
   background-color: rgba(8, 61, 119, 0.1);
-  border-left: 8px solid var(--color-light-blue);
+  border-left: 4px solid var(--color-light-blue);
 }

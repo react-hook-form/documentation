@@ -1,0 +1,93 @@
+.card {
+  margin: var(--space-6) 0;
+  border: 1px solid var(--color-border-muted);
+  border-left: 4px solid var(--color-green);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+:global(.light) .card {
+  border-left-color: #1e8449;
+}
+
+.card > h3 {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-muted);
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+.card > hr {
+  display: none;
+}
+
+.card > ul,
+.card > ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card > ul > li,
+.card > ol > li {
+  position: relative;
+  margin: 0;
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-9);
+}
+
+.card > ul > li + li,
+.card > ol > li + li {
+  border-top: 1px dashed var(--color-border-muted);
+}
+
+.card > ul > li::before,
+.card > ol > li::before {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  color: var(--color-green);
+  font-weight: 800;
+}
+
+:global(.light) .card > ul > li::before,
+:global(.light) .card > ol > li::before {
+  color: #1e8449;
+}
+
+.card > ul > li::before {
+  content: "→";
+}
+
+.card > ol {
+  counter-reset: tips;
+}
+
+.card > ol > li {
+  counter-increment: tips;
+}
+
+.card > ol > li::before {
+  content: counter(tips) ".";
+}
+
+.card > ul > li > :first-child,
+.card > ol > li > :first-child {
+  margin-top: 0;
+}
+
+.card > ul > li > :last-child,
+.card > ol > li > :last-child {
+  margin-bottom: 0;
+}
+
+/* Some older Tips sections use paragraphs and code samples instead of a list. */
+.card > :not(h3, hr, ul, ol) {
+  margin-right: var(--space-4);
+  margin-left: var(--space-4);
+}
+
+.card > :last-child {
+  margin-bottom: var(--space-4);
+}

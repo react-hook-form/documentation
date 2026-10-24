@@ -8,6 +8,7 @@ import Popup from "../Popup"
 import type { MDXComponents as Components } from "mdx/types"
 import { Admonition } from "../Admonition"
 import { Troubleshoot, Why, Fix } from "../Troubleshoot"
+import { Tips } from "../Tips"
 import { CodeSandBoxLink } from "../CodeSandbox"
 import tableStyles from "../../styles/table.module.css"
 import CodeArea from "@/components/CodeArea"
@@ -37,6 +38,7 @@ export const MDXComponents: Components = {
   },
   Admonition,
   Troubleshoot,
+  Tips,
   Why,
   Fix,
   Popup,
