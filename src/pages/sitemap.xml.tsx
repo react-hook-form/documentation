@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next"
-import { allDocs } from "contentlayer/generated"
+import { getAllDocs } from "@/lib/docs"
 import { SITE_URL } from "@/components/seo"
 
 const STATIC_PATHS = [
@@ -24,8 +24,7 @@ const STATIC_PATHS = [
   "/resources/videos",
 ]
 
-function generateSitemap() {
-  const docPaths = allDocs.map((doc) => doc.slug)
+function generateSitemap(docPaths: Array<string>) {
   const paths = Array.from(new Set([...STATIC_PATHS, ...docPaths]))
 
   const urls = paths
@@ -42,12 +41,14 @@ ${urls}
 </urlset>`
 }
 
-export const getServerSideProps: GetServerSideProps = ({ res }) => {
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  const docPaths = (await getAllDocs()).map((doc) => doc.slug)
+
   res.setHeader("Content-Type", "text/xml")
-  res.write(generateSitemap())
+  res.write(generateSitemap(docPaths))
   res.end()
 
-  return Promise.resolve({ props: {} })
+  return { props: {} }
 }
 
 export default function Sitemap() {

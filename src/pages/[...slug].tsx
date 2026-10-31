@@ -1,6 +1,7 @@
-import { allDocs, Doc } from "contentlayer/generated"
+import { useMemo } from "react"
+import * as runtime from "react/jsx-runtime"
+import { runSync } from "@mdx-js/mdx"
 import { GetStaticPaths, InferGetStaticPropsType } from "next"
-import { useMDXComponent } from "next-contentlayer2/hooks"
 import { MDXComponents } from "@/components/mdx/mdx"
 import Seo, { SITE_URL } from "@/components/seo"
 import Footer from "@/components/Footer"
@@ -12,12 +13,24 @@ import DocPageActions from "@/components/DocPageActions"
 import { SelectNav } from "@/components/selectNav"
 import Link from "next/link"
 import styles from "@/components/DocsPage.module.css"
-import { Pages } from "@/types/types"
+import * as sidebar from "@/components/Menu/MenuLinks"
+import { Breadcrumb, Doc, getAllDocs, getBreadcrumbs } from "@/lib/docs"
+import { compileMdx } from "@/lib/mdx"
+import type { Sidebar } from "../../qino/schemas"
+import formState from "@/components/codeExamples/formState"
+import formStateTs from "@/components/codeExamples/formStateTs"
+import formStateUseEffect from "@/components/codeExamples/formStateUseEffect"
+import formStateUseEffectTs from "@/components/codeExamples/formStateUseEffectTs"
 
-// Segments that are real, navigable pages but not their own contentlayer doc.
-const SEGMENT_LABEL_OVERRIDES: Record<string, string> = { docs: "API" }
+// Code strings that MDX reads as `props.codeExamples.*`.
+const codeExamples = {
+  formState,
+  formStateTs,
+  formStateUseEffect,
+  formStateUseEffectTs,
+}
 
-const SIDEBAR_TITLES: Record<Doc["sidebar"], string> = {
+const SIDEBAR_TITLES: Record<Sidebar, string> = {
   apiLinks: "API Reference",
   advancedLinks: "Advanced",
   tsLinks: "TypeScript",
@@ -27,38 +40,15 @@ const SIDEBAR_TITLES: Record<Doc["sidebar"], string> = {
   migrateV7ToV8Links: "Migrate to v8",
 }
 
-function getBreadcrumbs(doc: Doc) {
-  let cumulativePath = ""
-  return doc.segment.slice(0, -1).map((segment) => {
-    cumulativePath += `/${segment}`
-    return {
-      href: cumulativePath,
-      name:
-        allDocs.find((d) => d.slug === cumulativePath)?.title ??
-        SEGMENT_LABEL_OVERRIDES[segment] ??
-        segment,
-    }
-  })
-}
-
-function getBreadcrumbSchema(doc: Doc) {
-  let cumulativePath = ""
-  const items = doc.segment.map((segment, index) => {
-    cumulativePath += `/${segment}`
-    const isLast = index === doc.segment.length - 1
-    const name = isLast
-      ? doc.title
-      : (allDocs.find((d) => d.slug === cumulativePath)?.title ??
-        SEGMENT_LABEL_OVERRIDES[segment] ??
-        segment)
-
-    return {
+function getBreadcrumbSchema(doc: Doc, breadcrumbs: Array<Breadcrumb>) {
+  const items = [...breadcrumbs, { href: doc.slug, name: doc.title }].map(
+    (crumb, index) => ({
       "@type": "ListItem",
       position: index + 2,
-      name,
-      item: `${SITE_URL}${cumulativePath}`,
-    }
-  })
+      name: crumb.name,
+      item: `${SITE_URL}${crumb.href}`,
+    })
+  )
 
   return {
     "@context": "https://schema.org",
@@ -100,23 +90,23 @@ function getArticleSchema(doc: Doc) {
   }
 }
 
-export const getStaticPaths: GetStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   // Get a list of valid doc paths.
-  const paths = allDocs.map((doc) => ({
+  const paths = (await getAllDocs()).map((doc) => ({
     params: { slug: doc.segment },
   }))
 
   return { paths, fallback: false }
 }
 
-export const getStaticProps = ({
+export const getStaticProps = async ({
   params,
 }: {
   params?: { slug?: string[] }
 }) => {
   // Find the doc for the current page.
-  const doc = allDocs.find(
-    (doc) => doc._raw.flattenedPath === params?.slug?.join("/")
+  const doc = (await getAllDocs()).find(
+    (doc) => doc.slug == `/${params?.slug?.join("/") ?? ""}`
   )
 
   // Return notFound if the doc does not exist.
@@ -124,8 +114,10 @@ export const getStaticProps = ({
     return { notFound: true }
   }
 
+  const breadcrumbs = await getBreadcrumbs(doc)
+
   // Pass only what the page renders. Breadcrumbs and JSON-LD are resolved
-  // here so `allDocs` (every doc's compiled MDX) stays out of the client bundle.
+  // here so the other docs stay out of the client bundle.
   return {
     props: {
       doc: {
@@ -134,11 +126,11 @@ export const getStaticProps = ({
         description: doc.description,
         metaDescription: doc.metaDescription ?? doc.description,
         slug: doc.slug,
-        code: doc.body.code,
-        pages: doc.pages as Pages,
+        code: await compileMdx(doc.markdown),
+        pages: sidebar[doc.sidebar],
         sidebarTitle: SIDEBAR_TITLES[doc.sidebar],
-        breadcrumbs: doc.segment.length > 1 ? getBreadcrumbs(doc) : [],
-        jsonLd: [getBreadcrumbSchema(doc), getArticleSchema(doc)],
+        breadcrumbs,
+        jsonLd: [getBreadcrumbSchema(doc, breadcrumbs), getArticleSchema(doc)],
       },
     },
   }
@@ -147,8 +139,11 @@ export const getStaticProps = ({
 export default function Page({
   doc,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  // Parse the MDX file via the useMDXComponent hook.
-  const MDXContent = useMDXComponent(doc.code)
+  // Evaluate the MDX compiled in getStaticProps.
+  const MDXContent = useMemo(
+    () => runSync(doc.code, { ...runtime, baseUrl: import.meta.url }).default,
+    [doc.code]
+  )
 
   return (
     <>
@@ -185,7 +180,10 @@ export default function Page({
           <V8Notice slug={doc.slug} />
 
           <div id="docs-content">
-            <MDXContent components={MDXComponents} />
+            <MDXContent
+              components={MDXComponents}
+              codeExamples={codeExamples}
+            />
           </div>
 
           <StarRepo />

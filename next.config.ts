@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   reactStrictMode: true,
+  // The sitemap reads content through qino at request time.
+  outputFileTracingIncludes: {
+    "/sitemap.xml": ["./src/content/**/*"],
+  },
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   async redirects() {
     const legacySite =
