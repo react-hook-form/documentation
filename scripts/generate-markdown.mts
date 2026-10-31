@@ -2,19 +2,19 @@
  * Generates clean Markdown copies of every doc page plus /llms.txt and
  * /llms-full.txt for AI agents and other non-browser readers.
  *
- * Runs after `contentlayer2 build` and writes into `public/`, so the files
- * are served statically (e.g. /docs/useform.md) with no client-side JS.
+ * Reads docs through qino and writes into `public/`, so the files are served
+ * statically (e.g. /docs/useform.md) with no client-side JS.
  *
  * @see https://llmstxt.org
  */
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
+import { mkdirSync, writeFileSync } from "node:fs"
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
+import { type Doc, getAllDocs } from "../src/lib/docs"
 
 const SITE_URL = "https://react-hook-form.com"
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..")
 const PUBLIC_DIR = join(ROOT, "public")
-const INDEX = join(ROOT, ".contentlayer/generated/Doc/_index.json")
 
 // Mirrors the sidebar order in the site navigation.
 const SECTIONS = [
@@ -218,7 +218,7 @@ export function mdxToMarkdown(raw) {
 
 const outputPath = (slug) => join(PUBLIC_DIR, `${slug}.md`)
 
-function renderPage(doc) {
+function renderPage(doc: Doc) {
   const description = doc.metaDescription ?? doc.description
   return [
     `# ${doc.title}`,
@@ -227,12 +227,12 @@ function renderPage(doc) {
     "",
     `Source: ${SITE_URL}${doc.slug}`,
     "",
-    mdxToMarkdown(doc.body.raw),
+    mdxToMarkdown(doc.markdown),
     "",
   ].join("\n")
 }
 
-function renderLlmsTxt(docs) {
+function renderLlmsTxt(docs: Array<Doc>) {
   const sections = SECTIONS.map(([sidebar, heading]) => {
     const items = docs
       .filter((doc) => doc.sidebar === sidebar)
@@ -265,7 +265,7 @@ ${sections.join("\n\n")}
 `
 }
 
-function sortDocs(docs) {
+function sortDocs(docs: Array<Doc>) {
   const order = SECTIONS.map(([sidebar]) => sidebar)
   return [...docs].sort(
     (a, b) =>
@@ -274,8 +274,8 @@ function sortDocs(docs) {
   )
 }
 
-function main() {
-  const docs = sortDocs(JSON.parse(readFileSync(INDEX, "utf8")))
+async function main() {
+  const docs = sortDocs(await getAllDocs())
   const pages = docs.map((doc) => {
     const markdown = renderPage(doc)
     const file = outputPath(doc.slug)
@@ -291,4 +291,4 @@ function main() {
   )
 }
 
-main()
+await main()
