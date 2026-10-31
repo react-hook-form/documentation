@@ -93,7 +93,7 @@ function getArticleSchema(doc: Doc) {
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get a list of valid doc paths.
   const paths = (await getAllDocs()).map((doc) => ({
-    params: { slug: doc.segment },
+    params: { slug: doc.slug.slice(1).split("/") },
   }))
 
   return { paths, fallback: false }

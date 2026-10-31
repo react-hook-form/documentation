@@ -1,22 +1,15 @@
 import { docsTree } from "../../qino/trees/docs"
 import { integrationCollection } from "../../qino/collections/integrations"
 import * as pages from "../../qino/items/pages"
-import type { Sidebar } from "../../qino/schemas"
+import type { z } from "zod"
+import type { docSchema } from "../../qino/schemas"
 
 type Source = "docs" | "integrations" | "page"
 
-type Entry = {
-  title: string
-  seoTitle: string
-  description: string
-  metaDescription?: string
-  sidebar: Sidebar
-  markdown: string
-}
+type Entry = z.infer<typeof docSchema> & { markdown: string }
 
 export type Doc = Entry & {
   slug: string
-  segment: Array<string>
   source: Source
   qinoSlug: string
 }
@@ -24,23 +17,14 @@ export type Doc = Entry & {
 export type Breadcrumb = { href: string; name: string }
 
 function toDoc(
-  { title, seoTitle, description, metaDescription, sidebar, markdown }: Entry,
+  // Strip qino's `_meta` and `raw` (full source) from the doc.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  { _meta, raw, ...entry }: Entry & { _meta: unknown; raw: string },
   source: Source,
   qinoSlug: string,
   slug: string
 ) {
-  return {
-    title,
-    seoTitle,
-    description,
-    metaDescription,
-    sidebar,
-    markdown,
-    slug,
-    segment: slug.slice(1).split("/"),
-    source,
-    qinoSlug,
-  }
+  return { ...entry, slug, source, qinoSlug }
 }
 
 export async function getAllDocs() {
