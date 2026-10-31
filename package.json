@@ -59,8 +59,7 @@
   "scripts": {
     "analyze": "qino build && cross-env ANALYZE=true next build --webpack",
     "build": "qino build && pnpm run markdown && next build",
-    "dev": "qino build && pnpm run markdown && pnpm run --parallel \"/^dev:/\"",
-    "dev:next": "next dev",
+    "dev": "qino build && pnpm run markdown && next dev",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
     "lint": "eslint src",
