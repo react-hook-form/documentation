@@ -6,7 +6,7 @@ import eslintPluginReact from "eslint-plugin-react"
 
 export default tseslint.config(
   {
-    ignores: [".next/**", ".contentlayer/**", "public/**", "next-env.d.ts"],
+    ignores: [".next/**", "qino/_generated/**", "public/**", "next-env.d.ts"],
   },
 
   tseslint.configs.recommendedTypeChecked,

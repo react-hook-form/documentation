@@ -46,8 +46,7 @@
     "moduleResolution": "bundler" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "@/*": ["./src/*"]
     },
     // "rootDirs": [],                              /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "types": [],                                 /* Type declaration files to be included in compilation. */
@@ -79,8 +78,7 @@
     "next-env.d.ts",
     "next.config.ts",
     ".next/types/**/*.ts",
-    "contentlayer.config.ts",
-    ".contentlayer/generated"
+    "qino"
   ],
   "exclude": ["node_modules"]
 }

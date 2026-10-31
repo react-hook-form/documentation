@@ -1,20 +1,21 @@
 /**
  * Generates clean Markdown copies of every doc page plus /llms.txt and
- * /llms-full.txt for AI agents and other non-browser readers.
+ * /llms-full.txt for AI agents and other non-browser readers, and
+ * /sitemap.xml for crawlers.
  *
- * Runs after `contentlayer2 build` and writes into `public/`, so the files
- * are served statically (e.g. /docs/useform.md) with no client-side JS.
+ * Reads docs through qino and writes into `public/`, so the files are served
+ * statically (e.g. /docs/useform.md) with no client-side JS.
  *
  * @see https://llmstxt.org
  */
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
+import { mkdirSync, writeFileSync } from "node:fs"
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
+import { type Doc, getAllDocs } from "../src/lib/docs"
 
 const SITE_URL = "https://react-hook-form.com"
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..")
 const PUBLIC_DIR = join(ROOT, "public")
-const INDEX = join(ROOT, ".contentlayer/generated/Doc/_index.json")
 
 // Mirrors the sidebar order in the site navigation.
 const SECTIONS = [
@@ -218,7 +219,7 @@ export function mdxToMarkdown(raw) {
 
 const outputPath = (slug) => join(PUBLIC_DIR, `${slug}.md`)
 
-function renderPage(doc) {
+function renderPage(doc: Doc) {
   const description = doc.metaDescription ?? doc.description
   return [
     `# ${doc.title}`,
@@ -227,12 +228,12 @@ function renderPage(doc) {
     "",
     `Source: ${SITE_URL}${doc.slug}`,
     "",
-    mdxToMarkdown(doc.body.raw),
+    mdxToMarkdown(doc.markdown),
     "",
   ].join("\n")
 }
 
-function renderLlmsTxt(docs) {
+function renderLlmsTxt(docs: Array<Doc>) {
   const sections = SECTIONS.map(([sidebar, heading]) => {
     const items = docs
       .filter((doc) => doc.sidebar === sidebar)
@@ -265,7 +266,7 @@ ${sections.join("\n\n")}
 `
 }
 
-function sortDocs(docs) {
+function sortDocs(docs: Array<Doc>) {
   const order = SECTIONS.map(([sidebar]) => sidebar)
   return [...docs].sort(
     (a, b) =>
@@ -274,8 +275,50 @@ function sortDocs(docs) {
   )
 }
 
-function main() {
-  const docs = sortDocs(JSON.parse(readFileSync(INDEX, "utf8")))
+// Pages outside the content folder.
+const STATIC_PATHS = [
+  "/",
+  "/get-started",
+  "/docs",
+  "/guides",
+  "/ts",
+  "/advanced-usage",
+  "/faqs",
+  "/integrations",
+  "/migrate-v7-to-v8",
+  "/dev-tools",
+  "/form-builder",
+  "/about-us",
+  "/media",
+  "/sponsors",
+  "/resources",
+  "/resources/3rd-party-bindings",
+  "/resources/articles",
+  "/resources/newsletters",
+  "/resources/videos",
+]
+
+function renderSitemap(docs: Array<Doc>) {
+  const paths = Array.from(
+    new Set([...STATIC_PATHS, ...docs.map((doc) => doc.slug)])
+  )
+
+  const urls = paths
+    .map(
+      (path) => `  <url>
+    <loc>${SITE_URL}${path}</loc>
+  </url>`
+    )
+    .join("\n")
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>`
+}
+
+async function main() {
+  const docs = sortDocs(await getAllDocs())
   const pages = docs.map((doc) => {
     const markdown = renderPage(doc)
     const file = outputPath(doc.slug)
@@ -286,9 +329,10 @@ function main() {
 
   writeFileSync(join(PUBLIC_DIR, "llms.txt"), renderLlmsTxt(docs))
   writeFileSync(join(PUBLIC_DIR, "llms-full.txt"), pages.join("\n---\n\n"))
+  writeFileSync(join(PUBLIC_DIR, "sitemap.xml"), renderSitemap(docs))
   console.log(
-    `Generated ${docs.length} Markdown pages, llms.txt, llms-full.txt`
+    `Generated ${docs.length} Markdown pages, llms.txt, llms-full.txt, sitemap.xml`
   )
 }
 
-main()
+await main()
