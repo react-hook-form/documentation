@@ -66,11 +66,11 @@
     "lint:fix": "eslint src --fix",
     "markdown": "tsx scripts/generate-markdown.mts",
     "seo:check": "pnpm run build && node scripts/check-seo.mjs",
-    "lint:ci": "qino build && next typegen && eslint src",
+    "lint:ci": "qino lint && next typegen && eslint src",
     "now-build": "pnpm run build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "typecheck:ci": "qino build && next typegen && tsc --noEmit",
+    "typecheck:ci": "next typegen && tsc --noEmit",
     "prepare": "husky install"
   },
   "lint-staged": {
