@@ -35,8 +35,13 @@ This component was previously documented as `FormStateSubscribe`, renamed to `Fo
 ```tsx copy sandbox=""
 import { useForm, FormState } from "react-hook-form"
 
+type FormValues = {
+  foo: string
+  bar: string
+}
+
 const App = () => {
-  const { register, control } = useForm()
+  const { register, control } = useForm<FormValues>()
 
   return (
     <div>
