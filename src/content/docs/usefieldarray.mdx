@@ -675,3 +675,36 @@ Or call [`reset(data)`](/docs/useform/reset) once the data arrives.
 </Fix>
 
 </Troubleshoot>
+
+<Troubleshoot>
+
+#### My item's own `id` is replaced by a generated value
+
+<Why>
+
+Each entry in `fields` gets a generated key, stored in `field.id` by default, so React can track rows across `append`, `remove`, `move`, and other operations. If your objects already have an `id` property (for example, database records), the generated key shadows it in `fields`.
+
+The generated key exists only in `fields`. It is not written to your form values, so `getValues()` and the data passed to `handleSubmit` keep your original `id`.
+
+</Why>
+
+<Fix>
+
+Set [`keyName`](#props) so the generated key uses a different property:
+
+```javascript
+const { fields } = useFieldArray({ control, name: "items", keyName: "key" })
+
+return fields.map((field, index) => (
+  <div key={field.key}>
+    <span>{field.id}</span> {/* your record's id */}
+    <input {...register(`items.${index}.name`)} />
+  </div>
+))
+```
+
+Or keep the default and read your own `id` from form values with ``getValues(`items.${index}.id`)``.
+
+</Fix>
+
+</Troubleshoot>

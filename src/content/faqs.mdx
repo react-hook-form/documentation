@@ -10,7 +10,7 @@ Start here when a form behaves unexpectedly. Each answer gives the shortest prac
 
 ## Why is React Hook Form performant? {#PerformanceofReactHookForm}
 
-React Hook Form stores native input values in the DOM and reads them through refs, so typing does not require the entire form to re-render. For components that must be controlled, [`Controller`](/docs/usecontroller/controller) and [`useController`](/docs/usecontroller) can isolate updates to the field that changed.
+React Hook Form keeps form values in its own store, not in React state and not in the DOM. For native inputs, [`register`](/docs/useform/register) attaches a `ref` and event listeners. Each `onChange` or `onBlur` updates the store directly, and only the components that subscribe to that value or state re-render. Typing therefore does not re-render the entire form. For components that must be controlled, [`Controller`](/docs/usecontroller/controller) and [`useController`](/docs/usecontroller) can isolate updates to the field that changed.
 
 For large forms, subscribe as close as possible to the state you render: use [`useWatch`](/docs/usewatch) for values, [`useFormState`](/docs/useformstate) for form state, and [`getValues`](/docs/useform/getvalues) for a one-time read. See the [performance comparison](https://github.com/bluebill1049/react-hook-form-performance-compare) for a reproducible example.
 
