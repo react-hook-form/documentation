@@ -342,27 +342,434 @@ export default function AccessibleForm() {
 
 ---
 
-## Wizard Form / Funnel {#WizardFormFunnel}
+## Multi-step forms {#WizardFormFunnel}
 
-For steps that stay mounted under one parent, a single `useForm` instance with [FormProvider](/docs/formprovider) can share values across the steps. Validate the current step with [trigger](/docs/useform/trigger) before advancing. Use separate forms and shared storage when each step is a different route or needs its own submission boundary.
+A multi-step form (a wizard or funnel) collects one payload across several screens. There are two common shapes:
 
-The route-based example below uses [little state machine](https://github.com/bluebill1049/little-state-machine). React context, a parent component, or your existing state library can also hold the draft; an additional library is optional. Initialize each step from the stored draft so going back restores the user's previous answers.
+- **One form, several steps.** Every step renders under one `useForm`. Use this when the steps share a page and you want one source of truth for the values, as in the [schema resolver example](#WizardFormFunnelResolver).
+- **One page per step.** Each step is its own route with its own `useForm`, and a store holds the draft between pages. Use this when each step needs a URL, as in the [built-in validation example](#WizardFormFunnelBuiltIn).
 
-**Step 1:** Set up your routes and store.
+Both examples submit to the same endpoint contract. `POST /api/signup` returns HTTP 201 with `{ ok: true, accountId }`, or HTTP 422 with `{ ok: false, fieldErrors }`, where `fieldErrors` maps a field name to a message. Whichever step the user is on, a server error sends them back to the step that owns the field.
 
-```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-wizard-form-9pg6j"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { createStore } from "little-state-machine"
-import Step1 from "./Step1"
-import Step2 from "./Step2"
-import Result from "./Result"
+### One form with a schema resolver {#WizardFormFunnelResolver}
 
-createStore({
-  data: {
-    firstName: "",
-    lastName: "",
-  },
+One Zod schema describes the whole form. The client validates with it through [`zodResolver`](https://github.com/react-hook-form/resolvers), and the server parses the request with the same schema, so the two cannot drift apart. [little state machine](https://little-state-machine.bluebill1049.dev/) keeps the draft in `sessionStorage`, so a reload doesn't lose the user's answers. This example needs `zod`, `@hookform/resolvers`, and `little-state-machine`:
+
+```bash copy
+npm install zod @hookform/resolvers little-state-machine
+```
+
+**`schema.ts`**: shared by the client and the server. Each step's field list comes from its own schema, so renaming a field cannot leave a step validating a field that no longer exists.
+
+```tsx copy
+import { z } from "zod"
+
+const accountSchema = z.object({
+  email: z.string().trim().email("Enter a valid email address."),
+  password: z.string().min(8, "Use at least 8 characters."),
 })
+
+const profileSchema = z.object({
+  fullName: z.string().trim().min(1, "Enter your name."),
+  company: z.string().trim(),
+})
+
+const planSchema = z.object({
+  plan: z.enum(["free", "pro", "team"]),
+})
+
+// One schema for the whole form. The client and the server both import it.
+export const signupSchema = z.object({
+  ...accountSchema.shape,
+  ...profileSchema.shape,
+  ...planSchema.shape,
+})
+
+export type SignupValues = z.infer<typeof signupSchema>
+export type SignupField = keyof SignupValues
+
+// Each step lists its fields, derived from its schema, so a renamed field
+// is a type error instead of a step that silently skips validation.
+export const steps: { title: string; fields: readonly SignupField[] }[] = [
+  { title: "Account", fields: accountSchema.keyof().options },
+  { title: "Profile", fields: profileSchema.keyof().options },
+  { title: "Plan", fields: planSchema.keyof().options },
+]
+
+export function isSignupField(name: string): name is SignupField {
+  return signupSchema.keyof().safeParse(name).success
+}
+
+// Index of the first step that contains one of these fields, or -1.
+export function firstStepWith(names: string[]) {
+  return steps.findIndex((step) =>
+    step.fields.some((field) => names.includes(field))
+  )
+}
+
+export type SignupResponse =
+  | { ok: true; accountId: string }
+  | { ok: false; fieldErrors: Partial<Record<SignupField, string>> }
+```
+
+**`app/api/signup/route.ts`**: a route handler that uses the web `Request` and `Response` APIs. It returns the first error for each field, and reports rules that only the server can check, such as a taken email address, in the same shape.
+
+```tsx copy
+import {
+  isSignupField,
+  signupSchema,
+  type SignupField,
+  type SignupResponse,
+} from "./schema"
+// Replace with your application's data layer.
+import { createAccount, emailExists } from "./db"
+
+function reply(body: SignupResponse, status: number) {
+  return Response.json(body, { status })
+}
+
+export async function POST(request: Request) {
+  const result = signupSchema.safeParse(await request.json().catch(() => null))
+
+  if (!result.success) {
+    const fieldErrors: Partial<Record<SignupField, string>> = {}
+    for (const issue of result.error.issues) {
+      const name = String(issue.path[0])
+      if (isSignupField(name)) fieldErrors[name] ??= issue.message
+    }
+    return reply({ ok: false, fieldErrors }, 422)
+  }
+
+  // Rules only the server can check use the same response shape.
+  if (await emailExists(result.data.email)) {
+    return reply(
+      {
+        ok: false,
+        fieldErrors: { email: "An account with this email already exists." },
+      },
+      422
+    )
+  }
+
+  const account = await createAccount(result.data) // hash the password here
+  return reply({ ok: true, accountId: account.id }, 201)
+}
+```
+
+**`draft.ts`**: the little state machine store for the draft. It is typed as `SignupValues` without the password.
+
+```tsx copy
+import { createStore, type GlobalState } from "little-state-machine"
+import type { SignupValues } from "./schema"
+
+// Every field except the password, which must never be stored in the browser.
+export type SignupDraft = Omit<SignupValues, "password">
+
+declare module "little-state-machine" {
+  interface GlobalState {
+    signupDraft: SignupDraft
+  }
+}
+
+const emptyDraft: SignupDraft = {
+  email: "",
+  fullName: "",
+  company: "",
+  plan: "free",
+}
+
+// little state machine saves the store to sessionStorage after each action
+// and restores it on reload.
+createStore({ signupDraft: emptyDraft })
+
+export function saveDraft(
+  state: GlobalState,
+  values: SignupValues
+): GlobalState {
+  // List the stored fields explicitly, so the password can't slip in.
+  const { email, fullName, company, plan } = values
+  return { ...state, signupDraft: { email, fullName, company, plan } }
+}
+
+export function clearDraft(state: GlobalState): GlobalState {
+  return { ...state, signupDraft: emptyDraft }
+}
+```
+
+**`SignupWizard.tsx`**: one `useForm` for every step. Only the current step is rendered.
+
+```tsx copy
+"use client"
+
+import { useEffect, useState } from "react"
+import { FormProvider, useForm, useFormContext } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useStateMachine } from "little-state-machine"
+import { clearDraft, saveDraft } from "./draft"
+import {
+  firstStepWith,
+  isSignupField,
+  signupSchema,
+  steps,
+  type SignupField,
+  type SignupResponse,
+  type SignupValues,
+} from "./schema"
+
+export default function SignupWizard() {
+  const [step, setStep] = useState(0)
+  const [accountId, setAccountId] = useState<string>()
+  const { actions, state } = useStateMachine({
+    actions: { saveDraft, clearDraft },
+  })
+  const methods = useForm<SignupValues>({
+    resolver: zodResolver(signupSchema),
+    // Restore the saved draft. The password always starts empty.
+    defaultValues: { ...state.signupDraft, password: "" },
+    mode: "onTouched",
+  })
+  const {
+    handleSubmit,
+    trigger,
+    setError,
+    subscribe,
+    formState: { errors, isSubmitting },
+  } = methods
+  const isLastStep = step === steps.length - 1
+
+  // Save the draft on every change. skipRender stores it without
+  // re-rendering this component.
+  useEffect(
+    () =>
+      subscribe({
+        formState: { values: true },
+        callback: ({ values }) =>
+          actions.saveDraft(values, { skipRender: true }),
+      }),
+    [subscribe, actions]
+  )
+
+  const goToFirstError = (names: string[]) => {
+    const index = firstStepWith(names)
+    if (index !== -1) setStep(index)
+  }
+
+  const next = async () => {
+    // Validate only the current step's fields before moving on.
+    if (await trigger(steps[step].fields, { shouldFocus: true })) {
+      setStep(step + 1)
+    }
+  }
+
+  const onSubmit = async (values: SignupValues) => {
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      })
+      if (!response.ok && response.status !== 422) throw new Error()
+      const result: SignupResponse = await response.json()
+
+      if (result.ok) {
+        actions.clearDraft()
+        setAccountId(result.accountId)
+        return
+      }
+
+      const names = Object.keys(result.fieldErrors).filter(isSignupField)
+      for (const name of names) {
+        setError(name, { type: "server", message: result.fieldErrors[name] })
+      }
+      goToFirstError(names)
+    } catch {
+      setError("root.server", {
+        type: "server",
+        message: "We couldn't create your account. Please try again.",
+      })
+    }
+  }
+
+  if (accountId) return <p role="status">Your account is ready.</p>
+
+  return (
+    <FormProvider {...methods}>
+      <form
+        noValidate
+        onSubmit={
+          isLastStep
+            ? handleSubmit(onSubmit, (errors) =>
+                goToFirstError(Object.keys(errors))
+              )
+            : (event) => {
+                event.preventDefault()
+                next()
+              }
+        }
+      >
+        <h2>
+          Step {step + 1} of {steps.length}: {steps[step].title}
+        </h2>
+
+        {step === 0 && (
+          <>
+            <TextField name="email" label="Email" type="email" />
+            <TextField name="password" label="Password" type="password" />
+          </>
+        )}
+        {step === 1 && (
+          <>
+            <TextField name="fullName" label="Full name" />
+            <TextField name="company" label="Company (optional)" />
+          </>
+        )}
+        {step === 2 && <PlanStep />}
+
+        {errors.root?.server && (
+          <p role="alert">{errors.root.server.message}</p>
+        )}
+
+        {step > 0 && (
+          <button type="button" onClick={() => setStep(step - 1)}>
+            Back
+          </button>
+        )}
+        <button type="submit" disabled={isSubmitting}>
+          {isLastStep ? "Create account" : "Next"}
+        </button>
+      </form>
+    </FormProvider>
+  )
+}
+
+function TextField({
+  name,
+  label,
+  type = "text",
+}: {
+  name: Exclude<SignupField, "plan">
+  label: string
+  type?: string
+}) {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<SignupValues>()
+  const error = errors[name]?.message
+
+  return (
+    <div>
+      <label htmlFor={name}>{label}</label>
+      <input
+        id={name}
+        type={type}
+        aria-invalid={!!error}
+        aria-describedby={error ? `${name}-error` : undefined}
+        {...register(name)}
+      />
+      {error && (
+        <p id={`${name}-error`} role="alert">
+          {error}
+        </p>
+      )}
+    </div>
+  )
+}
+
+function PlanStep() {
+  const { register } = useFormContext<SignupValues>()
+
+  return (
+    <fieldset>
+      <legend>Plan</legend>
+      {(["free", "pro", "team"] as const).map((plan) => (
+        <label key={plan}>
+          <input type="radio" value={plan} {...register("plan")} /> {plan}
+        </label>
+      ))}
+    </fieldset>
+  )
+}
+```
+
+How it fits together:
+
+- **Step validation.** [`trigger`](/docs/useform/trigger) runs the resolver against the whole form, but it reports errors only for the fields you name. Later steps stay quiet until the user reaches them.
+- **Hidden steps keep their values.** Fields from earlier steps unmount when the step changes, but their values stay in the form because `shouldUnregister` defaults to `false`. Don't set it to `true` here.
+- **Final submission.** `handleSubmit` validates every field. If a field on an earlier step is invalid, for example a password that was not restored from the draft, the second argument sends the user back to that step.
+- **Server errors.** [`setError`](/docs/useform/seterror) marks each field the server rejected, then the form shows the first step that contains one. `isSignupField` keeps unknown keys in the response out of the form state.
+- **Drafts.** [`subscribe`](/docs/useform/subscribe) passes each change to the `saveDraft` action, and `{ skipRender: true }` stores it without re-rendering the form. `saveDraft` lists the stored fields explicitly, so the password never reaches `sessionStorage`. On reload, the store's draft becomes the form's `defaultValues`.
+
+### One page per step with built-in validation {#WizardFormFunnelBuiltIn}
+
+Each route has its own `useForm` with [`register`](/docs/useform/register) rules, and little state machine holds the draft between pages, as in the previous example. It saves the store to `sessionStorage` by default, so the draft survives a reload. React context or your existing state library also works. This example needs `little-state-machine` and `react-router`:
+
+```bash copy
+npm install little-state-machine react-router
+```
+
+**`store.ts`**: the shared `SignupValues` type, the response contract, the store, and the page that owns each field.
+
+```tsx copy
+import { createStore, type GlobalState } from "little-state-machine"
+
+export type SignupValues = {
+  email: string
+  fullName: string
+  company: string
+  plan: "free" | "pro" | "team"
+}
+export type SignupField = keyof SignupValues
+
+// The contract for POST /api/signup. The server must validate every field again.
+export type SignupResponse =
+  | { ok: true; accountId: string }
+  | { ok: false; fieldErrors: Partial<Record<SignupField, string>> }
+
+declare module "little-state-machine" {
+  interface GlobalState {
+    signup: SignupValues
+  }
+}
+
+const emptySignup: SignupValues = {
+  email: "",
+  fullName: "",
+  company: "",
+  plan: "free",
+}
+
+// little state machine saves the store to sessionStorage after each action,
+// so the draft survives a reload. Don't put secrets such as passwords in it.
+createStore({ signup: emptySignup })
+
+export function updateSignup(
+  state: GlobalState,
+  payload: Partial<SignupValues>
+): GlobalState {
+  return { ...state, signup: { ...state.signup, ...payload } }
+}
+
+export function clearSignup(state: GlobalState): GlobalState {
+  return { ...state, signup: emptySignup }
+}
+
+// The page that owns each field. Because the type is a Record, adding a field
+// without a page is a type error.
+export const fieldRoute: Record<SignupField, string> = {
+  email: "/signup",
+  fullName: "/signup/profile",
+  company: "/signup/profile",
+  plan: "/signup/plan",
+}
+```
+
+**`App.tsx`**: one route per step.
+
+```tsx copy
+import { BrowserRouter, Route, Routes } from "react-router"
+import "./store" // creates the store once, at the app root
+import { AccountStep, PlanStep, ProfileStep } from "./steps"
 
 export default function App() {
   return (
