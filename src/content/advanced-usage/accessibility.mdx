@@ -1,0 +1,199 @@
+---
+title: Accessibility
+seoTitle: "Accessible Forms with React Hook Form"
+description: Connect labels, errors, and focus so every user can complete the form.
+metaDescription: "Build accessible React Hook Form forms: labels, aria-invalid, aria-describedby, error announcements, focus on error, and screen reader testing."
+sidebar: advancedLinks
+---
+
+React Hook Form validates and tracks errors. Making those errors usable with a keyboard, a screen reader, or magnification is up to your markup. This page covers the patterns that matter most: labels, error descriptions, focus after a failed submission, and testing.
+
+## The essentials for every field
+
+```tsx
+<label htmlFor="email">Email</label>
+<p id="email-hint">We only use this to reply to you.</p>
+<input
+  id="email"
+  type="email"
+  autoComplete="email"
+  aria-invalid={!!errors.email}
+  aria-describedby={errors.email ? "email-hint email-error" : "email-hint"}
+  {...register("email", { required: "Enter your email address." })}
+/>
+{errors.email && <p id="email-error">{errors.email.message}</p>}
+```
+
+- **A visible label** connected with `htmlFor` and `id`. Placeholders are not labels.
+- **`aria-invalid`** tells assistive technology the value was rejected.
+- **`aria-describedby`** links hints and the error message, so they are read when the field gets focus. List the hint first, and include the error only while it exists.
+- **`autoComplete`** lets browsers and password managers fill known fields.
+- **Specific messages.** "Enter an email address like name@example.com" helps more than "Invalid email". Don't rely on color alone to show an error.
+- **`noValidate`** on the `<form>` turns off the browser's own error bubbles, so users get one consistent set of messages. React Hook Form still validates.
+
+## Focus after a failed submission
+
+By default, `shouldFocusError: true` moves focus to the first invalid field when `handleSubmit` fails. This works well for short forms. The registered `ref` must reach the focusable element, so forward `field.ref` in [`Controller`](/docs/usecontroller/controller) components and keep custom inputs' refs attached.
+
+For long forms, an **error summary** at the top is easier to recover from: it tells the user how many problems there are and links to each one. Turn off `shouldFocusError` and move focus to the summary instead.
+
+```tsx copy
+import { useEffect, useRef } from "react"
+import { useForm, type FieldErrors } from "react-hook-form"
+
+type FormValues = {
+  fullName: string
+  email: string
+  contact: "email" | "phone" | ""
+}
+
+const labels: Record<keyof FormValues, string> = {
+  fullName: "Full name",
+  email: "Email",
+  contact: "Preferred contact",
+}
+
+function ErrorSummary({
+  errors,
+  submitCount,
+}: {
+  errors: FieldErrors<FormValues>
+  submitCount: number
+}) {
+  const ref = useRef<HTMLDivElement>(null)
+  const entries = (Object.keys(labels) as (keyof FormValues)[]).filter(
+    (name) => errors[name]
+  )
+
+  // Move focus to the summary after each failed submission, but not while
+  // the user is correcting a field.
+  const hasErrors = entries.length > 0
+  useEffect(() => {
+    if (hasErrors) ref.current?.focus()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitCount])
+
+  if (!entries.length) return null
+
+  return (
+    <div ref={ref} tabIndex={-1} aria-labelledby="error-summary-title">
+      <h2 id="error-summary-title">There is a problem</h2>
+      <ul>
+        {entries.map((name) => (
+          <li key={name}>
+            <a href={`#${name}`}>{errors[name]?.message}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default function ContactForm({
+  onSubmit,
+}: {
+  onSubmit: (values: FormValues) => void
+}) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, submitCount },
+  } = useForm<FormValues>({
+    defaultValues: { fullName: "", email: "", contact: "" },
+    // The summary takes focus instead of the first invalid field.
+    shouldFocusError: false,
+  })
+
+  // Register every radio in a group with the same rules.
+  const contact = register("contact", {
+    required: "Choose how to contact you.",
+  })
+
+  const describedBy = (name: keyof FormValues, hint?: string) =>
+    [hint, errors[name] && `${name}-error`].filter(Boolean).join(" ") ||
+    undefined
+
+  return (
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <ErrorSummary errors={errors} submitCount={submitCount} />
+
+      <label htmlFor="fullName">{labels.fullName}</label>
+      <input
+        id="fullName"
+        autoComplete="name"
+        aria-invalid={!!errors.fullName}
+        aria-describedby={describedBy("fullName")}
+        {...register("fullName", { required: "Enter your full name." })}
+      />
+      {errors.fullName && <p id="fullName-error">{errors.fullName.message}</p>}
+
+      <label htmlFor="email">{labels.email}</label>
+      <p id="email-hint">We only use this to reply to you.</p>
+      <input
+        id="email"
+        type="email"
+        autoComplete="email"
+        aria-invalid={!!errors.email}
+        aria-describedby={describedBy("email", "email-hint")}
+        {...register("email", {
+          required: "Enter your email address.",
+          pattern: {
+            value: /^\S+@\S+\.\S+$/,
+            message: "Enter an email address like name@example.com.",
+          },
+        })}
+      />
+      {errors.email && <p id="email-error">{errors.email.message}</p>}
+
+      <fieldset
+        aria-invalid={!!errors.contact}
+        aria-describedby={describedBy("contact")}
+      >
+        <legend>{labels.contact}</legend>
+        <label>
+          <input id="contact" type="radio" value="email" {...contact} />
+          Email
+        </label>
+        <label>
+          <input type="radio" value="phone" {...contact} />
+          Phone
+        </label>
+      </fieldset>
+      {errors.contact && <p id="contact-error">{errors.contact.message}</p>}
+
+      <button type="submit">Send</button>
+    </form>
+  )
+}
+```
+
+How it fits together:
+
+- The summary receives focus only when `submitCount` changes, after a failed submission. It does not take focus while the user corrects a field, which would interrupt typing.
+- Each link points at the field's `id`, so activating it moves focus to the field.
+- The summary has `tabIndex={-1}` so it can receive focus from script without becoming a tab stop.
+- Because focus moves to the summary, which is read when it receives focus, the inline messages don't need `role="alert"`. Without a summary, use `role="alert"` on inline messages so each one is announced when it appears.
+
+## Groups of inputs
+
+Wrap radio buttons and related checkboxes in a `<fieldset>` with a `<legend>`. The legend names the group, and screen readers read it with each option. Register every input in the group with the same rules. Rules passed to a later `register` call for the same name replace earlier ones, so a `required` rule on only the first radio is lost. Store the result of one `register` call and spread it onto each input, as the example does.
+
+## Announcing errors
+
+- `role="alert"` announces new content immediately. Use it for a message that appears in response to the user's action, not for every message on the page at once. Ten alerts on submit are hard to follow, which is another reason to use a summary in long forms.
+- Errors from [`mode: "onChange"`](/docs/useform#mode) appear while the user is still typing. If they are announced as alerts, users hear interruptions. `onBlur` or `onTouched` usually works better for screen reader users.
+- Show server and request errors in an element with `role="alert"`. See [Handling server errors](/advanced-usage/server-errors).
+
+## Test it
+
+- Query by role and accessible name, such as `getByRole("textbox", { name: "Email" })`, in [your tests](/advanced-usage/testing). If the query fails, the label is missing or not connected.
+- Assert `aria-invalid` and `aria-describedby` after a failed submission, and check `document.activeElement` to verify focus.
+- Use the keyboard only: tab through the form, submit with Enter, and follow the summary links.
+- Try a screen reader, such as VoiceOver on macOS or NVDA on Windows. Announcements vary by browser and screen reader.
+- Run an automated checker, such as axe, to catch missing labels and contrast problems. It cannot judge whether your messages make sense.
+
+## Further reading
+
+- [WAI forms tutorial](https://www.w3.org/WAI/tutorials/forms/)
+- [GOV.UK error summary pattern](https://design-system.service.gov.uk/components/error-summary/)
+- [Error messages](/advanced-usage/error-messages) for rendering multiple errors per field

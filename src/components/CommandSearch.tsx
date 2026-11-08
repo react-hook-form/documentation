@@ -82,12 +82,12 @@ const TASKS: Result[] = [
   },
   {
     title: "Build a multi-step form",
-    href: "/advanced-usage#WizardFormFunnel",
+    href: "/advanced-usage/multi-step-forms",
     keywords: "wizard funnel steps",
   },
   {
     title: "Use with Next.js Server Actions",
-    href: "/advanced-usage#ServerActionsuseActionState",
+    href: "/advanced-usage/server-actions",
     keywords: "nextjs useactionstate server action",
   },
 ].map((task) => ({ ...task, group: "Common tasks" }))

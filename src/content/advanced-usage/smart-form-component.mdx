@@ -1,0 +1,225 @@
+---
+title: Smart form component
+seoTitle: "Reusable Typed Form Components in React Hook Form"
+description: Build Form and field components once, with field names checked against your form type.
+metaDescription: "Build reusable React Hook Form components: a typed createForm factory with Form, TextField, and SelectField components whose names are checked by TypeScript."
+sidebar: advancedLinks
+---
+
+Most forms in an app repeat the same structure: a `<form>` that calls `handleSubmit`, and fields that each render a label, an input, and an error message. Move that structure into components once, and each form becomes a short list of fields.
+
+The challenge is keeping the components type-safe. A generic `<TextField name="..." />` accepts any string, so a typo in a field name only shows up at runtime. The pattern below creates components bound to one form type, so TypeScript checks every `name`.
+
+## A typed form factory
+
+`createForm<T>()` returns a set of components that know your form's values type. `Form` creates the form and provides it through [`FormProvider`](/docs/formprovider), and each field reads it with [`useFormContext`](/docs/useformcontext):
+
+```tsx copy
+// create-form.tsx
+import type { ReactNode } from "react"
+import {
+  FormProvider,
+  get,
+  useForm,
+  useFormContext,
+  useFormState,
+  type DefaultValues,
+  type FieldError,
+  type FieldPath,
+  type FieldValues,
+  type RegisterOptions,
+  type Resolver,
+  type SubmitHandler,
+} from "react-hook-form"
+
+export function createForm<T extends FieldValues>() {
+  function Form({
+    defaultValues,
+    resolver,
+    onSubmit,
+    children,
+  }: {
+    defaultValues: DefaultValues<T>
+    resolver?: Resolver<T>
+    onSubmit: SubmitHandler<T>
+    children: ReactNode
+  }) {
+    const methods = useForm<T>({ defaultValues, resolver })
+
+    return (
+      <FormProvider {...methods}>
+        <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
+          {children}
+        </form>
+      </FormProvider>
+    )
+  }
+
+  // Subscribes to one field's error, so a new error re-renders only that field.
+  function useFieldError(name: FieldPath<T>) {
+    const { errors } = useFormState<T>({ name })
+    return get(errors, name) as FieldError | undefined
+  }
+
+  function TextField({
+    name,
+    label,
+    type = "text",
+    rules,
+  }: {
+    name: FieldPath<T>
+    label: string
+    type?: "text" | "email" | "password" | "tel" | "url"
+    rules?: RegisterOptions<T, FieldPath<T>>
+  }) {
+    const { register } = useFormContext<T>()
+    const error = useFieldError(name)
+
+    return (
+      <div>
+        <label htmlFor={name}>{label}</label>
+        <input
+          id={name}
+          type={type}
+          aria-invalid={!!error}
+          aria-describedby={error ? `${name}-error` : undefined}
+          {...register(name, rules)}
+        />
+        {error?.message && (
+          <p id={`${name}-error`} role="alert">
+            {error.message}
+          </p>
+        )}
+      </div>
+    )
+  }
+
+  function SelectField({
+    name,
+    label,
+    options,
+    rules,
+  }: {
+    name: FieldPath<T>
+    label: string
+    options: readonly { value: string; label: string }[]
+    rules?: RegisterOptions<T, FieldPath<T>>
+  }) {
+    const { register } = useFormContext<T>()
+    const error = useFieldError(name)
+
+    return (
+      <div>
+        <label htmlFor={name}>{label}</label>
+        <select
+          id={name}
+          aria-invalid={!!error}
+          aria-describedby={error ? `${name}-error` : undefined}
+          {...register(name, rules)}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        {error?.message && (
+          <p id={`${name}-error`} role="alert">
+            {error.message}
+          </p>
+        )}
+      </div>
+    )
+  }
+
+  function SubmitButton({ children }: { children: ReactNode }) {
+    const { isSubmitting } = useFormState<T>()
+    return (
+      <button type="submit" disabled={isSubmitting}>
+        {children}
+      </button>
+    )
+  }
+
+  return { Form, TextField, SelectField, SubmitButton }
+}
+```
+
+## Using it
+
+```tsx copy
+import { createForm } from "./create-form"
+
+type SignupValues = {
+  firstName: string
+  email: string
+  plan: "free" | "pro"
+}
+
+// Create the components once, outside any component.
+const Signup = createForm<SignupValues>()
+
+export default function SignupForm({
+  onSubmit,
+}: {
+  onSubmit: (values: SignupValues) => Promise<void>
+}) {
+  return (
+    <Signup.Form
+      defaultValues={{ firstName: "", email: "", plan: "free" }}
+      onSubmit={onSubmit}
+    >
+      <Signup.TextField
+        name="firstName"
+        label="First name"
+        rules={{ required: "Enter your first name." }}
+      />
+      <Signup.TextField
+        name="email"
+        label="Email"
+        type="email"
+        rules={{ required: "Enter your email address." }}
+      />
+      <Signup.SelectField
+        name="plan"
+        label="Plan"
+        options={[
+          { value: "free", label: "Free" },
+          { value: "pro", label: "Pro" },
+        ]}
+      />
+      <Signup.SubmitButton>Create account</Signup.SubmitButton>
+    </Signup.Form>
+  )
+}
+
+// @ts-expect-error "emial" is not a field of SignupValues.
+export const typo = <Signup.TextField name="emial" label="Email" />
+```
+
+How it fits together:
+
+- `name` is typed as `FieldPath<SignupValues>`, so `"emial"` is a type error.
+- Fields can be nested anywhere inside `Signup.Form`, in your own layout components, because they read the form from context.
+- Each field calls `useFormState({ name })`, so a new error re-renders only that field, not the whole form.
+- `SubmitButton` subscribes only to `isSubmitting`.
+- Every field renders a label, `aria-invalid`, and a linked error message, so each form gets [accessible errors](/advanced-usage/accessibility) for free.
+
+Call `createForm` at module level, not inside a component. Calling it during render would create new component types on every render, and React would remount every field.
+
+## Extending it
+
+- **Controlled components**: add a field that calls [`useController`](/docs/usecontroller), such as a date picker or the star rating in [Controlled and uncontrolled inputs](/advanced-usage/controlled-and-uncontrolled).
+- **Schema validation**: pass `resolver={zodResolver(schema)}` to `Form`, and leave out `rules`.
+- **Access to the methods**: add a `useForm` hook to the factory that returns `useFormContext<T>()`, as in [Connect form](/advanced-usage/connect-form).
+- **Your design system**: replace the plain elements with your own input components. Forward the `ref` from `register` to the native input so focus on error works.
+
+## Why not clone children?
+
+An older version of this pattern had `Form` loop over its children with `React.Children.map` and inject `register` into any child with a `name` prop. Avoid it:
+
+- It only reaches direct children. A field inside a `<div>` or a layout component is skipped.
+- `name` is an untyped string, and the injected props are invisible to TypeScript.
+- Cloning elements is fragile, and the React docs [recommend alternatives](https://react.dev/reference/react/cloneElement#alternatives).
+
+Context, as above, reaches fields at any depth and keeps them typed.

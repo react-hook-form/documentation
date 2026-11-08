@@ -11,8 +11,13 @@ export const getEditLink = (pathname: string): string => {
     return `${preFix}${dataPreFix}/home.tsx`
   } else if (pathname.includes("get-started")) {
     return `${preFix}${content}get-started.mdx`
-  } else if (pathname.includes("advanced-usage")) {
-    return `${preFix}${content}advanced-usage.mdx`
+  } else if (
+    pathname.startsWith("/advanced-usage") ||
+    pathname.startsWith("/integrations")
+  ) {
+    // e.g. /advanced-usage/testing → content/advanced-usage/testing.mdx
+    const docPath = pathname.split(/[?#]/)[0].substring(1)
+    return `${preFix}${content}${docPath}.mdx`
   } else if (pathname.includes("migrate-v7-to-v8")) {
     return `${preFix}${content}migrate-v7-to-v8.mdx`
   } else if (pathname.startsWith("/docs/") && pathname !== "/docs/") {

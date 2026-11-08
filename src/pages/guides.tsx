@@ -48,32 +48,32 @@ const PATTERNS: ResourceCard[] = [
   {
     title: "Edit saved data",
     lead: "Load an existing record, reset the form, and preserve user changes during refetches.",
-    href: "/advanced-usage#EditingSavedData",
+    href: "/advanced-usage/editing-saved-data",
   },
   {
     title: "Handle server errors",
     lead: "Map API errors to fields, show submission feedback, and let users retry.",
-    href: "/advanced-usage#HandlingServerErrors",
+    href: "/advanced-usage/server-errors",
   },
   {
     title: "Show conditional fields",
     lead: "React to another input and decide whether hidden fields should retain their values.",
-    href: "/advanced-usage#ConditionalFields",
+    href: "/advanced-usage/conditional-fields",
   },
   {
     title: "Build accessible forms",
     lead: "Connect labels, hints, errors, and focus so more people can use your form.",
-    href: "/advanced-usage#AccessibilityA11y",
+    href: "/advanced-usage/accessibility",
   },
   {
     title: "Create a multi-step form",
     lead: "Validate each step and keep draft values as users move between pages.",
-    href: "/advanced-usage#WizardFormFunnel",
+    href: "/advanced-usage/multi-step-forms",
   },
   {
     title: "Test validation & submission",
     lead: "Use realistic interactions and wait for asynchronous form feedback in tests.",
-    href: "/advanced-usage#TestingForm",
+    href: "/advanced-usage/testing",
   },
 ]
 

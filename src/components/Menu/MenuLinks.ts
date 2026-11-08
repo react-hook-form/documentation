@@ -1,65 +1,48 @@
 import { Pages } from "../../types/types"
 
 export const advancedLinks: Pages = [
-  { name: "Editing saved data", pathname: "#EditingSavedData" },
-  { name: "Handling server errors", pathname: "#HandlingServerErrors" },
-  { name: "Conditional fields", pathname: "#ConditionalFields" },
+  { name: "Overview", pathname: "/advanced-usage" },
+  {
+    name: "Editing saved data",
+    pathname: "/advanced-usage/editing-saved-data",
+  },
+  { name: "Handling server errors", pathname: "/advanced-usage/server-errors" },
+  { name: "Multi-step forms", pathname: "/advanced-usage/multi-step-forms" },
+  { name: "Server Actions", pathname: "/advanced-usage/server-actions" },
+  {
+    name: "Transform and parse",
+    pathname: "/advanced-usage/transform-and-parse",
+  },
+  {
+    name: "Conditional fields",
+    pathname: "/advanced-usage/conditional-fields",
+  },
+  {
+    name: "Controlled and uncontrolled inputs",
+    pathname: "/advanced-usage/controlled-and-uncontrolled",
+  },
+  { name: "Virtualized lists", pathname: "/advanced-usage/virtualized-lists" },
+  { name: "Opaque types", pathname: "/advanced-usage/opaque-types" },
+  {
+    name: "Smart form component",
+    pathname: "/advanced-usage/smart-form-component",
+  },
+  { name: "Connect form", pathname: "/advanced-usage/connect-form" },
+  { name: "Error messages", pathname: "/advanced-usage/error-messages" },
+  {
+    name: "Custom resolver",
+    pathname: "/advanced-usage/custom-hook-with-resolver",
+  },
   {
     name: "Isolating form subscriptions",
-    pathname: "#IsolatingFormSubscriptions",
+    pathname: "/advanced-usage/isolating-subscriptions",
   },
   {
-    name: "Accessibility (A11y)",
-    pathname: "#AccessibilityA11y",
+    name: "FormProvider performance",
+    pathname: "/advanced-usage/formprovider-performance",
   },
-  {
-    name: "Wizard Form / Funnel",
-    pathname: "#WizardFormFunnel",
-  },
-  {
-    name: "Smart Form Component",
-    pathname: "#SmartFormComponent",
-  },
-  {
-    name: "Error Messages",
-    pathname: "#ErrorMessages",
-  },
-  {
-    name: "Connect Form",
-    pathname: "#ConnectForm",
-  },
-  {
-    name: "FormProvider Performance",
-    pathname: "#FormProviderPerformance",
-  },
-  {
-    name: "Controlled mixed with Uncontrolled Components",
-    pathname: "#ControlledmixedwithUncontrolledComponents",
-  },
-  {
-    name: "Custom Hook with Resolver",
-    pathname: "#CustomHookwithResolver",
-  },
-  {
-    name: "Working with virtualized lists",
-    pathname: "#Workingwithvirtualizedlists",
-  },
-  {
-    name: "Testing Form",
-    pathname: "#TestingForm",
-  },
-  {
-    name: "Transform and Parse",
-    pathname: "#TransformandParse",
-  },
-  {
-    name: "Server Actions / useActionState",
-    pathname: "#ServerActionsuseActionState",
-  },
-  {
-    name: "Registering Opaque Types",
-    pathname: "#RegisteringOpaqueTypes",
-  },
+  { name: "Accessibility", pathname: "/advanced-usage/accessibility" },
+  { name: "Testing forms", pathname: "/advanced-usage/testing" },
 ]
 
 export const faqLinks: Pages = [

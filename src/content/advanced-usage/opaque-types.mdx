@@ -1,0 +1,132 @@
+---
+title: Opaque types
+seoTitle: "Register Opaque Types in React Hook Form"
+description: Treat rich values such as Dayjs or Decimal as single fields in TypeScript.
+metaDescription: "Register Dayjs, Decimal, Luxon, and other class values as opaque types in React Hook Form so Path inference stops at the field and type-checking stays fast."
+sidebar: advancedLinks
+---
+
+<Since version="7.87.0" />
+
+Forms often hold richer values than strings and numbers: a date backed by [Day.js](https://day.js.org/)'s `Dayjs`, a price backed by [Decimal.js](https://mikemcl.github.io/decimal.js/)'s `Decimal`, or a Luxon `DateTime`. React Hook Form's type helpers, such as `Path`, `DeepPartial`, and `FieldErrors`, walk every property of your form type to infer field paths. By default, that walk also goes into those classes: their internal properties and every method.
+
+## The problem
+
+Given this form type:
+
+```tsx
+import type { Dayjs } from "dayjs"
+import type Decimal from "decimal.js"
+
+type BookingValues = {
+  guest: { name: string }
+  stay: { checkIn: Dayjs; checkOut: Dayjs }
+  deposit: Decimal
+}
+```
+
+`Path<BookingValues>` accepts `"stay.checkIn.year"` and `"deposit.d"`, which are a Dayjs method and a Decimal internal. Those are never real form fields. Each class adds dozens of paths, and in a large or deeply nested form the extra recursion slows down editor type-checking. In the worst case, TypeScript reports "Type instantiation is excessively deep and possibly infinite".
+
+## Register the types once
+
+Add the classes to the `OpaqueTypes` interface with declaration merging, in a `.d.ts` file that is part of your TypeScript program:
+
+```tsx copy
+// react-hook-form.d.ts
+import type { Dayjs } from "dayjs"
+import type Decimal from "decimal.js"
+
+declare module "react-hook-form" {
+  interface OpaqueTypes {
+    dayjs: Dayjs
+    decimal: Decimal
+  }
+}
+```
+
+The keys (`dayjs`, `decimal`) are only labels. The registration is global, so it applies to every form in the project. `Date`, `File`, and `FileList` are already treated as single values and don't need registering.
+
+## What changes
+
+With the registration in place, `Path<BookingValues>` is exactly `"guest" | "guest.name" | "stay" | "stay.checkIn" | "stay.checkOut" | "deposit"`. Errors for these fields are typed as one `FieldError`, so `errors.stay?.checkOut?.message` works as for any other field.
+
+Registration changes types only. At runtime, React Hook Form already stores class instances by reference, without copying or walking into them, so `handleSubmit` receives the same `Dayjs` and `Decimal` objects you set.
+
+## Use the values in a form
+
+Rich values usually come from a controlled component such as a date picker, so connect them with [`Controller`](/docs/usecontroller/controller) or [`useController`](/docs/usecontroller). Validation functions receive the instance, so you can use its methods directly:
+
+```tsx copy
+import dayjs, { type Dayjs } from "dayjs"
+import Decimal from "decimal.js"
+import { Controller, useForm } from "react-hook-form"
+
+type BookingValues = {
+  guest: { name: string }
+  stay: { checkIn: Dayjs; checkOut: Dayjs }
+  deposit: Decimal
+}
+
+export default function BookingForm({
+  onSubmit,
+}: {
+  onSubmit: (values: BookingValues) => void
+}) {
+  const today = dayjs().startOf("day")
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<BookingValues>({
+    defaultValues: {
+      guest: { name: "" },
+      stay: { checkIn: today, checkOut: today.add(1, "day") },
+      deposit: new Decimal("0"),
+    },
+  })
+
+  return (
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="name">Name</label>
+      <input
+        id="name"
+        {...register("guest.name", { required: "Enter a name." })}
+      />
+
+      <Controller
+        control={control}
+        name="stay.checkOut"
+        rules={{
+          validate: (checkOut, values) =>
+            checkOut.isAfter(values.stay.checkIn) ||
+            "Check-out must be after check-in.",
+        }}
+        render={({ field }) => (
+          <>
+            <label htmlFor="checkOut">Check-out</label>
+            <input
+              id="checkOut"
+              type="date"
+              ref={field.ref}
+              name={field.name}
+              onBlur={field.onBlur}
+              value={field.value.format("YYYY-MM-DD")}
+              onChange={(event) => field.onChange(dayjs(event.target.value))}
+            />
+          </>
+        )}
+      />
+      {errors.stay?.checkOut && (
+        <p role="alert">{errors.stay.checkOut.message}</p>
+      )}
+
+      <button type="submit">Book</button>
+    </form>
+  )
+}
+```
+
+Before sending the values to a server, convert them to a wire format, for example `checkOut.format("YYYY-MM-DD")` and `deposit.toString()`. `JSON.stringify` does not preserve class instances.
+
+See the [`OpaqueTypes`](/ts#OpaqueTypes) TypeScript reference for the type definition.

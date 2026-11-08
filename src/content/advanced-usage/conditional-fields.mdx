@@ -1,0 +1,173 @@
+---
+title: Conditional fields
+seoTitle: "Conditional Fields in React Hook Form"
+description: Show, hide, and validate fields based on other answers.
+metaDescription: "Show and hide React Hook Form fields based on other values with useWatch, decide whether hidden values are kept or removed, and validate them correctly."
+sidebar: advancedLinks
+---
+
+Read the controlling value with [`useWatch`](/docs/usewatch) and render the dependent input only when it applies. The harder decision is what happens to a field's value and rules while it is hidden. Decide that per field.
+
+## Hidden fields: keep, remove, or skip
+
+When an input unmounts, React Hook Form stops running its built-in rules, so a hidden `required` field never blocks submission. What happens to its **value** depends on how you hide it:
+
+| Approach                              | Hidden value submitted? | Value back when shown again? | Use when                                                             |
+| ------------------------------------- | ----------------------- | ---------------------------- | -------------------------------------------------------------------- |
+| Unmount (default)                     | **Yes, the last value** | Yes                          | The value still applies, such as an earlier step in a wizard         |
+| Unmount with `shouldUnregister: true` | No                      | No, it starts empty          | The answer no longer applies and should be discarded                 |
+| Keep mounted with `disabled: true`    | No (`undefined`)        | Yes                          | The input stays visible but inactive, and the answer may apply again |
+
+The default is the one that surprises people: a user picks "Business", types a company name, switches back to "Personal", and the company name is still submitted. Choose `shouldUnregister` or `disabled` when that would be wrong. Hiding an input with CSS keeps it mounted, so its rules still run.
+
+## Built-in rules
+
+`company` uses `shouldUnregister: true` on the field, so its value is discarded when the user switches to a personal account. `vatNumber` stays on screen and uses `disabled`, so it is skipped while it does not apply but keeps what the user typed.
+
+```tsx copy
+import { useForm, useWatch } from "react-hook-form"
+
+type FormValues = {
+  accountType: "personal" | "business"
+  company: string
+  vatNumber: string
+}
+
+export default function AccountForm({
+  onSubmit,
+}: {
+  onSubmit: (values: Partial<FormValues>) => void
+}) {
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({
+    defaultValues: { accountType: "personal", company: "", vatNumber: "" },
+  })
+  const accountType = useWatch({ control, name: "accountType" })
+  const isBusiness = accountType === "business"
+
+  return (
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <fieldset>
+        <legend>Account type</legend>
+        <label>
+          <input type="radio" value="personal" {...register("accountType")} />
+          Personal
+        </label>
+        <label>
+          <input type="radio" value="business" {...register("accountType")} />
+          Business
+        </label>
+      </fieldset>
+
+      {isBusiness && (
+        <>
+          <label htmlFor="company">Company name</label>
+          <input
+            id="company"
+            aria-invalid={!!errors.company}
+            aria-describedby={errors.company ? "company-error" : undefined}
+            {...register("company", {
+              required: "Enter your company name.",
+              // Remove the value when the input is hidden.
+              shouldUnregister: true,
+            })}
+          />
+          {errors.company && (
+            <p id="company-error" role="alert">
+              {errors.company.message}
+            </p>
+          )}
+        </>
+      )}
+
+      <label htmlFor="vatNumber">VAT number</label>
+      <input
+        id="vatNumber"
+        {...register("vatNumber", {
+          // Keep the value for later, but skip it while it doesn't apply.
+          disabled: !isBusiness,
+          required: "Enter your VAT number.",
+        })}
+      />
+      {errors.vatNumber && <p role="alert">{errors.vatNumber.message}</p>}
+
+      <button type="submit">Continue</button>
+    </form>
+  )
+}
+```
+
+Submitting a personal account gives `{ accountType: "personal" }`, with no company name or VAT number. Because fields can be absent, the submit handler takes `Partial<FormValues>`. You can also set `shouldUnregister: true` in `useForm` to apply it to every field.
+
+## Schema validation
+
+A [resolver](/integrations/resolvers) validates the form values, not the mounted inputs. Hidden fields with stale values are still checked, so express the condition in the schema itself. A Zod discriminated union also gives you precise types:
+
+```tsx copy
+import { useForm, useWatch } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
+
+const schema = z.discriminatedUnion("accountType", [
+  z.object({ accountType: z.literal("personal") }),
+  z.object({
+    accountType: z.literal("business"),
+    company: z.string().trim().min(1, "Enter your company name."),
+  }),
+])
+
+type FormInput = z.input<typeof schema>
+type FormOutput = z.output<typeof schema>
+
+export default function AccountForm({
+  onSubmit,
+}: {
+  onSubmit: (values: FormOutput) => void
+}) {
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInput, unknown, FormOutput>({
+    resolver: zodResolver(schema),
+    defaultValues: { accountType: "personal" },
+  })
+  const accountType = useWatch({ control, name: "accountType" })
+
+  return (
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="accountType">Account type</label>
+      <select id="accountType" {...register("accountType")}>
+        <option value="personal">Personal</option>
+        <option value="business">Business</option>
+      </select>
+
+      {accountType === "business" && (
+        <>
+          <label htmlFor="company">Company name</label>
+          <input id="company" {...register("company")} />
+          {"company" in errors && errors.company && (
+            <p role="alert">{errors.company.message}</p>
+          )}
+        </>
+      )}
+
+      <button type="submit">Continue</button>
+    </form>
+  )
+}
+```
+
+When the user switches back to "Personal", the old company name is still in the form values, but the schema's personal branch does not include it. Zod drops unknown keys, so `handleSubmit` receives exactly `{ accountType: "personal" }`. The submit handler is typed with the union, so TypeScript requires you to check `accountType` before reading `company`.
+
+## Things to watch
+
+- **Use `useWatch`, not `watch`, in large forms.** `useWatch` re-renders only the component that calls it. See [Isolating form subscriptions](/advanced-usage/isolating-subscriptions).
+- **Validate dependent fields together.** If one field's rule reads another field, as in "end date after start date", re-validate it when the other changes with [`trigger`](/docs/useform/trigger), or use the `deps` option of `register`.
+- **Field arrays.** Reordering rows can unmount and remount inputs. Avoid `shouldUnregister` inside [`useFieldArray`](/docs/usefieldarray) rows unless you have tested reordering.
+- **Server validation.** The server cannot see which fields were visible. Apply the same condition there, for example with the same schema.

@@ -1,0 +1,197 @@
+---
+title: Editing saved data
+seoTitle: "Edit Saved Records with React Hook Form"
+description: Load a saved record into a form, keep user edits, and save only what changed.
+metaDescription: "Build React Hook Form edit forms: load records with values or reset, avoid overwriting user edits, track dirty fields, and submit only changed data."
+sidebar: advancedLinks
+---
+
+An edit form starts from a saved record, lets the user change it, and saves the result. The tricky parts are loading the record at the right time, not overwriting the user's edits, and knowing what changed.
+
+## Load the record before the form
+
+`defaultValues` are read once, when the form mounts. Passing a different object on a later render does not load a different record. Fetch the record in a parent, handle loading and errors there, and render the form once the data is ready:
+
+```tsx
+function EditProfilePage({ id }: { id: string }) {
+  const { data, error, isLoading } = useProfile(id)
+  if (isLoading) return <p>Loading…</p>
+  if (error || !data) return <p role="alert">We couldn't load this profile.</p>
+
+  // A new key starts a fresh form when the user opens another record.
+  return (
+    <ProfileEditor key={data.id} profile={data} saveProfile={saveProfile} />
+  )
+}
+```
+
+The `key` matters when the same page can show different records. Without it, switching from one record to another keeps the first record's values. Decide whether to prompt about unsaved changes before switching.
+
+## Save only what changed
+
+[`dirtyFields`](/docs/useform/formstate) marks every field whose value differs from its default. Use it to send a partial update, such as an HTTP `PATCH`, instead of the whole record. This helper keeps only the dirty values, including nested ones:
+
+```tsx copy
+// get-dirty-values.ts
+import type { DeepPartial, FieldValues } from "react-hook-form"
+
+type DirtyFields = { [key: string]: boolean | DirtyFields | DirtyFields[] }
+
+// Keeps only the values whose fields are marked dirty.
+export function getDirtyValues<T extends FieldValues>(
+  dirtyFields: Partial<Record<keyof T, unknown>>,
+  values: T
+): DeepPartial<T> {
+  const result: Record<string, unknown> = {}
+  for (const key of Object.keys(dirtyFields)) {
+    const dirty = (dirtyFields as DirtyFields)[key]
+    if (dirty === true) {
+      result[key] = values[key]
+    } else if (dirty && typeof dirty === "object" && !Array.isArray(dirty)) {
+      result[key] = getDirtyValues(dirty, values[key])
+    } else if (Array.isArray(dirty) && dirty.some(Boolean)) {
+      // Arrays are saved whole, because a partial array is ambiguous.
+      result[key] = values[key]
+    }
+  }
+  return result as DeepPartial<T>
+}
+```
+
+A field is dirty only while its value differs from the default. If the user changes a value and then changes it back, it is no longer dirty and is not sent.
+
+## Example
+
+```tsx copy
+import { useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
+import { getDirtyValues } from "./get-dirty-values"
+
+type Profile = {
+  id: string
+  name: string
+  email: string
+  address: { city: string; country: string }
+}
+type ProfileFields = Omit<Profile, "id">
+
+export function ProfileEditor({
+  profile,
+  saveProfile,
+}: {
+  profile: Profile
+  // Sends a partial update and resolves with the saved record.
+  saveProfile: (id: string, changes: Partial<ProfileFields>) => Promise<Profile>
+}) {
+  const [saved, setSaved] = useState<ProfileFields>()
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setError,
+    formState: {
+      errors,
+      dirtyFields,
+      isDirty,
+      isSubmitting,
+      isSubmitSuccessful,
+    },
+  } = useForm<ProfileFields>({
+    defaultValues: {
+      name: profile.name,
+      email: profile.email,
+      address: profile.address,
+    },
+  })
+
+  // Warn before the page unloads with unsaved changes.
+  useEffect(() => {
+    if (!isDirty) return
+    const warn = (event: BeforeUnloadEvent) => event.preventDefault()
+    window.addEventListener("beforeunload", warn)
+    return () => window.removeEventListener("beforeunload", warn)
+  }, [isDirty])
+
+  // After a successful save, the saved record becomes the new baseline,
+  // so isDirty is false again and the server's normalized values show.
+  useEffect(() => {
+    if (isSubmitSuccessful && saved) reset(saved)
+  }, [isSubmitSuccessful, saved, reset])
+
+  const onSubmit = async (values: ProfileFields) => {
+    try {
+      const record = await saveProfile(
+        profile.id,
+        getDirtyValues(dirtyFields, values) as Partial<ProfileFields>
+      )
+      const { id: _id, ...fields } = record
+      setSaved(fields)
+    } catch {
+      setError("root.server", {
+        type: "server",
+        message: "We couldn't save your changes. Please try again.",
+      })
+    }
+  }
+
+  return (
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="name">Name</label>
+      <input
+        id="name"
+        {...register("name", { required: "Enter your name." })}
+      />
+      {errors.name && <p role="alert">{errors.name.message}</p>}
+
+      <label htmlFor="email">Email</label>
+      <input id="email" type="email" {...register("email")} />
+
+      <label htmlFor="city">City</label>
+      <input id="city" {...register("address.city")} />
+
+      <label htmlFor="country">Country</label>
+      <input id="country" {...register("address.country")} />
+
+      {errors.root?.server && <p role="alert">{errors.root.server.message}</p>}
+
+      <button type="submit" disabled={!isDirty || isSubmitting}>
+        {isSubmitting ? "Saving…" : "Save changes"}
+      </button>
+      <button
+        type="button"
+        disabled={!isDirty || isSubmitting}
+        onClick={() => reset()}
+      >
+        Discard changes
+      </button>
+    </form>
+  )
+}
+```
+
+How it fits together:
+
+- Changing the city and the name sends `{ name: "…", address: { city: "…" } }`, and nothing else.
+- **Save** and **Discard** are disabled until something changes. `reset()` with no arguments restores the default values.
+- After a successful save, the effect resets the form to the saved record, so `isDirty` is `false` again and any values the server normalized, such as trimmed text, are shown. [`reset`](/docs/useform/reset) runs in an effect, not in the submit handler, because `handleSubmit` updates the submission state after your handler returns.
+- While there are unsaved changes, the browser asks for confirmation before the user leaves the page.
+
+## When the record changes in the background
+
+If the same record is refetched while the user edits it, decide whether to replace their edits:
+
+- `reset(freshValues)` replaces all values and makes them the new baseline.
+- `reset(freshValues, { keepDirtyValues: true })` updates fields the user hasn't touched and keeps edited ones. Read `formState.dirtyFields` in the component for this option to work.
+
+Do not call `reset` on every render, or every time a query library returns a new object with the same data.
+
+## Other ways to load data
+
+- [Async `defaultValues`](/docs/useform#defaultValues): pass a function that returns a promise, and the form loads the data itself. It runs once per mount. Catch errors inside it and show loading feedback with `formState.isLoading`.
+- [`values`](/docs/useform#values): pass data that keeps updating, and the form follows it. Combine it with `resetOptions: { keepDirtyValues: true }` to keep the user's edits.
+
+## Things to watch
+
+- **Default every field.** Give every registered field a default value, even an empty string. `dirtyFields` and `isDirty` compare against `defaultValues`, so a field without a default can't be compared reliably.
+- **Hidden fields.** Fields in `defaultValues` that you never render are still submitted. Leave server-only fields such as `id` out of the form values, as the example does.
+- **Server errors.** See [Handling server errors](/advanced-usage/server-errors) for mapping a failed save onto fields.

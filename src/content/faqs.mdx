@@ -427,7 +427,7 @@ try {
 }
 ```
 
-Pass stable error objects into the form if your framework supplies server errors as props; a new object on every render can cause repeated updates. See the [server error guide](/advanced-usage#HandlingServerErrors).
+Pass stable error objects into the form if your framework supplies server errors as props; a new object on every render can cause repeated updates. See the [server error guide](/advanced-usage/server-errors).
 
 ---
 
@@ -443,4 +443,4 @@ expect(
 ).toBeInTheDocument()
 ```
 
-Do not wrap `render()` in `act()` just to hide the warning. See the complete [testing examples](/advanced-usage#TestingForm).
+Do not wrap `render()` in `act()` just to hide the warning. See the complete [testing examples](/advanced-usage/testing).

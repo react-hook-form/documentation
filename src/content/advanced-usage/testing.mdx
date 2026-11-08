@@ -1,0 +1,396 @@
+---
+title: Testing forms
+seoTitle: "Test React Hook Form with Testing Library"
+description: Test validation, submission, and errors the way users interact with the form.
+metaDescription: "Test React Hook Form forms with React Testing Library and user-event: validation messages, submission, server errors, and act warnings."
+sidebar: advancedLinks
+---
+
+Tests catch broken validation and submission before your users do, and let you refactor a form safely. We recommend [Testing Library](https://testing-library.com/): its queries find elements by role and label, the way users do, so tests survive changes to markup and implementation.
+
+## Set up your test environment
+
+For a web form, use a DOM test environment such as `jsdom` with React Testing Library and `jest-dom` matchers. The examples below use Jest; adapt the setup to your test runner using the [Testing Library setup guide](https://testing-library.com/docs/react-testing-library/setup/).
+
+```bash copy
+npm install -D @testing-library/react @testing-library/jest-dom @testing-library/user-event jest-environment-jsdom
+```
+
+Import the matchers in your setup file:
+
+```javascript copy
+// setupTests.js
+import "@testing-library/jest-dom"
+```
+
+Add that file and the DOM environment to your existing Jest configuration. Your project must also configure JSX or TypeScript transformation if it does not already do so.
+
+```javascript copy
+module.exports = {
+  testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
+  // Keep your project's existing transform and other settings.
+}
+```
+
+With [Vitest](https://vitest.dev/), install `jsdom` instead of `jest-environment-jsdom`, and set the environment in your Vitest config:
+
+```bash copy
+npm install -D vitest jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event
+```
+
+```javascript copy
+// vitest.config.js
+import { defineConfig } from "vitest/config"
+
+export default defineConfig({
+  test: {
+    environment: "jsdom",
+    setupFiles: ["./setupTests.js"],
+  },
+})
+```
+
+In `setupTests.js`, import `@testing-library/jest-dom/vitest` instead of `@testing-library/jest-dom`.
+
+For React Native, use [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) and its native setup instead of adding a browser `window` shim.
+
+Additionally, you can set up [eslint-plugin-testing-library](https://github.com/testing-library/eslint-plugin-testing-library) and [eslint-plugin-jest-dom](https://github.com/testing-library/eslint-plugin-jest-dom) to follow best practices and anticipate common mistakes when writing your tests.
+
+## Create a form to test
+
+Use visible labels and native elements so tests can find inputs and buttons by their accessible names. Error messages use `role="alert"` so the tests can wait for validation feedback.
+
+```javascript copy
+import { useEffect } from "react"
+import { useForm } from "react-hook-form"
+
+export default function App({ login }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+    reset,
+  } = useForm({ defaultValues: { email: "", password: "" } })
+
+  useEffect(() => {
+    if (isSubmitSuccessful) reset()
+  }, [isSubmitSuccessful, reset])
+  const onSubmit = async (data) => {
+    await login(data.email, data.password)
+  }
+
+  return (
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="email">email</label>
+      <input
+        id="email"
+        {...register("email", {
+          required: "required",
+          pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: "Entered value does not match email format",
+          },
+        })}
+        type="email"
+      />
+      {errors.email && <span role="alert">{errors.email.message}</span>}
+      <label htmlFor="password">password</label>
+      <input
+        id="password"
+        {...register("password", {
+          required: "required",
+          minLength: {
+            value: 5,
+            message: "min length is 5",
+          },
+        })}
+        type="password"
+      />
+      {errors.password && <span role="alert">{errors.password.message}</span>}
+      <button type="submit">SUBMIT</button>
+    </form>
+  )
+}
+```
+
+## Write the tests
+
+Use [`userEvent`](https://testing-library.com/docs/user-event/intro/) to type and click as a user would. Await those interactions and use `findBy` queries or `waitFor` for asynchronous validation and submission feedback.
+
+The following criteria are what we aim to cover with the tests:
+
+- Test submission failure.
+
+  We are using `waitFor` util and `find*` queries to detect submission feedback, because the `handleSubmit` method is executed asynchronously.
+
+- Test validation associated with each input.
+
+  We are using the `*ByRole` method when querying different elements because that's how users recognize your UI component.
+
+- Test successful submission.
+
+```javascript copy
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import App from "./App"
+
+const mockLogin = jest.fn((email, password) => {
+  return Promise.resolve({ email, password })
+})
+
+it("should display required error when value is invalid", async () => {
+  const user = userEvent.setup()
+  mockLogin.mockClear()
+  render(<App login={mockLogin} />)
+
+  await user.click(screen.getByRole("button", { name: /submit/i }))
+
+  expect(await screen.findAllByRole("alert")).toHaveLength(2)
+  expect(mockLogin).not.toHaveBeenCalled()
+})
+
+it("should display matching error when email is invalid", async () => {
+  const user = userEvent.setup()
+  mockLogin.mockClear()
+  render(<App login={mockLogin} />)
+
+  await user.type(screen.getByRole("textbox", { name: /email/i }), "test")
+
+  await user.type(screen.getByLabelText("password"), "password")
+
+  await user.click(screen.getByRole("button", { name: /submit/i }))
+
+  expect(await screen.findAllByRole("alert")).toHaveLength(1)
+  expect(mockLogin).not.toHaveBeenCalled()
+  expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("test")
+  expect(screen.getByLabelText("password")).toHaveValue("password")
+})
+
+it("should display min length error when password is invalid", async () => {
+  const user = userEvent.setup()
+  mockLogin.mockClear()
+  render(<App login={mockLogin} />)
+
+  await user.type(
+    screen.getByRole("textbox", { name: /email/i }),
+    "test@mail.com"
+  )
+
+  await user.type(screen.getByLabelText("password"), "pass")
+
+  await user.click(screen.getByRole("button", { name: /submit/i }))
+
+  expect(await screen.findAllByRole("alert")).toHaveLength(1)
+  expect(mockLogin).not.toHaveBeenCalled()
+  expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue(
+    "test@mail.com"
+  )
+  expect(screen.getByLabelText("password")).toHaveValue("pass")
+})
+
+it("should not display error when value is valid", async () => {
+  const user = userEvent.setup()
+  mockLogin.mockClear()
+  render(<App login={mockLogin} />)
+
+  await user.type(
+    screen.getByRole("textbox", { name: /email/i }),
+    "test@mail.com"
+  )
+
+  await user.type(screen.getByLabelText("password"), "password")
+
+  await user.click(screen.getByRole("button", { name: /submit/i }))
+
+  await waitFor(() => {
+    expect(screen.queryAllByRole("alert")).toHaveLength(0)
+    // reset() fires after the async login resolves and triggers a re-render;
+    // all post-reset assertions must be inside waitFor so they retry until
+    // the DOM reflects the new state.
+    expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("")
+    expect(screen.getByLabelText("password")).toHaveValue("")
+  })
+  expect(mockLogin).toHaveBeenCalledWith("test@mail.com", "password")
+})
+```
+
+## More patterns
+
+The examples below use Vitest. With Jest, replace `vi` with `jest`.
+
+### Server responses
+
+Stub `fetch` and assert what the user sees, including where focus lands. This test belongs to the form in [Handling server errors](/advanced-usage/server-errors):
+
+```tsx copy
+import { render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { afterEach, expect, test, vi } from "vitest"
+import ProfileForm from "./profile-form"
+
+afterEach(() => vi.unstubAllGlobals())
+
+test("shows a field error from the server and focuses the field", async () => {
+  vi.stubGlobal(
+    "fetch",
+    vi
+      .fn()
+      .mockResolvedValue(
+        new Response(
+          JSON.stringify({ fieldErrors: { email: "That email is taken." } }),
+          { status: 422 }
+        )
+      )
+  )
+  const user = userEvent.setup()
+  render(<ProfileForm />)
+
+  await user.type(screen.getByRole("textbox", { name: "Username" }), "ada")
+  await user.type(screen.getByRole("textbox", { name: "Email" }), "a@b.co")
+  await user.click(screen.getByRole("button", { name: "Save profile" }))
+
+  expect(await screen.findByText("That email is taken.")).toBeInTheDocument()
+  expect(screen.getByRole("textbox", { name: "Email" })).toHaveFocus()
+})
+```
+
+### Controlled components
+
+Interact with controlled components the way a user would, by role and accessible name. You don't need to call `setValue` or reach into the form. For the star rating in [Controlled and uncontrolled inputs](/advanced-usage/controlled-and-uncontrolled):
+
+```tsx
+await user.click(screen.getByRole("radio", { name: "4 stars" }))
+await user.click(screen.getByRole("button", { name: "Post review" }))
+
+await waitFor(() => expect(onSubmit).toHaveBeenCalled())
+expect(onSubmit.mock.calls[0][0]).toEqual({
+  title: "Great",
+  rating: 4,
+  body: "",
+})
+```
+
+### Debounced effects with fake timers
+
+To test an autosave that runs after a delay, use fake timers and let `user-event` advance them. In Vitest, also pass `shouldAdvanceTime: true`, because Testing Library's async helpers only detect Jest's fake timers and would otherwise wait forever. This test belongs to the autosaving form in [Isolating form subscriptions](/advanced-usage/isolating-subscriptions):
+
+```tsx copy
+import { render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { afterEach, beforeEach, expect, test, vi } from "vitest"
+import OrderForm from "./order-form"
+
+beforeEach(() => vi.useFakeTimers({ shouldAdvanceTime: true }))
+afterEach(() => vi.useRealTimers())
+
+test("saves a draft 500 ms after the last change", async () => {
+  const onDraft = vi.fn()
+  // Let user-event advance the fake clock between keystrokes.
+  const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
+  render(<OrderForm onSubmit={vi.fn()} onDraft={onDraft} />)
+
+  await user.type(screen.getByRole("textbox", { name: "Customer" }), "Ada")
+  expect(onDraft).not.toHaveBeenCalled()
+
+  await vi.advanceTimersByTimeAsync(500)
+  expect(onDraft).toHaveBeenCalledTimes(1)
+  expect(onDraft).toHaveBeenCalledWith(
+    expect.objectContaining({ customer: "Ada" })
+  )
+})
+```
+
+### Resolvers and helpers
+
+A resolver is a plain function, so you can test it without rendering. This checks the adapter from [Custom resolver](/advanced-usage/custom-hook-with-resolver):
+
+```tsx copy
+import { expect, test } from "vitest"
+import { issuesResolver } from "./issues-resolver"
+
+test("nests errors by path", async () => {
+  type Values = { address: { city: string } }
+  const resolver = issuesResolver<Values>((values) =>
+    values.address.city
+      ? []
+      : [{ path: "address.city", message: "Enter a city." }]
+  )
+
+  const result = await resolver({ address: { city: "" } }, undefined, {
+    fields: {},
+    shouldUseNativeValidation: false,
+  })
+
+  expect(result.errors).toEqual({
+    address: { city: { type: "validation", message: "Enter a city." } },
+  })
+})
+```
+
+### What to assert
+
+- **What the user sees**: messages by text or role, and `aria-invalid` on inputs.
+- **What was submitted**: the arguments your submit handler or API mock received.
+- **Where focus is**: `toHaveFocus()` after a failed submission.
+- **Not internals**: avoid asserting on `formState` objects or how many times a component rendered. Those change between versions without changing behavior.
+
+## Resolving act warning during test
+
+If you test a component that uses react-hook-form, you might run into a warning like this, even if you didn't write any asynchronous code for that component:
+
+> Warning: An update to MyComponent inside a test was not wrapped in act(...)
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.js"
+import { useForm } from "react-hook-form"
+
+export default function App() {
+  const { register, handleSubmit } = useForm({
+    mode: "onChange",
+  })
+  const onSubmit = (data) => {}
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...register("answer", {
+          required: true,
+        })}
+      />
+      <button type="submit">SUBMIT</button>
+    </form>
+  )
+}
+```
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-yq7uj?file=/src/App.test.js"
+import { render, screen } from "@testing-library/react"
+import App from "./App"
+
+it("should have a submit button", () => {
+  render(<App />)
+
+  expect(screen.getByText("SUBMIT")).toBeInTheDocument()
+})
+```
+
+In this example, there is a simple form without any apparent async code, and the test merely renders the component and checks for the presence of a button. However, it still logs the warning about updates not being wrapped in `act()`.
+
+This is because react-hook-form internally uses asynchronous validation handlers. In order to compute the formState, it has to initially validate the form, which is done asynchronously and results in another render. That update happens after the test function returns, which triggers the warning.
+
+To solve this, wait until some element from your UI appears with `find*` queries. Note that you **must not** wrap your `render()` calls in `act()`. [You can read more about wrapping things in `act` unnecessarily here](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library#wrapping-things-in-act-unnecessarily).
+
+```javascript copy sandbox="https://codesandbox.io/s/react-hook-form-unit-test-act-warning-docs-tcb7y?file=/src/App.test.js"
+import { render, screen } from "@testing-library/react"
+import App from "./App"
+
+it("should have a submit button", async () => {
+  render(<App />)
+
+  expect(await screen.findByText("SUBMIT")).toBeInTheDocument()
+
+  // Now that the UI was awaited until the async behavior was complete,
+  // you can keep asserting with `get*` queries.
+  expect(screen.getByRole("textbox")).toBeInTheDocument()
+})
+```

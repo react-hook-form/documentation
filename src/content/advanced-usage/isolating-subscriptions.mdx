@@ -1,0 +1,158 @@
+---
+title: Isolating form subscriptions
+seoTitle: "Reduce Re-renders in React Hook Form"
+description: Subscribe to values and form state where they are rendered.
+metaDescription: "Cut React Hook Form re-renders with useWatch, useFormState, subscribe, and getValues so only the components that display a value update."
+sidebar: advancedLinks
+---
+
+React Hook Form avoids re-rendering on every keystroke by default: inputs registered with `register` update the form's own store through event listeners, not React state. Re-renders happen where you **subscribe** to values or form state. Put each subscription in the component that displays the result, and a change re-renders only that component.
+
+## What causes a re-render
+
+| You write…                                          | Re-renders                                           |
+| --------------------------------------------------- | ---------------------------------------------------- |
+| `watch()` or `watch("field")` in the form component | The whole form component, on every change it watches |
+| `formState.errors` (or another key) in the form     | The whole form component, when that key changes      |
+| [`useWatch`](/docs/usewatch) in a child             | Only that child, when the watched value changes      |
+| `useWatch` with `compute`                           | Only that child, when the computed result changes    |
+| [`useFormState`](/docs/useformstate) in a child     | Only that child, when a key it reads changes         |
+| [`getValues`](/docs/useform/getvalues)              | Nothing. It reads the current values once            |
+| [`subscribe`](/docs/useform/subscribe)              | Nothing. It calls your function instead of rendering |
+
+`formState` is a proxy: a component subscribes only to the keys it reads. Reading `isDirty` does not subscribe to `errors`.
+
+## Example
+
+```tsx copy
+import { useEffect } from "react"
+import {
+  useFieldArray,
+  useForm,
+  useFormState,
+  useWatch,
+  type Control,
+} from "react-hook-form"
+
+type OrderValues = {
+  customer: string
+  notes: string
+  items: { name: string; price: number; quantity: number }[]
+}
+
+// Re-renders only when the computed total changes, not on every keystroke.
+function OrderTotal({ control }: { control: Control<OrderValues> }) {
+  const total = useWatch({
+    control,
+    name: "items",
+    compute: (items) =>
+      items.reduce(
+        (sum, item) => sum + (item.price || 0) * (item.quantity || 0),
+        0
+      ),
+  })
+  return <p>Total: {total.toFixed(2)}</p>
+}
+
+// Re-renders on each change to notes only.
+function NotesCounter({ control }: { control: Control<OrderValues> }) {
+  const notes = useWatch({ control, name: "notes" })
+  return <p id="notes-count">{notes.length} / 500</p>
+}
+
+// Re-renders only when isDirty or isSubmitting change.
+function SaveStatus({ control }: { control: Control<OrderValues> }) {
+  const { isDirty, isSubmitting } = useFormState({ control })
+  return (
+    <button type="submit" disabled={!isDirty || isSubmitting}>
+      Save order
+    </button>
+  )
+}
+
+export default function OrderForm({
+  onSubmit,
+  onDraft,
+}: {
+  onSubmit: (values: OrderValues) => void
+  onDraft: (values: OrderValues) => void
+}) {
+  const { register, control, handleSubmit, subscribe } = useForm<OrderValues>({
+    defaultValues: {
+      customer: "",
+      notes: "",
+      items: [{ name: "Coffee", price: 4, quantity: 1 }],
+    },
+  })
+  const { fields } = useFieldArray({ control, name: "items" })
+
+  // Side effect without rendering: save a draft 500 ms after the last change.
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>
+    const unsubscribe = subscribe({
+      formState: { values: true },
+      callback: ({ values }) => {
+        clearTimeout(timer)
+        timer = setTimeout(() => onDraft(values), 500)
+      },
+    })
+    return () => {
+      clearTimeout(timer)
+      unsubscribe()
+    }
+  }, [subscribe, onDraft])
+
+  return (
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="customer">Customer</label>
+      <input id="customer" {...register("customer")} />
+
+      {fields.map((field, index) => (
+        <fieldset key={field.id}>
+          <legend>{field.name}</legend>
+          <label htmlFor={`items.${index}.quantity`}>Quantity</label>
+          <input
+            id={`items.${index}.quantity`}
+            type="number"
+            {...register(`items.${index}.quantity`, { valueAsNumber: true })}
+          />
+        </fieldset>
+      ))}
+      <OrderTotal control={control} />
+
+      <label htmlFor="notes">Notes</label>
+      <textarea
+        id="notes"
+        aria-describedby="notes-count"
+        {...register("notes")}
+      />
+      <NotesCounter control={control} />
+
+      <SaveStatus control={control} />
+    </form>
+  )
+}
+```
+
+What re-renders in this form:
+
+- Typing in **Customer** re-renders nothing, except `SaveStatus` once, when `isDirty` first becomes `true`.
+- Typing in **Notes** re-renders only `NotesCounter`.
+- Changing a **quantity** re-renders only `OrderTotal`, and only when the total changes.
+- `OrderForm` itself renders once. The draft is saved 500 ms after the last change, without any render.
+
+## Choose the right tool
+
+- **Display a value**: `useWatch` with `name` in the component that shows it. Watch the narrowest path you need: `items.0.price`, not `items`.
+- **Display something derived**: `useWatch` with `compute`, so the component re-renders only when the derived value changes, as in `OrderTotal`.
+- **Display form state**: `useFormState` with `name` to narrow it to the fields you care about.
+- **Read values in an event handler**: `getValues()`. It is always current, and it never subscribes.
+- **React to changes without UI**: `subscribe` inside an effect for autosave, analytics, or syncing to a store. Return its cleanup function from the effect.
+
+## Things to watch
+
+- **`watch` in the form component.** It is convenient in small forms. In large ones, move the read into a child with `useWatch`.
+- **Passing `control`.** Every hook above accepts `control`. Inside a [`FormProvider`](/docs/formprovider) you can omit it, but read the [FormProvider performance](/advanced-usage/formprovider-performance) guide first.
+- **React Compiler.** `watch` and `getValues` return the same object across renders, so the compiler may cache their results. Use `useWatch` to render values in compiled components.
+- **`mode: "onChange"`.** It validates on every keystroke, and components that read `errors` re-render as errors change. Use it only when instant feedback helps the user.
+- **Measure first.** Use the React DevTools Profiler or a temporary `console.count` before optimizing. Most forms don't need any of this.

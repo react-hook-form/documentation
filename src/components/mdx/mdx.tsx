@@ -11,6 +11,7 @@ import { Troubleshoot, Why, Fix } from "../Troubleshoot"
 import { Tips } from "../Tips"
 import { NextStep, NextSteps } from "../NextSteps"
 import { CodeSandBoxLink } from "../CodeSandbox"
+import { LegacyAnchorRedirect } from "../LegacyAnchorRedirect"
 import tableStyles from "../../styles/table.module.css"
 import CodeArea from "@/components/CodeArea"
 
@@ -38,6 +39,7 @@ export const MDXComponents: Components = {
     )
   },
   Admonition,
+  LegacyAnchorRedirect,
   Troubleshoot,
   Tips,
   NextStep,
