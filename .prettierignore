@@ -1,6 +1,6 @@
 pnpm-lock.yaml
 .cache/
-.contentlayer/
+qino/_generated/
 .next/
 next-env.d.ts
 public/**/*.md
