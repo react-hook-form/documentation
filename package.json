@@ -11,7 +11,7 @@
     "clsx": "^1.2.1",
     "contentlayer2": "0.5.8",
     "little-state-machine": "^4.8.1",
-    "next": "16.4.2",
+    "next": "16.4.5",
     "next-contentlayer2": "0.5.8",
     "next-themes": "^0.2.1",
     "prism-react-renderer": "^2.4.1",
